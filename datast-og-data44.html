@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
-  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="A Minimal Book Example" />
   <meta property="og:type" content="book" />
@@ -260,18 +260,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Vægten på værnepligtige</li>
 <li>Højden på studerende</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(shiny)</a></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;shiny&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:DT&#39;:
 ## 
 ##     dataTableOutput, renderDataTable</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">textInput</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;What is your name?&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">textInput</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;What is your name?&quot;</span>)</a></code></pre></div>
 <div class="form-group shiny-input-container">
 <label for="name">What is your name?</label>
 <input id="name" type="text" class="form-control" value=""/>
 </div>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numericInput</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;How old are you?&quot;</span>, <span class="ot">NA</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">150</span>)</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">numericInput</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;How old are you?&quot;</span>, <span class="ot">NA</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">150</span>)</a></code></pre></div>
 <p><div class="form-group shiny-input-container">
 <label for="age">How old are you?</label>
 <input id="age" type="number" class="form-control" value="NA" min="0" max="150"/>

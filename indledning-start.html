@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
-  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="A Minimal Book Example" />
   <meta property="og:type" content="book" />
@@ -247,8 +247,8 @@ whatever
 <br></p>
 <div id="does-ruby-work-with-knitr" class="section level2">
 <h2><span class="header-section-number">5.1</span> Does Ruby work with <strong>knitr</strong>?</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby">x = <span class="st">&#39;hello, ruby world!&#39;</span>
-p x.split(<span class="ch">&#39; &#39;</span>)</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb11-1" data-line-number="1">x = <span class="st">&#39;hello, ruby world!&#39;</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">p x.split(<span class="ch">&#39; &#39;</span>)</a></code></pre></div>
 <pre><code>## [&quot;hello,&quot;, &quot;ruby&quot;, &quot;world!&quot;]</code></pre>
 </div>
 <div id="js" class="section level2">
@@ -260,8 +260,8 @@ $('.title').css('color', 'red')
 </div>
 <div id="bash" class="section level2">
 <h2><span class="header-section-number">5.3</span> Bash</h2>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;Hello Bash!&quot;</span>
-<span class="fu">ls</span></code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="bu">echo</span> <span class="st">&quot;Hello Bash!&quot;</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="fu">ls</span></a></code></pre></div>
 <pre><code>## Hello Bash!
 ## 01-intro.Rmd
 ## 02-literature.Rmd
@@ -282,9 +282,6 @@ $('.title').css('color', 'red')
 ## book.bib
 ## bookdown-demo.Rmd
 ## bookdown-demo.Rproj
-## bookdown-demo.log
-## bookdown-demo.pdf
-## bookdown-demo.tex
 ## bookdown-demo_files
 ## img
 ## index.Rmd
@@ -292,61 +289,61 @@ $('.title').css('color', 'red')
 ## preamble.tex
 ## style.css
 ## toc.css</code></pre>
-<pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span> square(<span class="dt">double</span> *x) {
-  *x = *x * *x;
-}</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="dt">void</span> square(<span class="dt">double</span> *x) {</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  *x = *x * *x;</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">}</a></code></pre></div>
 <p>Test the <code>square()</code> function:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">.C</span>(<span class="st">&#39;square&#39;</span>, <span class="dv">9</span>)</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">.C</span>(<span class="st">&#39;square&#39;</span>, <span class="dv">9</span>)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 81</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">.C</span>(<span class="st">&#39;square&#39;</span>, <span class="dv">123</span>)</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">.C</span>(<span class="st">&#39;square&#39;</span>, <span class="dv">123</span>)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 15129</code></pre>
 </div>
 <div id="a-normal-r-code-chunk" class="section level2">
 <h2><span class="header-section-number">5.4</span> A normal R code chunk</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reticulate)
-x =<span class="st"> </span><span class="dv">42</span>
-<span class="kw">print</span>(x)</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">library</span>(reticulate)</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">x =<span class="st"> </span><span class="dv">42</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw">print</span>(x)</a></code></pre></div>
 <pre><code>## [1] 42</code></pre>
 </div>
 <div id="modify-an-r-variable" class="section level2">
 <h2><span class="header-section-number">5.5</span> Modify an R variable</h2>
 <p>In the following chunk, the value of <code>x</code> on the right hand side
 is 42, which was defined in the previous chunk.</p>
-<pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">12</span>
-<span class="kw">print</span>(x)</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">print</span>(x)</a></code></pre></div>
 <pre><code>## [1] 54</code></pre>
 </div>
 <div id="a-python-chunk" class="section level2">
 <h2><span class="header-section-number">5.6</span> A Python chunk</h2>
 <p>This works fine and as expected.</p>
-<pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="dv">42</span> <span class="op">*</span> <span class="dv">2</span>
-<span class="bu">print</span>(x) </code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" data-line-number="1">x <span class="op">=</span> <span class="dv">42</span> <span class="op">*</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="bu">print</span>(x) </a></code></pre></div>
 <pre><code>## 84</code></pre>
 <p>The value of <code>x</code> in the Python session is 84.
 It is not the same <code>x</code> as the one in R.</p>
 </div>
 <div id="modify-a-python-variable" class="section level2">
 <h2><span class="header-section-number">5.7</span> Modify a Python variable</h2>
-<pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> x <span class="op">+</span> <span class="dv">18</span> 
-<span class="bu">print</span>(x)</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb26-1" data-line-number="1">x <span class="op">=</span> x <span class="op">+</span> <span class="dv">18</span> </a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="bu">print</span>(x)</a></code></pre></div>
 <pre><code>## 102</code></pre>
 <p>Retrieve the value of <code>x</code> from the Python session again:</p>
-<pre class="sourceCode r"><code class="sourceCode r">py<span class="op">$</span>x</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">py<span class="op">$</span>x</a></code></pre></div>
 <pre><code>## [1] 102</code></pre>
 <p>Assign to a variable in the Python session from R:</p>
-<pre class="sourceCode r"><code class="sourceCode r">py<span class="op">$</span>y =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">py<span class="op">$</span>y =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a></code></pre></div>
 <p>See the value of <code>y</code> in the Python session:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(y)</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="bu">print</span>(y)</a></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]</code></pre>
 </div>
 <div id="python-graphics" class="section level2">
 <h2><span class="header-section-number">5.8</span> Python graphics</h2>
 <p>You can draw plots using the <strong>matplotlib</strong> package in Python.</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
-plt.plot([<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>])
-plt.show()</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">plt.plot([<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>])</a>
+<a class="sourceLine" id="cb33-3" data-line-number="3">plt.show()</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Here is an inline note.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>Here is an inline note.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
@@ -472,8 +469,8 @@ inline equation: <span class="math inline">\(A = \pi*r^{2}\)</span></p>
 <hr />
 <p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">2</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="methods.html#methods">7</a>.</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))
-<span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))</a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
 <img src="bookdown-demo_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
 <p class="caption">
@@ -481,10 +478,10 @@ Figure 5.1: Here is a nice figure!
 </p>
 </div>
 <p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="indledning-start.html#fig:nice-fig">5.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="indledning-start.html#tab:nice-tab">5.1</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
-  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,
-  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
-)</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</a>
+<a class="sourceLine" id="cb36-3" data-line-number="3">  <span class="dt">booktabs =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb36-4" data-line-number="4">)</a></code></pre></div>
 <table>
 <caption><span id="tab:nice-tab">Table 5.1: </span>Here is a nice table!</caption>
 <thead>
@@ -646,7 +643,7 @@ Figure 5.1: Here is a nice figure!
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-bookdown">
-<p>Xie, Yihui. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://github.com/rstudio/bookdown" class="uri">https://github.com/rstudio/bookdown</a>.</p>
+<p>Xie, Yihui. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
 </div>
 <div id="ref-xie2015">
 <p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
