@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="datast-og-data22.html">
-<link rel="next" href="methods.html">
+<link rel="prev" href="indledning-start.html">
+<link rel="next" href="datast-og-data22.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -216,18 +216,158 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="literature" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Literature</h1>
-<p>Here is a review of existing methods.</p>
-
+<div id="datast-og-data44" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Datasæt og data44</h1>
+<div id="uni--bi--og-multivariate-datast44" class="section level3">
+<h3><span class="header-section-number">4.0.1</span> Uni- bi- og multivariate datasæt44</h3>
+<p>Datasæt er sæt af en eller flere variable:</p>
+<ul>
+<li>Univariate datasæt fx tider ved marathonløb<br />
+</li>
+<li>Bivariate datasæt fx tider ved marathonløb og køn</li>
+<li>Multivariate datasæt fx tider ved marathonløb, køn, alder, medlem af sports klub.</li>
+</ul>
+</div>
+<div id="kvalitative-variable33" class="section level3">
+<h3><span class="header-section-number">4.0.2</span> Kvalitative variable33</h3>
+<p>Kvalitative variable er data vi ikke kan måle eller tælle. De antager værdier i form af navne eller labels:</p>
+<ul>
+<li>Kæledyr: kat, hund, marsvin</li>
+<li>Køn: mand, kvinde</li>
+<li>Favorit app: Angry Birds, Messenger, Audible, Tinder</li>
+</ul>
+</div>
+<div id="kvantitative-variable33" class="section level3">
+<h3><span class="header-section-number">4.0.3</span> Kvantitative variable33</h3>
+<p>Kvantitative variable er målbare numeriske variable, vi deler disse op i <em>kontinuerte</em> og <em>diskrete</em> variable</p>
+<div id="diskrete-variable33" class="section level4">
+<h4><span class="header-section-number">4.0.3.1</span> Diskrete variable33</h4>
+<p>Diskrete variable er fx.</p>
+<ul>
+<li>Antal biler der passerer en bro observeret over flere dage.</li>
+<li>Dagsproduktionen af chokoladefrøer på Toms.
+<img src="img/frog.png" align="right" width="20%" height="20%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/></li>
+<li>Antal personer der har iphones</li>
+<li>Antallet af indbyggere i en by</li>
+</ul>
+</div>
+<div id="kontinuerte-variable33" class="section level4">
+<h4><span class="header-section-number">4.0.3.2</span> Kontinuerte variable33</h4>
+<p>Kontinuerte variable er fx.</p>
+<ul>
+<li>Antal ml. indhold i shampoo flasker</li>
+<li>Aktiekurser for Intel</li>
+<li>Vægten på værnepligtige</li>
+<li>Højden på studerende</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;shiny&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:DT&#39;:
+## 
+##     dataTableOutput, renderDataTable</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">textInput</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;What is your name?&quot;</span>)</code></pre>
+<div class="form-group shiny-input-container">
+<label for="name">What is your name?</label>
+<input id="name" type="text" class="form-control" value=""/>
+</div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numericInput</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;How old are you?&quot;</span>, <span class="ot">NA</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">150</span>)</code></pre>
+<p><div class="form-group shiny-input-container">
+<label for="age">How old are you?</label>
+<input id="age" type="number" class="form-control" value="NA" min="0" max="150"/>
+</div>
+### Skalatyper33
+Vi kan ydermere inddele variable efter skalatype hvor lavere betyder mindst restriktiv.</p>
+<ol style="list-style-type: decimal">
+<li>Nominalskala, bruges til at måle kvalitative data (er der kun 2 mulige udfald kaldes variablen specielt binær eller dikotom), fx.
+<ul>
+<li>Køn Mand Kvinde<br />
+</li>
+<li>Styresystem: IOS Android Windows Symbian Andet</li>
+<li>Race: Europæisk, Afrikansk, Asiatisk Andet</li>
+</ul></li>
+<li>Ordinalskala inddeler data efter en rangordning
+<ul>
+<li>Karakterer på 7 trins skalaen -3 00 02…</li>
+<li>Moodys credit ratings Aaa Aa A Baa Ba B Caa Ca C</li>
+<li>Tilfredshed meget utilfreds, noget utilfreds, nogenlunde tilfreds, meget tilfreds</li>
+</ul></li>
+<li>Intervalskala man kan sammenligne afstande og forskelle, men der er intet meningsfuldt nulpunkt. Nul for en intervalskala variabel betyder således ikke fravær af den målte størrelse. Nul grader celsius betyder altså ikke fravær af temperatur (det absolutte nulpunkt 0 Kelvin, hvor alle molekyler og atomer er i grundtilstanden). En IQ på 0 betyder ikke fravær af intelligens.
+<ul>
+<li>Temperatur målt i Celsius
+<img src="img/thermometer.png" align="right" width="20%" height="20%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/></li>
+<li>Temperatur målt i Fahrenheit</li>
+<li>PH</li>
+<li>IQ</li>
+</ul></li>
+<li>Ratioskala
+<ul>
+<li>Beløb i lommen</li>
+<li>Højde på studerende</li>
+<li>Hastighed af biler ved vejkryds</li>
+<li>Indhold i Coca Cola flasker
+<img src="img/Coca-Cola.png" align="right" width="20%" height="20%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/></li>
+</ul></li>
+</ol>
+<div class="Keats">
+<p>“Statistics are used much like a drunk uses a lamppost: for support, not illumination.”<br />
+- Vin Scully</p>
+</div>
+<p>Interval- og ratioskalaer omtales som numeriske eller kontinuerte skalaer, disse er knyttet til kvantitative variable.<br />
+Nominal- og ordinalskalaer omtales ofte som kategorisk eller faktor, disse er knyttet til kvalitative variable.</p>
+<p>En stikprøve af skalatype ratio kan fx. reduceres til ordinal, eller nominal. Temperatur målt i celsius kan fx. omskrives til en ordinal variabel: koldt normalt varmt, eller en nominal variabel: ekstrem temperatur eller normal temperatur.</p>
+<p>Kategoriske skalaer kan yderligere reduceres til en dikotom skala, ved at sammenlægge kategorierne, til man kun har 2 kategorier.</p>
+<p>Det er vanskeligere at ændre en nominal- ordinal- eller ratioskala til en intervalskala. At ændre variablen nominalskala variablen køn til ordinal giver fx. ikke mening.</p>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/228228677" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<p><img src="bookdown-demo_files/figure-html/95-1.svg" width="864" /></p>
+<div id="deskriptorer-freestat-33" class="section level5">
+<h5><span class="header-section-number">4.0.3.2.1</span> Deskriptorer Freestat 33</h5>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/228226686" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+</div>
+</div>
+<div id="freestat-33" class="section level4">
+<h4><span class="header-section-number">4.0.3.3</span> Freestat 33</h4>
+<p>Man kan få beregnet deskriptorerne i et utal af programmer heriblandt Freestat, der kan hentes herunder. Freestat kan gennemføre de mest almindelige statistiske analyser, der er flere forskellige versioner.</p>
+<p><a href="https://www.dropbox.com/s/a2jztexbxfzcli0/FREESTAT.xlsx?dl=1">Hent Freestat til finansøkonomer her</a></p>
+<p><a href="https://www.dropbox.com/s/th8q95lf864npie/FREESTATfin.xlsx?dl=1">Hent Freestat fuld version her</a></p>
+<p>Der findes opgaver quizzes og yderligere resourcer på <a href="http://www.edutest.dk">www.edutest.dk</a></p>
+<p>Min gode ven Benjamin Tejlbjerg har lavet en super hjemmeside med gymnasie matematik og statistik <a href="http://www.mathhx.dk/?q=node/117">http://www.mathhx.dk</a>. Siden er gratis og god til at genopfriske basisbegreber indenfor statistik, vi kommer ikke i dybden med disse begreber her.</p>
+<p>For at få et overblik over hypoteserne for de forskellige tests kan man hente et hypotese mindmap, der er mindmaps til flere forskellige uddannelser under materialer. Her er hypoteseoversigten for finansøkonomer: <a href="https://drive.google.com/uc?export=download&amp;id=0B1E7VnhxsDMlQ1Zhdjh5WTJ4bnM">CPH Finansøkonom statistik mindmap</a></p>
+<p>Dette er 1. udgave af bogen, der tages forbehold for tryk og tastefejl, men alle fejl eller uklarheder i måtte finde rettes med fluks. Forslag til forbedringer modtages med kyshånd.</p>
+<p>Der er en samlet oversigt over materialerne, der bruges i denne bog, disse ligger i som linket materialer i menuen for oven.</p>
+</div>
+</div>
+<div id="hvad-bruger-man-statistik-til.33" class="section level3">
+<h3><span class="header-section-number">4.0.4</span> Hvad bruger man statistik til.33</h3>
+<p>I alle brancher i den finansielle sektor spiller statistik en rolle.</p>
+<p>Bankerne sammensætter investeringsporteføljer, der minimerer risikoen (variansen), ved aktiver der har lav eller negativ samvariation (kovarians). Cykliske aktier som FL Smidth har fx. lav samvariation med en ikke cyklisk aktie som Novo.</p>
+<p>Forsikringsselskaberne beregner præmier for forsikringstageren, baseret på statistike sandsynligheder for at en hændelse indtræffer. Modellerne kan være meget specifikke, en indboforsikring kan fx. være baseret på ikke bare postnummer, boligform, men også etage, uddannelsesniveau etc.</p>
+<p>Finansielle virksomheder underlagt finanstilsynet, bruger modeller til beregning af risiko baseret på statistisk analyse.</p>
+<p>Mægleren beregner udbudspriser, udfra en multipel lineær regressionsmodel, der indeholder variable som størrelse, energimærke, tagtype etc.</p>
+<hr />
+<p><strong><em>Noterne er kun til personligt brug. Alle rettigheder forbeholdes. Fotografisk eller anden gengivelse af eller kopiering eller anden udnyttelse, er uden forfatterens skriftlige samtykke forbudt ifølge dansk lov om ophavsret.</em></strong></p>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/228229052" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="datast-og-data22.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="indledning-start.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datast-og-data22.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -257,7 +397,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-literature.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
