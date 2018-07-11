@@ -47,18 +47,6 @@
 
 
 
-<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.4/datatables.js"></script>
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -128,6 +116,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+
+<!-- BEGIN SENTRY AJAX LOGIN FORM - version 3.1 (Beta Build A) - Member Login Code Copyright © Sentrylogin.com, Shawn, Co. https://www.sentrylogin.com -->
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<style>
+.handCursor {
+cursor:pointer;
+cursor:hand;
+} 
+#magicGroup form {
+margin: 0;
+padding: 0; 
+}
+#magicGroup A:link {text-decoration: none; color:black;}
+#magicGroup A:visited {text-decoration: none; color:black;}
+#magicGroup A:active {text-decoration: none; color:black;}
+#magicGroup A:hover {text-decoration: none; color:black;}
+.clearfix:after{
+  content:".";display:block;height:0;clear:both;visibility:hidden;
+}
+  .spacer0{clear:both; height:0px; margin:0px; padding:0px; line-height:0px; font-size:0px;}
+  .spacer{clear:both; height:1px; margin:0px; padding:0px; line-height:0px; font-size:0px;}
+  .spacer2{clear:both; height:2px; margin:0px; padding:0px; line-height:0px; font-size:0px;}
+  .spacer3{clear:both; height:3px; margin:0px; padding:0px; line-height:0px; font-size:0px;}
+  .spacer4{clear:both; height:4px; margin:0px; padding:0px; line-height:0px; font-size:0px;}
+  .spacer5{clear:both; height:5px; margin:0px; padding:0px; line-height:0px; font-size:0px;}
+  .spacer10{clear:both; height:10px; margin:0px; padding:0px; line-height:0px; font-size:0px;}
+  .spacer20{clear:both; height:20px; margin:0px; padding:0px; line-height:0px; font-size:0px;}
+  </style>
+  <script type="text/javascript" src="https://www.sentrylogin.com/sentry/scripts/Sentry_AJAX.js"></script>
+  <div id="Settings" ALIGNMENT="CENTER" MANNER="GROW" style="display:none;"></div>
+  
+  <div id="Sentry_outermost" style="width:175px; position:relative;"> 
+  
+  
+  <form name="Sentry_login_form" onsubmit="sentryLogin();">
+  <div style="height:1px;"><a href="https://www.sentrylogin.com"><img src="https://www.sentrylogin.com/sentry/images/logo.gif" alt="Sentry Password Protection Member Login" width="2" height="1" border="0"></a></div>
+  <div id="TopBar" onclick="Sentry_onClick(this.id);" class="handCursor" style="width:175px; background-color:White; padding-top:2px; padding-bottom:2px; border-width:1px; border-style:solid; border-color:LightGray; border-radius: 6px;">
+  <div id="Sentry_label" style="text-align: right; font-family:sans-serif; font-size:12px; font-weight:bold; margin-bottom:3px;"><span id="Sentry_label_span" style="padding-right:10px; padding-left:5px;">Member Login</span><span id="downArrow"><img src="https://www.sentrylogin.com/sentry/images/down_arrow.png" align="baseline" style="margin-right:5px;"></span></div></div>
+  <div id="magicGroup" style="z-index: 10000; background-color:white; text-align:left; position:absolute; left: -9999px; width:175px; padding-top:15px; border-style:solid; border-color:LightGray; border-top-width:0px; border-right-width:1px; border-bottom-width:1px; border-left-width:1px; border-radius: 6px;">
+  <div id="messages" style="display:none; padding-left:15px; padding-right:15px; padding-bottom:15px; font-family: Arial; font-size:12px; color: red;">.</div>
+  <div id="Sentry_emailDiv" style="width:146px; margin-left:15px;"><span style="text-align:left;"> 
+  <input type="text" id="Sentry_email" style="padding-left: 3px; border-style:solid; border-width:1px; border-color:LightGray; border-radius: 6px; width:146px; height:24px;" onfocus="Sentry_onfocus(this.id);" onkeydown="Sentry_onkeydown(event, this.id);" onkeyup="Sentry_onkeyup(this.value, this.id, event);" onblur="Sentry_onblur(this.value, this.id);" value="E-mail Address"></span></div>
+  <div id="Sentry_passwordDiv" style="width:146px; margin-left:15px; margin-top:2px;"><span style="text-align:left;"> 
+  <input type="text" id="Sentry_password" style=" padding-left: 3px; border-style:solid; border-width:1px; border-color:LightGray; border-radius: 6px; width:146px; height:24px;" onfocus="Sentry_onfocus(this.id);" onkeydown="Sentry_onkeydown(event, this.id);" onkeyup="Sentry_onkeyup(this.value, this.id, event);" onblur="Sentry_onblur(this.value, this.id);" value="Password"></span> </div>
+  <div id="Sentry_HIDpasswordDiv" style="width:146px; display: none; margin-left:15px; margin-top:2px;"><span style="text-align:left;">
+  <input type="password" id="Sentry_HIDpassword" style=" padding-left: 3px; border-style:solid; border-width:1px; border-color:LightGray; border-radius: 6px; width:146px; height:24px;" onfocus="Sentry_onfocus(this.id);" onkeydown="Sentry_onkeydown(event, this.id);" onkeyup="Sentry_onkeyup(this.value, this.id, event);" onblur="Sentry_onblur(this.value, this.id);"></span></div>
+  <div id="unHideDiv" style="margin-bottom:5px; font-family:Arial; font-size:10px;"><span id="forgotSpan" onclick="Sentry_onClick(this.id);" style="vertical-align:top; margin-left:15px; font-family:Arial; font-size:10px; color:gray;" class="handCursor">Forgot?</span> 
+  <input type="checkbox" id="unHide" style="height:12px; width:10px; margin:4px; display:none;" value="1">
+  <span id="unHideSpan" style="width:25px; vertical-align:top; font-family: Arial;font-size:10px; color:gray; margin-left:78px;" onclick="Sentry_onClick(this.id);" class="handCursor" title="Do not reveal password in public">Show</span></div>
+  <div id="buttonDiv" style="float:left; width:45px; margin-left:15px;"> 
+  
+  <button type="button" onclick="sentryLogin();" style="height:25px; padding:2; width:45px; font-family:Arial; font-size:11px;" id="Sentry_button">Go</button></div>
+  <div id="psistDiv" style="float:left; width:98px; text-align:right; margin-top:10px; margin-right:15px;"> 
+  <input id="psist" type="checkbox" value="1" style="height:10px; width:10px; margin:0; margin-bottom:2px; margin-right:2px;" class="handCursor" title="Do not use when in public" onclick="Sentry_onClick(this.id);">
+  <span id="psistSpan" style="font-family: Arial;font-size:10px; color:gray;" onclick="Sentry_onClick(this.id);" class="handCursor" title="Do not use when in public">Stay Logged In</span></div>
+  <div class="spacer0"> </div>
+  <div class="spacer10"> </div>
+  <div id="goInside" style="font-family: Arial;font-size:12px; text-align: right; margin-top:10px; margin-right:15px; margin-bottom:5px; margin-left:15px; display:none;"><span id="goInsideSpan" class="handCursor" style="font-weight:bold;">.</span></div>
+  <div id="myProfile" onclick="Sentry_onClick(this.id);" style="font-family: Arial;font-size:12px; font-weight:bold; text-align: right; margin-top:2px; margin-right:15px; margin-left:15px;" class="handCursor">My Profile</div>
+  <div id="signUp" style="font-family: Arial;font-size:12px; font-weight:bold; text-align: right; margin-top:2px; margin-right:15px; margin-bottom:5px; margin-left:15px;"><a href="https://www.sentrylogin.com/sentry/member_signup_list.asp?Site_ID=22367" title="Click to Subscribe Now">Sign Up</a> </div>
+  <div id="logOut" style="font-family: Arial;font-size:12px; font-weight:bold; text-align: right; margin-top:2px; margin-right:15px; margin-bottom:5px; margin-left:15px; display:none;"><span class="handCursor" onClick="LogOut();">Log Out</span></div>
+  <div class="spacer0"> </div>
+  <div id="xbox" style="margin-top:12px;"><img id="xout" onclick="Sentry_onClick(this.id);" src="https://www.sentrylogin.com/sentry/images/x.png" style="margin:2px; margin-right:9px;" class="handCursor"></div>
+  <div class="spacer5"> </div>
+  </div>
+  <input id="Sentry_ID" type="hidden" value="22367">
+  <input id="univ" type="hidden" value="1">
+  <div id="Sentry_noJSLogin" style="width:175px; background-color:white;"><span style="color:red; font-family: Arial;font-size:12px; font-weight:bold;">Javascript Required</span></div>
+  </form>
+  </div>
+  <div id="Sentry_loggingIn" style="width:175px; display:none;">
+  <img src="https://www.sentrylogin.com/sentry/images/wait_animated_sentry.gif">
+  </div>
+  <div id="Sentry_In" style="display:none;">For testing.
+  </div>
+  <script language="JavaScript" type="text/JavaScript">initializeSentry(); 
+  </script>
+  <noscript>You must have JavaScript enabled in order to log in.</noscript>
+  <!-- END SENTRY AJAX LOGIN FORM -->
+
 </head>
 
 <body>
@@ -146,54 +215,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Forudsætninger</a></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
 <li class="chapter" data-level="2.0.1" data-path="intro.html"><a href="intro.html#hvad-bruger-man-statistik-til.44"><i class="fa fa-check"></i><b>2.0.1</b> Hvad bruger man statistik til.44</a></li>
+<li class="chapter" data-level="2.0.2" data-path="intro.html"><a href="intro.html#uni--bi--og-multivariate-datast44"><i class="fa fa-check"></i><b>2.0.2</b> Uni- bi- og multivariate datasæt44</a></li>
+<li class="chapter" data-level="2.0.3" data-path="intro.html"><a href="intro.html#kvalitative-variable33"><i class="fa fa-check"></i><b>2.0.3</b> Kvalitative variable33</a></li>
+<li class="chapter" data-level="2.0.4" data-path="intro.html"><a href="intro.html#kvantitative-variable33"><i class="fa fa-check"></i><b>2.0.4</b> Kvantitative variable33</a></li>
+<li class="chapter" data-level="2.0.5" data-path="intro.html"><a href="intro.html#skalatyper33"><i class="fa fa-check"></i><b>2.0.5</b> Skalatyper33</a></li>
+<li class="chapter" data-level="2.0.6" data-path="intro.html"><a href="intro.html#hvad-bruger-man-statistik-til.33"><i class="fa fa-check"></i><b>2.0.6</b> Hvad bruger man statistik til.33</a></li>
+<li class="chapter" data-level="2.0.7" data-path="intro.html"><a href="intro.html#uni--bi--og-multivariate-datast22"><i class="fa fa-check"></i><b>2.0.7</b> Uni- bi- og multivariate datasæt22</a></li>
+<li class="chapter" data-level="2.0.8" data-path="intro.html"><a href="intro.html#kvalitative-variable-22"><i class="fa fa-check"></i><b>2.0.8</b> Kvalitative variable 22</a></li>
+<li class="chapter" data-level="2.0.9" data-path="intro.html"><a href="intro.html#kvantitative-variable55"><i class="fa fa-check"></i><b>2.0.9</b> Kvantitative variable55</a></li>
+<li class="chapter" data-level="2.0.10" data-path="intro.html"><a href="intro.html#skalatyper55"><i class="fa fa-check"></i><b>2.0.10</b> Skalatyper55</a></li>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#does-ruby-work-with-knitr"><i class="fa fa-check"></i><b>2.1</b> Does Ruby work with <strong>knitr</strong>?</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#js"><i class="fa fa-check"></i><b>2.2</b> js</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#bash"><i class="fa fa-check"></i><b>2.3</b> Bash</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#a-normal-r-code-chunk"><i class="fa fa-check"></i><b>2.4</b> A normal R code chunk</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#modify-an-r-variable"><i class="fa fa-check"></i><b>2.5</b> Modify an R variable</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#a-python-chunk"><i class="fa fa-check"></i><b>2.6</b> A Python chunk</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#modify-a-python-variable"><i class="fa fa-check"></i><b>2.7</b> Modify a Python variable</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#python-graphics"><i class="fa fa-check"></i><b>2.8</b> Python graphics</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#opgaver"><i class="fa fa-check"></i><b>2.9</b> Opgaver</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#sprgsmal-1"><i class="fa fa-check"></i><b>2.9.1</b> Spørgsmål 1</a></li>
+<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#svar-1"><i class="fa fa-check"></i><b>2.9.2</b> Svar 1</a></li>
+<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#sprgsmal-2"><i class="fa fa-check"></i><b>2.9.3</b> Spørgsmål 2</a></li>
+<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#sprgsmal-2-1"><i class="fa fa-check"></i><b>2.9.4</b> Spørgsmål 2</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="datast-og-data44.html"><a href="datast-og-data44.html"><i class="fa fa-check"></i><b>3</b> Datasæt og data44</a><ul>
-<li class="chapter" data-level="3.0.1" data-path="datast-og-data44.html"><a href="datast-og-data44.html#uni--bi--og-multivariate-datast44"><i class="fa fa-check"></i><b>3.0.1</b> Uni- bi- og multivariate datasæt44</a></li>
-<li class="chapter" data-level="3.0.2" data-path="datast-og-data44.html"><a href="datast-og-data44.html#kvalitative-variable33"><i class="fa fa-check"></i><b>3.0.2</b> Kvalitative variable33</a></li>
-<li class="chapter" data-level="3.0.3" data-path="datast-og-data44.html"><a href="datast-og-data44.html#kvantitative-variable33"><i class="fa fa-check"></i><b>3.0.3</b> Kvantitative variable33</a></li>
-<li class="chapter" data-level="3.0.4" data-path="datast-og-data44.html"><a href="datast-og-data44.html#hvad-bruger-man-statistik-til.33"><i class="fa fa-check"></i><b>3.0.4</b> Hvad bruger man statistik til.33</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#quarterly-results"><i class="fa fa-check"></i><b>2.10</b> Quarterly Results</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#sprgsmal-1-1"><i class="fa fa-check"></i><b>2.10.1</b> Spørgsmål 1</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#svar-1-1"><i class="fa fa-check"></i><b>2.10.2</b> Svar 1</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#sprgsmal-2-2"><i class="fa fa-check"></i><b>2.10.3</b> Spørgsmål 2</a></li>
+<li class="chapter" data-level="2.10.4" data-path="intro.html"><a href="intro.html#sprgsmal-3"><i class="fa fa-check"></i><b>2.10.4</b> Spørgsmål 3</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="datast-og-data22.html"><a href="datast-og-data22.html"><i class="fa fa-check"></i><b>4</b> Datasæt og data22</a><ul>
-<li class="chapter" data-level="4.0.1" data-path="datast-og-data22.html"><a href="datast-og-data22.html#uni--bi--og-multivariate-datast22"><i class="fa fa-check"></i><b>4.0.1</b> Uni- bi- og multivariate datasæt22</a></li>
-<li class="chapter" data-level="4.0.2" data-path="datast-og-data22.html"><a href="datast-og-data22.html#kvalitative-variable-22"><i class="fa fa-check"></i><b>4.0.2</b> Kvalitative variable 22</a></li>
-<li class="chapter" data-level="4.0.3" data-path="datast-og-data22.html"><a href="datast-og-data22.html#kvantitative-variable55"><i class="fa fa-check"></i><b>4.0.3</b> Kvantitative variable55</a></li>
-<li class="chapter" data-level="4.0.4" data-path="datast-og-data22.html"><a href="datast-og-data22.html#skalatyper55"><i class="fa fa-check"></i><b>4.0.4</b> Skalatyper55</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#nyt-afsnit-efter-tabbed"><i class="fa fa-check"></i><b>2.11</b> Nyt afsnit efter tabbed</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#header-2"><i class="fa fa-check"></i><b>2.12</b> Header 2</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#header-3"><i class="fa fa-check"></i><b>2.12.1</b> Header 3</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="indledning-start.html"><a href="indledning-start.html"><i class="fa fa-check"></i><b>5</b> Indledning Start</a><ul>
-<li class="chapter" data-level="5.1" data-path="indledning-start.html"><a href="indledning-start.html#does-ruby-work-with-knitr"><i class="fa fa-check"></i><b>5.1</b> Does Ruby work with <strong>knitr</strong>?</a></li>
-<li class="chapter" data-level="5.2" data-path="indledning-start.html"><a href="indledning-start.html#js"><i class="fa fa-check"></i><b>5.2</b> js</a></li>
-<li class="chapter" data-level="5.3" data-path="indledning-start.html"><a href="indledning-start.html#bash"><i class="fa fa-check"></i><b>5.3</b> Bash</a></li>
-<li class="chapter" data-level="5.4" data-path="indledning-start.html"><a href="indledning-start.html#a-normal-r-code-chunk"><i class="fa fa-check"></i><b>5.4</b> A normal R code chunk</a></li>
-<li class="chapter" data-level="5.5" data-path="indledning-start.html"><a href="indledning-start.html#modify-an-r-variable"><i class="fa fa-check"></i><b>5.5</b> Modify an R variable</a></li>
-<li class="chapter" data-level="5.6" data-path="indledning-start.html"><a href="indledning-start.html#a-python-chunk"><i class="fa fa-check"></i><b>5.6</b> A Python chunk</a></li>
-<li class="chapter" data-level="5.7" data-path="indledning-start.html"><a href="indledning-start.html#modify-a-python-variable"><i class="fa fa-check"></i><b>5.7</b> Modify a Python variable</a></li>
-<li class="chapter" data-level="5.8" data-path="indledning-start.html"><a href="indledning-start.html#python-graphics"><i class="fa fa-check"></i><b>5.8</b> Python graphics</a></li>
-<li class="chapter" data-level="5.9" data-path="indledning-start.html"><a href="indledning-start.html#opgaver"><i class="fa fa-check"></i><b>5.9</b> Opgaver</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="indledning-start.html"><a href="indledning-start.html#sprgsmal-1"><i class="fa fa-check"></i><b>5.9.1</b> Spørgsmål 1</a></li>
-<li class="chapter" data-level="5.9.2" data-path="indledning-start.html"><a href="indledning-start.html#svar-1"><i class="fa fa-check"></i><b>5.9.2</b> Svar 1</a></li>
-<li class="chapter" data-level="5.9.3" data-path="indledning-start.html"><a href="indledning-start.html#sprgsmal-2"><i class="fa fa-check"></i><b>5.9.3</b> Spørgsmål 2</a></li>
-<li class="chapter" data-level="5.9.4" data-path="indledning-start.html"><a href="indledning-start.html#sprgsmal-2-1"><i class="fa fa-check"></i><b>5.9.4</b> Spørgsmål 2</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="indledning-start.html"><a href="indledning-start.html#quarterly-results"><i class="fa fa-check"></i><b>5.10</b> Quarterly Results</a><ul>
-<li class="chapter" data-level="5.10.1" data-path="indledning-start.html"><a href="indledning-start.html#sprgsmal-1-1"><i class="fa fa-check"></i><b>5.10.1</b> Spørgsmål 1</a></li>
-<li class="chapter" data-level="5.10.2" data-path="indledning-start.html"><a href="indledning-start.html#svar-1-1"><i class="fa fa-check"></i><b>5.10.2</b> Svar 1</a></li>
-<li class="chapter" data-level="5.10.3" data-path="indledning-start.html"><a href="indledning-start.html#sprgsmal-2-2"><i class="fa fa-check"></i><b>5.10.3</b> Spørgsmål 2</a></li>
-<li class="chapter" data-level="5.10.4" data-path="indledning-start.html"><a href="indledning-start.html#sprgsmal-3"><i class="fa fa-check"></i><b>5.10.4</b> Spørgsmål 3</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
 </ul></li>
-<li class="chapter" data-level="5.11" data-path="indledning-start.html"><a href="indledning-start.html#nyt-afsnit-efter-tabbed"><i class="fa fa-check"></i><b>5.11</b> Nyt afsnit efter tabbed</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>6</b> Literature</a></li>
-<li class="chapter" data-level="7" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>7</b> Methods</a></li>
-<li class="chapter" data-level="8" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>8</b> Applications</a><ul>
-<li class="chapter" data-level="8.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>8.1</b> Example one</a></li>
-<li class="chapter" data-level="8.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>8.2</b> Example two</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>9</b> Final Words</a></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="10" data-path="applications-tilfjet.html"><a href="applications-tilfjet.html"><i class="fa fa-check"></i><b>10</b> Applications tilføjet</a><ul>
-<li class="chapter" data-level="10.1" data-path="applications-tilfjet.html"><a href="applications-tilfjet.html#example-one-1"><i class="fa fa-check"></i><b>10.1</b> Example one</a></li>
-<li class="chapter" data-level="10.2" data-path="applications-tilfjet.html"><a href="applications-tilfjet.html#example-two-1"><i class="fa fa-check"></i><b>10.2</b> Example two</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="applications-tilfjet.html"><a href="applications-tilfjet.html#hvad-med-denne-linje"><i class="fa fa-check"></i><b>10.2.1</b> Hvad med denne linje?</a></li>
+<li class="chapter" data-level="7" data-path="applications-tilfjet.html"><a href="applications-tilfjet.html"><i class="fa fa-check"></i><b>7</b> Applications tilføjet</a><ul>
+<li class="chapter" data-level="7.1" data-path="applications-tilfjet.html"><a href="applications-tilfjet.html#example-one-1"><i class="fa fa-check"></i><b>7.1</b> Example one</a></li>
+<li class="chapter" data-level="7.2" data-path="applications-tilfjet.html"><a href="applications-tilfjet.html#example-two-1"><i class="fa fa-check"></i><b>7.2</b> Example two</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="applications-tilfjet.html"><a href="applications-tilfjet.html#hvad-med-denne-linje"><i class="fa fa-check"></i><b>7.2.1</b> Hvad med denne linje?</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
