@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-<link rel="next" href="sandsynligheder.html">
+<link rel="prev" href="arima001-eller-ma1-moving-average.html">
+<link rel="next" href="arima-og-ssonalitet.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -185,22 +185,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Kvantitative metoder for de finansielle uddannelser.</h1>
-<h4 class="author"><em>Thomas Petersen</em></h4>
-<h4 class="date"><em>2018-07-28</em></h4>
-</div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-
+<div id="plots-med-forskellige-modeller" class="section level1">
+<h1><span class="header-section-number">Kapitel 10</span> Plots med forskellige modeller</h1>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre><code>## Series: ap1 
+## ARIMA(0,1,1) 
+## 
+## Coefficients:
+##           ma1
+##       -0.5356
+## s.e.   0.1651
+## 
+## sigma^2 estimated as 101.6:  log likelihood=-186.13
+## AIC=376.25   AICc=376.51   BIC=380.08</code></pre>
+<p>Kursen svinger omkring middelværdien.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre><code>## Series: ap2 
+## ARIMA(1,1,0) with drift 
+## 
+## Coefficients:
+##          ar1   drift
+##       0.5207  4.9462
+## s.e.  0.1244  2.7736
+## 
+## sigma^2 estimated as 96.03:  log likelihood=-184.2
+## AIC=374.4   AICc=374.92   BIC=380.14</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<pre><code>## Series: ap3 
+## ARIMA(3,0,1) with non-zero mean 
+## 
+## Coefficients:
+##           ar1      ar2     ar3     ma1     mean
+##       -0.1397  -0.0267  0.2158  0.6011  99.0103
+## s.e.   0.1943   0.1047  0.0944  0.1993   1.2572
+## 
+## sigma^2 estimated as 115.1:  log likelihood=-756.15
+## AIC=1524.31   AICc=1524.74   BIC=1544.1</code></pre>
+<p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
+<pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+## 201      103.52987 89.77836 117.2814 82.49875 124.5610
+## 202      100.28011 85.13568 115.4245 77.11870 123.4415
+## 203       99.25907 84.06281 114.4553 76.01840 122.4997
+## 204       99.91690 84.43251 115.4013 76.23556 123.5982
+## 205       99.15097 83.63514 114.6668 75.42156 122.8804
+## 206       99.02008 83.49658 114.5436 75.27894 122.7612
+## 207       99.20079 83.66226 114.7393 75.43665 122.9649
+## 208       99.01375 83.47467 114.5528 75.24878 122.7787
+## 209       99.00681 83.46708 114.5465 75.24085 122.7728
+## 210       99.05178 83.51118 114.5924 75.28449 122.8191</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>#ARIMA af højere orden
+Arima modeller kan afhænge af flere tidligere perioder, fx kan ligningen for ARIMA(2,0,0) eller AR(2), opskrives som:</p>
+<p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1}+ \phi_2 Y_{t-2}\]</span>
+Modellen afhænger altså af 2 tidligere perioder (lags) og ikke en. Man betegner dette som en model med lag 2.</p>
+<p>Arima modeller kan indeholde flere forskellige elementer med lag som fx. ARIMA(0,2,1).</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="sandsynligheder.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="arima001-eller-ma1-moving-average.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="arima-og-ssonalitet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

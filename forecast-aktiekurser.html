@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="prev" href="arima-og-ssonalitet.html">
 
-<link rel="next" href="sandsynligheder.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -185,13 +185,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Kvantitative metoder for de finansielle uddannelser.</h1>
-<h4 class="author"><em>Thomas Petersen</em></h4>
-<h4 class="date"><em>2018-07-28</em></h4>
-</div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
+<div id="forecast-aktiekurser" class="section level1">
+<h1><span class="header-section-number">Kapitel 12</span> Forecast Aktiekurser</h1>
+<p>Man kan hente online aktiekurser med quantmod pakken installer denne med install.packages og library kommandoerne. Vi henter nedenfor Google lukkekurs til dato.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">getSymbols</span>(<span class="st">&quot;GOOG&quot;</span>,<span class="dt">from =</span> <span class="st">&quot;2017-01-01&quot;</span>, <span class="dt">to =</span> <span class="kw">Sys.Date</span>(),<span class="dt">getSymbols.warning4.0=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;GOOG&quot;</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">plot</span>(GOOG[,<span class="dv">6</span>],<span class="dt">main =</span> <span class="st">&quot;Google adj. close&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">agoog &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(GOOG[,<span class="dv">6</span>])</a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">agoog</a></code></pre></div>
+<pre><code>## Series: GOOG[, 6] 
+## ARIMA(0,1,1) with drift 
+## 
+## Coefficients:
+##          ma1   drift
+##       0.0799  1.1423
+## s.e.  0.0539  0.7210
+## 
+## sigma^2 estimated as 176.6:  log likelihood=-1577.28
+## AIC=3160.56   AICc=3160.62   BIC=3172.49</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">fagoog &lt;-<span class="st"> </span><span class="kw">forecast</span>(agoog)</a>
+<a class="sourceLine" id="cb49-2" data-line-number="2">fagoog</a></code></pre></div>
+<pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+## 396       1237.150 1220.121 1254.179 1211.106 1263.194
+## 397       1238.292 1213.228 1263.356 1199.960 1276.624
+## 398       1239.434 1208.347 1270.521 1191.891 1286.978
+## 399       1240.577 1204.457 1276.696 1185.337 1295.817
+## 400       1241.719 1201.187 1282.251 1179.731 1303.707
+## 401       1242.861 1198.353 1287.370 1174.791 1310.931
+## 402       1244.004 1195.845 1292.162 1170.352 1317.655
+## 403       1245.146 1193.595 1296.696 1166.306 1323.985
+## 404       1246.288 1191.556 1301.021 1162.582 1329.994
+## 405       1247.430 1189.691 1305.170 1159.125 1335.735</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="kw">plot</span>(fagoog,<span class="dt">main =</span> <span class="st">&quot;Google adj. close&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-2.png" width="672" /></p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">require</span>(<span class="st">&quot;quantmod&quot;</span>)</a>
+<a class="sourceLine" id="cb52-2" data-line-number="2"><span class="kw">getSymbols</span>(<span class="st">&quot;GS&quot;</span>,<span class="dt">from =</span> <span class="st">&quot;2017-01-01&quot;</span>, <span class="dt">to =</span> <span class="kw">Sys.Date</span>(),<span class="dt">getSymbols.warning4.0=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;GS&quot;</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="kw">plot</span>(GS[,<span class="dv">6</span>],<span class="dt">main =</span> <span class="st">&quot;Goldman Sachs adj. close&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">ags &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(GS[,<span class="dv">6</span>])</a>
+<a class="sourceLine" id="cb55-2" data-line-number="2">ags</a></code></pre></div>
+<pre><code>## Series: GS[, 6] 
+## ARIMA(0,1,0) 
+## 
+## sigma^2 estimated as 10.09:  log likelihood=-1014.44
+## AIC=2030.88   AICc=2030.89   BIC=2034.86</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">fags &lt;-<span class="st"> </span><span class="kw">forecast</span>(ags)</a>
+<a class="sourceLine" id="cb57-2" data-line-number="2">fags</a></code></pre></div>
+<pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+## 396         237.64 233.5691 241.7109 231.4141 243.8659
+## 397         237.64 231.8829 243.3971 228.8352 246.4448
+## 398         237.64 230.5890 244.6910 226.8564 248.4236
+## 399         237.64 229.4982 245.7818 225.1882 250.0918
+## 400         237.64 228.5372 246.7428 223.7184 251.5616
+## 401         237.64 227.6683 247.6117 222.3897 252.8903
+## 402         237.64 226.8694 248.4106 221.1678 254.1122
+## 403         237.64 226.1257 249.1543 220.0304 255.2496
+## 404         237.64 225.4273 249.8527 218.9622 256.3178
+## 405         237.64 224.7666 250.5134 217.9519 257.3281</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="kw">plot</span>(fags,<span class="dt">main =</span> <span class="st">&quot;Goldman Sachs adj. close&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-2.png" width="672" /></p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="kw">require</span>(<span class="st">&quot;quantmod&quot;</span>)</a>
+<a class="sourceLine" id="cb60-2" data-line-number="2"><span class="kw">getSymbols</span>(<span class="st">&quot;DANSKE.CO&quot;</span>,<span class="dt">from =</span> <span class="st">&quot;2017-01-01&quot;</span>, <span class="dt">to =</span> <span class="kw">Sys.Date</span>(),<span class="dt">getSymbols.warning4.0=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;DANSKE.CO&quot;</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">plot</span>(DANSKE.CO[,<span class="dv">6</span>],<span class="dt">main =</span> <span class="st">&quot;Danske Bank adj. close&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">addb &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(DANSKE.CO[,<span class="dv">6</span>])</a>
+<a class="sourceLine" id="cb63-2" data-line-number="2">addb</a></code></pre></div>
+<pre><code>## Series: DANSKE.CO[, 6] 
+## ARIMA(0,2,1) 
+## 
+## Coefficients:
+##           ma1
+##       -0.9899
+## s.e.   0.0072
+## 
+## sigma^2 estimated as 6.312:  log likelihood=-909.64
+## AIC=1823.28   AICc=1823.31   BIC=1831.21</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">faddb &lt;-<span class="st"> </span><span class="kw">forecast</span>(addb)</a>
+<a class="sourceLine" id="cb65-2" data-line-number="2">faddb</a></code></pre></div>
+<pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+## 393       187.4959 184.2762 190.7156 182.5718 192.4201
+## 394       187.1919 182.6155 191.7683 180.1929 194.1908
+## 395       186.8878 181.2546 192.5210 178.2726 195.5030
+## 396       186.5837 180.0464 193.1210 176.5858 196.5817
+## 397       186.2797 178.9341 193.6252 175.0457 197.5136
+## 398       185.9756 177.8888 194.0623 173.6080 198.3432
+## 399       185.6715 176.8934 194.4496 172.2465 199.0965
+## 400       185.3674 175.9367 194.7981 170.9444 199.7905
+## 401       185.0634 175.0112 195.1155 169.6899 200.4368
+## 402       184.7593 174.1113 195.4073 168.4745 201.0441</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="kw">plot</span>(faddb,<span class="dt">main =</span> <span class="st">&quot;Danske Bank adj. close&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-39-2.png" width="672" /></p>
 
 </div>
             </section>
@@ -199,8 +285,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
+<a href="arima-og-ssonalitet.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="sandsynligheder.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

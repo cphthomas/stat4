@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-<link rel="next" href="sandsynligheder.html">
+<link rel="prev" href="index.html">
+<link rel="next" href="chi-i-anden-tests.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -185,22 +185,192 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Kvantitative metoder for de finansielle uddannelser.</h1>
-<h4 class="author"><em>Thomas Petersen</em></h4>
-<h4 class="date"><em>2018-07-28</em></h4>
+<div id="sandsynligheder" class="section level1">
+<h1><span class="header-section-number">Kapitel 1</span> Sandsynligheder</h1>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/228228340" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
 </div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-
+<p>Vi vil her se på sandsynligheder. Hvis vi forestiller os, man har på en cafe har spurgt 800 besøgende, om de drikker the, kaffe eller begge dele, og har fået følgende svar.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Kaffe</th>
+<th align="left">The</th>
+<th align="left">Både kaffe og the</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">600</td>
+<td align="left">400</td>
+<td align="left">200</td>
+</tr>
+</tbody>
+</table>
+<p>Vi kan opstille resultaterne i et Venn-diagram som vist på figuren.<img src="img/sandsynligheder1.png" align="right" width="35%" height="35%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/> Vi kan udføre et stokastisk eksperiment og tilfældigt udtage en person og undersøge, hvor stor sandsynligheden er for at vedkommende drikker kaffe.</p>
+<p>Vi skriver P for probability dvs. sandsynlighed. Sandsynligheden for en person drikker kaffe kan opskrives som:</p>
+<p><span class="math display">\[\small P(Kaffe)=\frac{Antal\ kaffe-drikkere}{Antal\ adspurgte}=\frac{600}{800}=0.75=75\%\]</span></p>
+<p>På samme måde kan man finde sandsynligheden for at en person drikker the:</p>
+<p><span class="math display">\[\small P(The)=\frac{Antal\ the-drikkere}{Antal\ adspurgte}=\frac{400}{800}=0.5=50\%\]</span></p>
+<div id="betingede-sandsynligheder" class="section level2">
+<h2><span class="header-section-number">1.1</span> Betingede sandsynligheder</h2>
+<p>Vi kan også se på en mindre gruppe af de adspurgte, hvis fx. man kun vil se på kaffedrikkerne kunne man ønske at undersøge, hvor stor en andel af kaffedrikkerne der både drikker the og kaffe. Vi siger at vi betinger med en hændelse, hvis vi ser på en sådan delmængde af de adspurgte. Betingede sandsynligheder kan formuleres på flere måder fx:</p>
+<p>Givet at man drikker kaffe hvad er da sandsynligheden for at man ligeledes drikker the?
+Hvis man drikker kaffe hvad er da sandsynligheden for at man ligeledes drikker the?
+Hvad er da sandsynligheden for, at man drikker the, når man drikker kaffe?
+Hvad er andelen af kaffedrikkere, der drikker the?</p>
+<p>Vi siger vi betinger med hændelsen A, man drikker kaffe, og ser således kun på gruppen af kaffedrikkere. Hvad er så sandsynligheden for at man også drikker the hændelsen B?
+Vi skal altså bestemme sandsynligheden for B givet A, med symboler skriver vi det som <span class="math inline">\(\small P(B\mid A)\)</span>. Vi kan udregne dette som
+<span class="math display">\[\small P(B\mid A)=\frac{P(B\cap A)}{P(A)}\]</span></p>
+<p>Det betyder vi kan udregne hvad er andelen af kaffedrikkere, der drikker the, ved formlen:
+<span class="math display">\[\small P(B\mid A)=P(kaffe\ og\ the\mid  kaffe)=\frac{P(kaffe\ og\ the\cap kaffe)}{P(kaffe)}\]</span>
+<span class="math display">\[\small \frac{\frac{200}{800}}{\frac{600}{800}}=\frac{200}{600}=\frac{1}{3}\approx 33\%\]</span></p>
+<div id="race-og-ddsdom-eksempel" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Race og dødsdom eksempel</h3>
+<p><img src="img/death-row-inmates-drug-cocktail.jpg" align="right" width="40%" height="40%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/></p>
+<p>I et kendt studie fra 1991 af Radelet and Pierce, om Florida, har man indsamlet data i retssager hvor der var mulighed for dødsstraf. Man har blandt andet indsamlet data om den tiltaltes etnicitet, offerets etnicitet samt udfaldet af retssagen dvs. om den tiltalte blev idømt dødstraf eller ikke. Studiets formål var at afgøre om der ved domstolene er en bias, således at amerikanere af afrikansk afstamning oftere idømmmes dødsstraf end hvide.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Race tiltalt</th>
+<th align="left">Dødsdom</th>
+<th align="left">Ikke dødsdom</th>
+<th align="left">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Hvid</td>
+<td align="left">53</td>
+<td align="left">430</td>
+<td align="left">483</td>
+</tr>
+<tr class="even">
+<td align="left">Afrikansk amerikaner</td>
+<td align="left">15</td>
+<td align="left">176</td>
+<td align="left">191</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="left">68</td>
+<td align="left">606</td>
+<td align="left">674</td>
+</tr>
+</tbody>
+</table>
+<p>Sandsynligheden for at blive dødsdømt, når man er tiltalt kan udregnes til:
+<span class="math display">\[\small P(dø\ dsdom)=\frac{dø\ dsdø\ mte}{alle\ tiltalte}=\frac{68}{674}=0.1009\]</span></p>
+<p>Sandsynligheden for at blive dødsdømt, når man er hvid og tiltalt er en betinget sandsynlighed, denne kan udregnes til:
+<span class="math display">\[\small P(dø\ dsdom\mid hvid)=\frac{P(dø\ dsdom \cap hvid)}{P(hvide\ tiltalte)}=\frac{53}{483}=0.1097\]</span></p>
+<p>Sandsynligheden for at blive dødsdømt, hvis man er afrikansk-amerikaner og tiltalt er en betinget sandsynlighed, denne kan udregnes til:
+<span class="math display">\[\small P(dø\ dsdom\mid sort)=\frac{P(dø\ dsdom\cap sort)}{P(sorte\ tiltalte)}=\frac{15}{191}=0.0785\]</span></p>
+<p>Dette tyder ikke på at der er racemæssig forskel på andelen af dødsdømte.</p>
+</div>
+</div>
+<div id="uafhngighed" class="section level2">
+<h2><span class="header-section-number">1.2</span> Uafhængighed</h2>
+<p>Vi kan sige at 2 hændelser A og B er uafhængige hvis sandsynligheden for at den ene hændelse indtræffer ikke påvirkes af om den anden hændelse indtræffer eller ej. Dette kan vi udtrykke vha. betingede sandsynligheder.</p>
+<p><span class="math display">\[\small P(A\mid B)=P(A)\]</span>
+Her står sandsynligheden for A er den samme ligegyldigt om hændelsen B indtræffer eller ej.
+<span class="math display">\[\small P(B\mid A)=P(B)\]</span>
+Her står sandsynligheden for B er den samme ligegyldigt om hændelsen A indtræffer eller ej.</p>
+<p>Vi kan omskrive begge ligninger til nedenstående resultat.
+<span class="math display">\[\small P(A\mid B)=P(A)\Leftrightarrow \frac{P(A\cap B)}{P(B)}=P(A)\Leftrightarrow P(A\cap B)=P(A)\cdot P(B)\]</span>
+Så hændelserne A og B er uafhængige hvis fælleshændelsen <span class="math inline">\(\small P(A\cap B)\)</span> er lig med produktet af hændelserne <span class="math inline">\(\small P(A) \cdot P(B)\)</span></p>
+<p>Er hændelserne drikke kaffe og the uafhængige?
+Vi finder sandsynligheden for fælleshændelsen:
+<span class="math display">\[\small P(Kaffe \cap The)=\frac{200}{800}=0.25\]</span>
+Er sandsynligheden for fælleshændelsen lig med produktet af sandsynlighederne?
+<span class="math display">\[\small P(Kaffe)\cdot P(The)=\frac{600}{800}\cdot \frac{400}{800}=\frac{3}{4}\cdot \frac{1}{2}=\frac{3}{8}=0.375\]</span>
+Hændelserne er altså ikke uafhængige for 0.25 er ikke 0.375.</p>
+<p>Vi ser på om hændelserne hvid tiltalt og dødsdom er afhængige.
+Vi finder sandsynligheden for fælleshændelsen:
+<span class="math display">\[\small P(Dø\ dsdom \cap Hvid)=\frac{53}{674}=0.08\]</span>
+Er sandsynligheden for fælleshændelsen lig med produktet af sandsynlighederne?
+<span class="math display">\[\small P(Dø\ dsdom)\cdot P(Hvid)=\frac{68}{674}\cdot \frac{483}{674}=0.10 \cdot 0.72=0.072\]</span>
+Sandsynlighederne 0.08 og 0.072 er tæt på hinanden, udtaler vi os om en population ville vi nok ikke kunne afvise at hændelserne er uafhængige. Vi vil i afsnittede om Chi i anden tests se på hvorledes man tester uafhængighed.</p>
+<details>
+<p><summary>Spørgsmål dødsdom</summary>
+Vi inddeler nu skemaet ovenfor, med en variabel, der angiver offerets race.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Race offer</th>
+<th align="left">Race tiltalt</th>
+<th align="left">Dødsdom</th>
+<th align="left">Ikke dødsdom</th>
+<th align="left">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Hvid</td>
+<td align="left">Hvid</td>
+<td align="left">53</td>
+<td align="left">414</td>
+<td align="left">467</td>
+</tr>
+<tr class="even">
+<td align="left">Hvid</td>
+<td align="left">Afrikansk amerikaner</td>
+<td align="left">11</td>
+<td align="left">37</td>
+<td align="left">48</td>
+</tr>
+<tr class="odd">
+<td align="left">Afrikansk amerikaner</td>
+<td align="left">Hvid</td>
+<td align="left">0</td>
+<td align="left">16</td>
+<td align="left">16</td>
+</tr>
+<tr class="even">
+<td align="left">Afrikansk amerikaner</td>
+<td align="left">Afrikansk amerikaner</td>
+<td align="left">4</td>
+<td align="left">139</td>
+<td align="left">143</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="left"></td>
+<td align="left">68</td>
+<td align="left">606</td>
+<td align="left">674</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.</strong> Hvad er sandsynligheden for at blive dødsdømt, hvis man er hvid tiltalt for at have dræbt en hvid?<br />
+<strong>2.</strong> Hvad er sandsynligheden for at blive dødsdømt, givet man er sort tiltalt for at have dræbt en hvid?<br />
+<strong>3.</strong> Hvad er sandsynligheden for at blive dødsdømt, givet man er hvid tiltalt for at have dræbt en sort?<br />
+<strong>4.</strong> Hvad er sandsynligheden for at blive dødsdømt, når man er sort tiltalt for at have dræbt en sort?</p>
+</details>
+<br>
+<details>
+<p><summary>Svar dødsdom</summary></p>
+<p><img src="img/usdeath2.jpg" align="right" width="30%" height="30%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/>
+<strong>1.</strong> Sandsynligheden for at blive dødsdømt, hvis man er hvid tiltalt for at have dræbt en hvid kan udregnes til:<br />
+<span class="math display">\[\small P(Dø\ dsdø\ mt \mid hvid\ tiltalt\ og\ hvidt\ offer)=\frac{53}{467}=0.1135\]</span><br />
+<strong>2.</strong> Sandsynligheden for at blive dødsdømt, givet man er sort tiltalt for at have dræbt en hvid kan udregnes til:<br />
+<span class="math display">\[\small P(Dø\ dsdø\ mt \mid sort\ tiltalt\ og\ hvidt\ offer)=\frac{11}{48}=0.2292\]</span><br />
+<strong>3.</strong> Sandsynligheden for at blive dødsdømt, givet man er hvid tiltalt for at have dræbt en sort kan udregnes til:<br />
+<span class="math display">\[\small P(Dø\ dsdø\ mt \mid hvid\ tiltalt\ og\ sort\ offer)=\frac{0}{16}=0\]</span>
+<strong>4.</strong> Sandsynligheden for at blive dødsdømt, når man er sort tiltalt for at have dræbt en sort kan udregnes til
+<span class="math display">\[\small P(Dø\ dsdø\ mt \mid sort\ tiltalt\ og\ sort\ offer)=\frac{4}{143}=0.0280\]</span></p>
+<p>Vi ser nu at der synes at være større sandsynlighed for dødsdom for sorte end for hvide, denne effekt kommer først frem når vi kontrollerer for offer race. Man kalder dette for Simpsons paradoks.</p>
+</details>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="sandsynligheder.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chi-i-anden-tests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

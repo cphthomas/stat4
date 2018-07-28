@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-<link rel="next" href="sandsynligheder.html">
+<link rel="prev" href="arima010-eller-i1-random-walk-with-a-drift.html">
+<link rel="next" href="plots-med-forskellige-modeller.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -185,22 +185,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Kvantitative metoder for de finansielle uddannelser.</h1>
-<h4 class="author"><em>Thomas Petersen</em></h4>
-<h4 class="date"><em>2018-07-28</em></h4>
-</div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-
+<div id="arima001-eller-ma1-moving-average" class="section level1">
+<h1><span class="header-section-number">Kapitel 9</span> ARIMA(0,0,1) eller MA(1) Moving average</h1>
+<p>Vi kan i stedet for at bruge tidligere aktiekurser til at forudsige aktiekursen i stedet benytte tidligere målefejl residualer til at forudsige kursen.</p>
+<p>Modellen kan skrives som:</p>
+<p><span class="math display">\[\hat{Y_t}=\mu+\theta_1 e_{t-1}\]</span>
+Hvis vi forestiller os <span class="math inline">\(\mu=50\)</span> <span class="math inline">\(\theta_1=0.5\)</span> kursen til tid t-1 var 120 forudsigelsen til tid t-1 var 100, så målefejlen residualen til tid t-1 er <span class="math inline">\(e_{t-1}\)</span> er faktisk kurs minus forudsagt kurs altså 120-100=20. Nu kan vi forudsige kursen til tid t som:
+<span class="math display">\[\hat{Y_t}=\mu+\theta_1 e_{t-1}\Leftrightarrow \hat{Y_t}=50+0.5\cdot20=60\]</span></p>
+<p>Data der kan indlæses i R, benævn data som ARIMA4:</p>
+<pre><code>structure(c(104.035, 84.696, 66.622, 75.078, 90.512, 80.213, 
+95.646, 120.728, 107.473, 98.007, 105.692, 91.47, 81.564, 90.325, 
+112.94, 128.034, 118.113, 108.337, 92.803, 85.981, 91.068, 90.237, 
+94.939, 87.966, 93.857, 110.179, 99.252, 84.86, 80.571, 74.44, 
+107.43, 112.259, 97.252, 96.04, 93.651, 113.215, 116.992, 100.672, 
+93.411, 104.566, 115.626, 93.047, 91.644, 120.28, 109.674, 95.901, 
+102.858, 105.829, 99.581, 112.855), .Dim = c(50L, 1L), .Dimnames = list(
+    NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 50, 1), class = &quot;ts&quot;)</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA4)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA4)</a></code></pre></div>
+<pre><code>## Series: ARIMA4 
+## ARIMA(0,0,1) with non-zero mean 
+## 
+## Coefficients:
+##          ma1     mean
+##       0.9053  99.0176
+## s.e.  0.0664   2.5588
+## 
+## sigma^2 estimated as 95.68:  log likelihood=-184.81
+## AIC=375.62   AICc=376.14   BIC=381.35</code></pre>
+<p>Vi kan nu forudsige aktiekursen 12 perioder frem med predict:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">predict</span>(<span class="kw">auto.arima</span>(ARIMA4), <span class="dt">n.ahead =</span> <span class="dv">12</span>)<span class="op">$</span>pred</a></code></pre></div>
+<pre><code>## Time Series:
+## Start = 51 
+## End = 62 
+## Frequency = 1 
+##  [1] 113.64960  99.01756  99.01756  99.01756  99.01756  99.01756  99.01756
+##  [8]  99.01756  99.01756  99.01756  99.01756  99.01756</code></pre>
+<p>Hvorfor svarer den forudsagte værdi til mean i en ren ARIMA(0,0,1) eller MA(1) model? (Vink hvad er definitionen på en residual)</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="sandsynligheder.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="arima010-eller-i1-random-walk-with-a-drift.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="plots-med-forskellige-modeller.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

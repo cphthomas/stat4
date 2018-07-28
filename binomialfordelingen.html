@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-<link rel="next" href="sandsynligheder.html">
+<link rel="prev" href="anova.html">
+<link rel="next" href="kvantitative-metoder.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -185,22 +185,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Kvantitative metoder for de finansielle uddannelser.</h1>
-<h4 class="author"><em>Thomas Petersen</em></h4>
-<h4 class="date"><em>2018-07-28</em></h4>
-</div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
+<div id="binomialfordelingen" class="section level1">
+<h1><span class="header-section-number">Kapitel 4</span> Binomialfordelingen</h1>
+<!-- BEGIN SENTRY - version 3.1 (Beta Build A) - Member Login Code Copyright © Sentrylogin.com, Shawn, Co. https://www.sentrylogin.com -->
+<meta name="robots" content="noindex, nofollow">
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<style>
+.Sentry_blanket {
+background-color:#FFFFFF;
+position:absolute;
+z-index: 9001; /*ooveeerrrr nine thoussaaaannnd*/
+top:0px;
+left:0px;
+width:105%;
+height:10000px;
+padding:20px;
+}
+</style>
+<script language="JavaScript" type="text/JavaScript">
 
+/* BEGIN Editable Settings: ///////////////////////////////////////////////////////////*/
+
+PpLID = "36812"; /* Makes this page viewable by only members of one or more PayPal plans, enter one Ppl ID or more than one separated by commas */
+
+pageLevel = 0; /* Access Level required to view this page   */
+
+SingleOut = 0; /* Makes this page viewable by only one member, enter their account number  */
+
+
+/* END Editable Settings: ////////////////////////////////////////////////////////////*/
+
+Sentry_ID = 22367;
+</script>
+<script type="text/javascript" src="https://www.sentrylogin.com/sentry/scripts/Sentry_pAJAX.js"></script>
+<noscript>
+<meta http-equiv="refresh" content="0; url=https://www.sentrylogin.com/sentry/noscript.asp">
+</noscript>
+<div id="Sentry_noJS" class="Sentry_blanket">
+Sentry Page Protection
+</div>
+<div id="Sentry_redirecting" class="Sentry_blanket" style="display:none;">
+Please Wait…
+</div>
+<script language="JavaScript" type="text/JavaScript">
+if(window.onload){
+  window.onload = SentryProtect;
+}
+else if(document.body.onload){
+  document.body.onload = SentryProtect;
+}
+else{
+  SentryProtect(); /* call it here  */
+}
+</script>
+<!-- END Sentry Login Page Protection -->
+<p>Et Bernoulli forsøg er et forsøg med kun 2 mulige udfald succes og fiasko. Det kan fx. være at få krone i et kast (forsøget) med en krone. Vi siger at sandsynligheden for succes er p (altså 0.5 hvis mønten er fair), sandsynligheden for fiasko kan beregnes som 1-p=1-0.5=0.5.</p>
+<div class="Keats">
+<p><img src="img/cointoss.jpg" align="right" width="40%" height="40%"style="border:0.0px solid #eeeeee; padding:5px; margin:6px;"/> En statistik studerende havde voldsomme tømmermænd og skulle op til afsluttende eksamen. Dette var en sand/falsk test, så han besluttede at slå plat og krone om spørgsmålene. Den tilsynsførende ved eksamen, så den studerende slå plat og krone skrive et svar, slå plat og krone og skrive et svar konstant i 2 timer. Da eksamen var ved at være forbi, var kun den studerende med mønten tilbage.</p>
+<p>Den tilsynsførende spørger ham nysgerrigt. “Nu har du siddet i 2 timer og slået plat og krone for svarene uden at åbne bogen, hvordan kan det dog tage dig så lang tid?”</p>
+<p>Den studerende svarer febrisk, mens han stadig slår plat og krone “Shhh! jeg er ved at tjekke svarene”</p>
+</div>
+<p>Binomialfordelingen er en diskret (heltallig) fordeling, der beskriver sandsynligheden for x succeser, ved n identiske Bernoulli forsøg. Sandsynlighedsfordelingen for krone ved ti kast, med en fair mønt, er således 10 uafhængige forsøg med samme sandsynlighedsparameter p = 0.5 antalsparameteren n er 10, hvilket er det samlede antal enkelt forsøg.
+For at en stokastisk variabel X er binomialfordelt, skal følgende 3 forudsætninger være opfyldt:</p>
+<ol style="list-style-type: decimal">
+<li><p>Den stokastiske variabel betegner antallet af succeser i n forsøg, som hver især kan antage to værdier kaldet succes og fiasko.</p></li>
+<li><p>De n forsøg er uafhængige, har man fx. 4 succeser er successandsynligheden ikke ændret i næste forsøg.</p></li>
+<li><p>Sandsynlighedsparameteren er konstant p for samtlige forsøg, dvs. successandsynligheden ændrer sig ikke.</p></li>
+</ol>
+<p>Vi siger den stokastiske variabel er binomialfordelt, med antalsparameter n og sandsynlighedsparameter p, notationen for dette er:<br />
+<span class="math display">\[X\sim b(n,p)\]</span></p>
+<p>Vi kan for <span class="math inline">\(X\sim b(n,p)\)</span> beregne punktsandsynligheder ved formlen:</p>
+<p><span class="math display">\[P(X=x)=\binom{n}{x} p^{x} (1-p)^{n-x}\]</span></p>
+<p>Hvor <span class="math inline">\(\binom{n}{x}\)</span> er binomialkoefficienten denne kan udregnes som:</p>
+<p><span class="math display">\[\binom{n}{x}=\frac{n!}{x!(n-x)!}=\frac{n \cdot (n-1)\cdot...\cdot 1 }{x\cdot...\cdot1((n-x)\cdot...\cdot1}\]</span></p>
+<p>Punktsandsynligheden for i 4 kast at få netop fx. 1 krone. kan udregnes som antal mulige udfald hvor man netop har 1 krone gange sandsynligheden for netop at få en krone.</p>
+<p>De mulige udfald hvor antallet af succeser dvs. krone er en, bliver:</p>
+<ol style="list-style-type: decimal">
+<li>{krone, plat, plat, plat}</li>
+<li>{plat, krone, plat, plat}</li>
+<li>{plat, plat, krone, plat}</li>
+<li>{plat, plat, plat, krone}</li>
+</ol>
+<p>Vi kan netop udregne dette antal mulige udfald ved binomialkoefficienten som:
+<span class="math display">\[\binom{4}{1}=\frac{4\cdot3\cdot2\cdot1}{1\cdot3\cdot2\cdot1}=\frac{24}{6}=4\]</span></p>
+<p>Sandsynligheden for kun et udfald med en krone udregnes til:
+<span class="math display">\[p^{x} (1-p)^{n-x}=0.5^{1} (1-0.5)^{4-1}=0.5\cdot0.125=0.0625\]</span></p>
+<p>Vi får beregner altså punktsandsynligheden til:</p>
+<p><span class="math display">\[P(X=1)=4*0.0625=0.25\]</span></p>
+<p>Nedenfor er sandsynlighedsfordelingen for binomialfordelingen med antalsparameter 4 og sandsynlighedsparameter 0.5 illustreret, bemærk punktsandsynligheden for 1 krone er netop 0.25:</p>
+<p><img src="bookdown-demo_files/figure-html/Binomialfordelingen450-1.svg" width="864" /></p>
+<p>Her ses binomialfordelingen med antalsparamerter n=8 og sandsynlighedsparameter p=0.5.</p>
+<p><img src="bookdown-demo_files/figure-html/Binomialfordelingen850-1.svg" width="864" /></p>
+<p>Her ses binomialfordelingen med antalsparamerter n=8 og sandsynlighedsparameter p=0.9. Bemærk fordelingen bliver venstreskæv hvis p er større end 0.5 hvor den er symmetrisk.</p>
+<p><img src="bookdown-demo_files/figure-html/Binomialfordelingen890-1.svg" width="864" /></p>
+<p>Her ses binomialfordelingen med antalsparamerter n=8 og sandsynlighedsparameter p=0.1 denne er højreskæv.</p>
+<p><img src="bookdown-demo_files/figure-html/Binomialfordelingen810-1.svg" width="864" /></p>
+<p>Figuren nedenfor vises 3 binomialfordelinger, samtlige med sandsynlighedsparameter p=0.5 og antalsparameter n hhv. 10, 20 og 50.</p>
+<p><img src="bookdown-demo_files/figure-html/Binom3stk-1.svg" width="864" /></p>
+<p>Figuren nedenfor viser 3 binomialfordelinger med sandsynlighedsparametre p hhv. 0.1, 0.5 og 0.9 samtlige har antalsparameter n 50. Bemærk at sandsynlighedsparametrene påvirker skævheden. En sandsynlighedsparameter, mindre end 0.5 giver højreskævhed, netop 0.5 giver symmetri og større end 0.5 venstreskævhed.</p>
+<p><img src="bookdown-demo_files/figure-html/Binom3ford2-1.svg" width="864" /></p>
+<p>Vi kan for for en binomialfordelt stokastisk variabel <span class="math inline">\(X\sim bin(n,p)\)</span> beregne:</p>
+<p>Middelværdien
+<span class="math display">\[E(X)=n\cdot p\]</span>
+Standardafvigelsen til
+<span class="math display">\[SD(X)=\sqrt[]{n\cdot p \cdot (1-p)}\]</span></p>
+<div id="selvtest-2" class="section level2">
+<h2><span class="header-section-number">4.1</span> Selvtest</h2>
+<h2>
+<a href="https://www.edutest.dk/mod/quiz/view.php?id=61" target="_blank">Selvtest den hypergeometriske fordeling med videoløsning</a>
+</h2>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="sandsynligheder.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kvantitative-metoder.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-<link rel="next" href="sandsynligheder.html">
+<link rel="prev" href="arima000.html">
+<link rel="next" href="arima010-eller-i1-random-walk-with-a-drift.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -185,22 +185,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Kvantitative metoder for de finansielle uddannelser.</h1>
-<h4 class="author"><em>Thomas Petersen</em></h4>
-<h4 class="date"><em>2018-07-28</em></h4>
-</div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-
+<div id="arima100-eller-ar1-autoregression" class="section level1">
+<h1><span class="header-section-number">Kapitel 7</span> ARIMA(1,0,0) eller AR(1) autoregression</h1>
+<p>Vi ser nu på 50 dagskurser for en anden aktie, kopier data ind i R og navngiv med ARIMA2:</p>
+<!-- <a href="https://drive.google.com/uc?export=download&id=0B1E7VnhxsDMleDUtWjA2c0piYTA" download="Kursdata">Hent kursdata</a> -->
+<pre><code>structure(c(97.957, 73.334, 83.723, 92.322, 106.694, 94.278, 
+118.855, 107.169, 116.21, 124.179, 105.945, 100.359, 131.513, 
+103.029, 104.339, 103.513, 108.638, 97.032, 100.426, 91.356, 
+110.501, 116.041, 106.145, 96.257, 101.983, 124.107, 112.892, 
+121.101, 103.067, 98.862, 94.009, 115.093, 103.553, 92.895, 103.087, 
+89.622, 91.413, 116.587, 119.88, 111.579, 100.377, 108.997, 104.367, 
+82.48, 79.99, 85.062, 102.597, 98.046, 101.043, 109.051), .Dim = c(50L, 
+1L), .Dimnames = list(NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 50, 1), class = &quot;ts&quot;)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA2)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA2)</a></code></pre></div>
+<pre><code>## Series: ARIMA2 
+## ARIMA(1,0,0) with non-zero mean 
+## 
+## Coefficients:
+##          ar1      mean
+##       0.3664  103.2372
+## s.e.  0.1301    2.4492
+## 
+## sigma^2 estimated as 128.3:  log likelihood=-191.36
+## AIC=388.73   AICc=389.25   BIC=394.46</code></pre>
+<p>Her afslører auto.arima 1. ordens autoregression dvs.</p>
+<p>Modellen kan skrives som.</p>
+<p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1}\]</span>
+Vi forestiller os eksemplet hvor den sande middelværdi for tidsrækken er <span class="math inline">\(\mu=100\)</span> og <span class="math inline">\(\phi=0.5\)</span> for en ARIMA(1,0,0) model.
+Så kan vi beregne <span class="math inline">\(c=(1-\phi)\cdot \mu=(1-0.5)\cdot 100=50\)</span> er middelværdien estimeret ved den gennemsnitlige kurs. Ligningen for modellen kan så skrives som:</p>
+<p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1} \Leftrightarrow \hat{Y_t}=50 + 0.5 Y_{t-1}\]</span></p>
+<p><span class="math inline">\(\phi\)</span> fortæller, hvis kursen dagen før var 80 gennemsnitskursen er 100, vil kursen imorgen ifølge modellen være forudsagt som <span class="math inline">\(50+0.5\cdot 80=90\)</span> dagen efter vil den så være <span class="math inline">\(50+0.5\cdot 90=95\)</span>. De forudsagte værdier konvergerer (nærmer sig) mod <span class="math inline">\(\mu\)</span>. AR i ARIMA, står for autoregression, selv-regression mod middelværdien, i eksemplet så vi hvordan værdien nærmer sig 100, hvis vi forudsiger flere dages kurser kan vi se dette.</p>
+<p><span class="math inline">\(\phi\)</span> må kun antage værdier mellem og ikke lig med -1 og 1, hvilket betyder den er stationær, altså nærmer sig den sande middelværdi <span class="math inline">\(\mu\)</span>.</p>
+<p>Hvad vil der ske hvis <span class="math inline">\(\mu=100\)</span> og <span class="math inline">\(\phi=-0.5\)</span> for en ARIMA(1,0,0) model (husk <span class="math inline">\(c=(1-\phi)\cdot\mu\)</span> når man skal bestemme modellen)?</p>
+<p>Vi kan nu i R forudsige aktiekursen 12 perioder frem med predict:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">predict</span>(<span class="kw">auto.arima</span>(ARIMA2), <span class="dt">n.ahead =</span> <span class="dv">12</span>)<span class="op">$</span>pred</a></code></pre></div>
+<pre><code>## Time Series:
+## Start = 51 
+## End = 62 
+## Frequency = 1 
+##  [1] 105.3673 104.0177 103.5232 103.3420 103.2756 103.2513 103.2424
+##  [8] 103.2391 103.2379 103.2375 103.2373 103.2373</code></pre>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="sandsynligheder.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="arima000.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="arima010-eller-i1-random-walk-with-a-drift.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

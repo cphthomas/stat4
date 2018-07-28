@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-<link rel="next" href="sandsynligheder.html">
+<link rel="prev" href="arima100-eller-ar1-autoregression.html">
+<link rel="next" href="arima001-eller-ma1-moving-average.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -185,22 +185,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Kvantitative metoder for de finansielle uddannelser.</h1>
-<h4 class="author"><em>Thomas Petersen</em></h4>
-<h4 class="date"><em>2018-07-28</em></h4>
-</div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-
+<div id="arima010-eller-i1-random-walk-with-a-drift" class="section level1">
+<h1><span class="header-section-number">Kapitel 8</span> ARIMA(0,1,0) eller I(1) Random Walk with a drift</h1>
+<p>Hvis en serie er ikke-stationær, er den simpleste model en random walk:</p>
+<p><span class="math display">\[\hat{Y_t}-Y_{t-1}=\mu\Leftrightarrow \hat{Y_t}=\mu-Y_{t-1}\]</span>
+Dette betyder at Y stiger konstant med <span class="math inline">\(\mu\)</span> i hver periode. Drift betyder at tidsrækken stiger konstant.</p>
+<p>Kald den næste vektor for ARIMA3:</p>
+<pre><code>structure(c(100, 110.695, 116.16, 123.983, 124.182, 118.432, 
+114.157, 116.126, 126.584, 139.104, 149.709, 166.794, 172.85, 
+168.264, 184.061, 188.304, 196.156, 203.239, 217.565, 226.016, 
+236.986, 250.127, 254.33, 255.305, 280.172, 295.641, 323.152, 
+337.009, 344.1, 371.613, 383.138, 390.722, 390.121, 392.329, 
+408.905, 423.546, 411.232, 436.033, 441.104, 433.005, 436.042, 
+455.257, 455.92, 473.371, 475.472, 490.525, 492.407, 500.438, 
+506.987, 504.54, 495.746), .Dim = c(51L, 1L), .Dimnames = list(
+    NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 51, 1), class = &quot;ts&quot;)</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA3)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA3)</a></code></pre></div>
+<pre><code>## Series: ARIMA3 
+## ARIMA(0,1,0) with drift 
+## 
+## Coefficients:
+##        drift
+##       7.9149
+## s.e.  1.2790
+## 
+## sigma^2 estimated as 83.46:  log likelihood=-181.05
+## AIC=366.1   AICc=366.36   BIC=369.93</code></pre>
+<p>Modellen ovenfor kan skrives som:
+<span class="math display">\[\hat{Y_t}-Y_{t-1}=\mu\Leftrightarrow \hat{Y_t}-Y_{t-1}=7.9\]</span>
+Vi indsætter drift i stedet for <span class="math inline">\(\mu\)</span>, tolningen er at modellen forudsiger at aktiekursen stiger med 7.9 fra periode til periode.</p>
+<p>Forstiller man sig en ARIMA(0,1,0) med drift 10 og en kurs på tidspunkt t-1 på 120, vil vi forudsige en kurs på 130 ved tid t og 140 ved tid t+1 osv.</p>
+<p>Hvis vi har en ren random walk model uden drift dvs. med <span class="math inline">\(\mu=0\)</span> ARIMA(0,1,0) for en aktiekurs , forventer vi at kursen til tid t vil være den samme som til tid t-1. Denne kan skrives som:</p>
+<p><span class="math display">\[\hat{Y_t}-Y_{t-1}=0\]</span></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="sandsynligheder.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="arima100-eller-ar1-autoregression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="arima001-eller-ma1-moving-average.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

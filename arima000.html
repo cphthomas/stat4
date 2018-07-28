@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-<link rel="next" href="sandsynligheder.html">
+<link rel="prev" href="kvantitative-metoder.html">
+<link rel="next" href="arima100-eller-ar1-autoregression.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -185,22 +185,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Kvantitative metoder for de finansielle uddannelser.</h1>
-<h4 class="author"><em>Thomas Petersen</em></h4>
-<h4 class="date"><em>2018-07-28</em></h4>
-</div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-
+<div id="arima000" class="section level1">
+<h1><span class="header-section-number">Kapitel 6</span> ARIMA(0,0,0)</h1>
+<p>Nedenfor har vi aktiekurser for 50 dage for en fiktiv aktie, vi vil nu undersøge om disse kan bruges til at forudsige noget om fremtidige aktiekurser. For at gøre dette, skal man enten importere Excelfilen, eller copy paste data fra rammen nedenfor.</p>
+<!-- Importer nedenstående Excelfil til R via menuen File - Import Dataset Excel.  -->
+<!-- Ret data til tidsserie med ts(ARIMA1) kommandoen i R, du har nu data som en tidsserie -->
+<!-- <a href="https://drive.google.com/uc?export=download&id=0B1E7VnhxsDMleDUtWjA2c0piYTA" download="Kursdata">Hent kursdata</a> -->
+<p>Data nedenfor kan kopieres direkte ind i R. Navngiv data ARIMA1 ved at skrive følgende tekst foran det du kopierer.</p>
+<p>ARIMA1 &lt;-</p>
+<pre><code>structure(c(21.64, 19.62, 14.7, 20.52, 19.94, 20.1, 19.46, 20.76, 
+20.64, 15.66, 18.76, 22.24, 22.94, 16.56, 18.44, 17.98, 20.6, 
+19.86, 18.28, 18.1, 18.54, 20.86, 19.4, 23.86, 18.44, 20.48, 
+21.92, 19.42, 18.96, 22.52, 21.28, 19.64, 21.38, 18.26, 16.48, 
+17.92, 20.72, 20.14, 18.58, 21.34, 21.12, 21.96, 19.74, 20.02, 
+16.3, 23.12, 21.26, 18.52, 24.58, 21.26), .Dim = c(50L, 1L), .Dimnames = list(
+    NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 50, 1), class = &quot;ts&quot;)</code></pre>
+<p>Vi kan nu plotte vore data i R.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">plot.ts</span>(ARIMA1, <span class="dt">xlab=</span><span class="st">&#39;Tid&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Kursdata&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Det er svært at se nogen tydelig udvikling i kursen.</p>
+<p>Vi benytter auto.arima til at undersøge om der er en systematik i tidsserien, for at bruge denne funktion skal vi hente og loade pakken forecast med hhv. install.packages(“forecast”) kun første gang og require(“forecast”) eller library(“forecast”)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA1)</a></code></pre></div>
+<pre><code>## Series: ARIMA1 
+## ARIMA(0,0,0) with non-zero mean 
+## 
+## Coefficients:
+##          mean
+##       19.8964
+## s.e.   0.2872
+## 
+## sigma^2 estimated as 4.209:  log likelihood=-106.37
+## AIC=216.74   AICc=217   BIC=220.57</code></pre>
+<p>Funktionen auto.arima i R finder automatisk den ARIMA model der passer bedst på observationerne.</p>
+<p>Output ARIMA(0,0,0) with non-zero mean, fortæller os at data er ligesom hvid støj. Den bedste forudsigelse af aktieprisen vi kan komme med er gennemsnittet af alle kurserne. Vi kan altså ikke forudsige prisen vha. vore fine værktøjer.</p>
+<p>Akaike Information Criterion (AIC) , og Bayesian Information Criterion (BIC) benyttes til at vælge ARIMA modellen med mindst AIC og BIC værdier. auto.arima finder den bedste model automatisk.</p>
+<p>Her er ligningen for aktiekursen, den bedste forudsigelse af den fremtidige kurs er den gennemsnitlige kurs der tidligere er observeret.</p>
+<p><span class="math display">\[\hat{Y_t}=19.90\]</span></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="sandsynligheder.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="kvantitative-metoder.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="arima100-eller-ar1-autoregression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
