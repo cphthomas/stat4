@@ -186,51 +186,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapitel 9</span> Plots med forskellige modeller</h1>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <pre><code>## Series: ap1 
-## ARIMA(0,1,1) with drift 
+## ARIMA(0,1,1) 
 ## 
 ## Coefficients:
-##           ma1   drift
-##       -0.3415  1.9693
-## s.e.   0.1224  0.8528
+##           ma1
+##       -0.7061
+## s.e.   0.1256
 ## 
-## sigma^2 estimated as 85.43:  log likelihood=-181.18
-## AIC=368.36   AICc=368.88   BIC=374.1</code></pre>
+## sigma^2 estimated as 105:  log likelihood=-187.13
+## AIC=378.26   AICc=378.52   BIC=382.09</code></pre>
 <p>Kursen svinger omkring middelværdien.</p>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <pre><code>## Series: ap2 
-## ARIMA(0,2,2) 
+## ARIMA(1,1,0) 
 ## 
 ## Coefficients:
-##           ma1      ma2
-##       -0.2012  -0.5117
-## s.e.   0.1403   0.1429
+##          ar1
+##       0.4037
+## s.e.  0.1292
 ## 
-## sigma^2 estimated as 108.7:  log likelihood=-183.78
-## AIC=373.55   AICc=374.08   BIC=379.23</code></pre>
+## sigma^2 estimated as 98.93:  log likelihood=-185.39
+## AIC=374.78   AICc=375.04   BIC=378.61</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <pre><code>## Series: ap3 
-## ARIMA(3,0,1) with non-zero mean 
+## ARIMA(1,0,1) with non-zero mean 
 ## 
 ## Coefficients:
-##           ar1      ar2      ar3     ma1     mean
-##       -0.3644  -0.0377  -0.0142  0.8744  99.4362
-## s.e.   0.0825   0.0789   0.0779  0.0427   0.9327
+##           ar1     ma1     mean
+##       -0.3027  0.8446  99.2526
+## s.e.   0.0990  0.0600   0.9596
 ## 
-## sigma^2 estimated as 102:  log likelihood=-744.17
-## AIC=1500.35   AICc=1500.78   BIC=1520.14</code></pre>
+## sigma^2 estimated as 93.45:  log likelihood=-736.4
+## AIC=1480.8   AICc=1481   BIC=1493.99</code></pre>
 <p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 201       96.11066 83.16861 109.0527 76.31750 115.9038
-## 202      100.33246 85.80473 114.8602 78.11421 122.5507
-## 203       99.14811 84.33509 113.9611 76.49356 121.8027
-## 204       99.55473 84.72869 114.3808 76.88025 122.2292
-## 205       99.39119 84.56364 114.2187 76.71441 122.0680
-## 206       99.45229 84.62444 114.2801 76.77505 122.1295
-## 207       99.43041 84.60252 114.2583 76.75310 122.1077
-## 208       99.43841 84.61051 114.2663 76.76109 122.1157
-## 209       99.43545 84.60755 114.2634 76.75813 122.1128
-## 210       99.43654 84.60863 114.2644 76.75922 122.1139</code></pre>
+## 201      103.47198 91.08316 115.8608 84.52491 122.4190
+## 202       97.97536 83.88432 112.0664 76.42498 119.5257
+## 203       99.63927 85.40243 113.8761 77.86590 121.4126
+## 204       99.13558 84.88545 113.3857 77.34188 120.9293
+## 205       99.28805 85.03670 113.5394 77.49250 121.0836
+## 206       99.24190 84.99044 113.4934 77.44617 121.0376
+## 207       99.25587 85.00440 113.5073 77.46013 121.0516
+## 208       99.25164 85.00017 113.5031 77.45589 121.0474
+## 209       99.25292 85.00145 113.5044 77.45717 121.0487
+## 210       99.25253 85.00106 113.5040 77.45679 121.0483</code></pre>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>#ARIMA af højere orden
