@@ -207,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 50, 1), class = &quot;ts&quot;)</code></pre>
 <p>Vi kan nu plotte vore data i R.</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="kw">plot.ts</span>(ARIMA1, <span class="dt">xlab=</span><span class="st">&#39;Tid&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Kursdata&#39;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>Det er svært at se nogen tydelig udvikling i kursen.</p>
 <p>Vi benytter auto.arima til at undersøge om der er en systematik i tidsserien, for at bruge denne funktion skal vi hente og loade pakken forecast med hhv. install.packages(“forecast”) kun første gang og require(“forecast”) eller library(“forecast”)</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA1)</a></code></pre></div>
