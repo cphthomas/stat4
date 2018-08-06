@@ -148,17 +148,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#selvtest"><i class="fa fa-check"></i><b>2.5</b> Selvtest</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="cran-r.html"><a href="cran-r.html"><i class="fa fa-check"></i><b>3</b> Cran R</a></li>
-<li class="chapter" data-level="4" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>4</b> Faktoranalyse</a><ul>
-<li class="chapter" data-level="4.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>4.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>4.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
+<li class="chapter" data-level="3" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>3</b> ANOVA</a><ul>
+<li class="chapter" data-level="3.1" data-path="anova.html"><a href="anova.html#selvtest-1"><i class="fa fa-check"></i><b>3.1</b> Selvtest</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cran-r.html"><a href="cran-r.html"><i class="fa fa-check"></i><b>4</b> Cran R</a></li>
+<li class="chapter" data-level="5" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>5</b> Faktoranalyse</a><ul>
+<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>5</b> Klyngeanalyse</a></li>
-<li class="chapter" data-level="6" data-path="us-arrestationer-samt-urbaniseringsgrad.html"><a href="us-arrestationer-samt-urbaniseringsgrad.html"><i class="fa fa-check"></i><b>6</b> US arrestationer samt urbaniseringsgrad</a></li>
-<li class="chapter" data-level="7" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>7</b> ANOVA</a><ul>
-<li class="chapter" data-level="7.1" data-path="anova.html"><a href="anova.html#selvtest-1"><i class="fa fa-check"></i><b>7.1</b> Selvtest</a></li>
-</ul></li>
+<li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a></li>
+<li class="chapter" data-level="7" data-path="us-arrestationer-samt-urbaniseringsgrad.html"><a href="us-arrestationer-samt-urbaniseringsgrad.html"><i class="fa fa-check"></i><b>7</b> US arrestationer samt urbaniseringsgrad</a></li>
 <li class="chapter" data-level="8" data-path="kvantitative-metoder.html"><a href="kvantitative-metoder.html"><i class="fa fa-check"></i><b>8</b> Kvantitative metoder</a></li>
 <li class="chapter" data-level="9" data-path="arima000.html"><a href="arima000.html"><i class="fa fa-check"></i><b>9</b> ARIMA(0,0,0)</a></li>
 <li class="chapter" data-level="10" data-path="arima100-eller-ar1-autoregression.html"><a href="arima100-eller-ar1-autoregression.html"><i class="fa fa-check"></i><b>10</b> ARIMA(1,0,0) eller AR(1) autoregression</a></li>
@@ -191,13 +191,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="faktoranalyse" class="section level1">
-<h1><span class="header-section-number">Kapitel 4</span> Faktoranalyse</h1>
+<h1><span class="header-section-number">Kapitel 5</span> Faktoranalyse</h1>
 <p><!-- http://yatani.jp/teaching/doku.php?id=hcistats:fa --></p>
 <p>Faktoranalyse FA er ligesom, klyngeanalyse vi ser på senere, en strukturanalyse, der belyser hvilke sammenhænge der er i et datasæt. FA er en statistikmodel der navnlig bruges til at forenkle tolkningen af et datamateriale, der indeholder en stor mængde variable. FA bygger på et kæmpe antal udregninger med udgangspunkt i korrelationskoefficienter og er i praksis nærmest umulig at gennemføre uden brug af computersoftware. Før computerens opfindelse kunne en faktoranalyse nemt lægge beslag på en halv snes statistikere på fuld tid gennem flere måneder. Resultatet ville være identifikation få faktorer, skjult i et datamateriale. Faktoranalysen kan fx. hjælpe med at vise sammenhænge mellem svar i spørgeskemaer, hvilket kan være en hjælp markedsføringsmæssigt at forstå hvilke svar samvarierer. En sådan gruppering af spørgsmål kan hjælpe med bedre at forstå kundernes ønsker og behov. Faktoranalyse FA er et godt værktøj til at forstå, hvad dine spørgeskemadata betyder, især når du har mange variable. Faktoranalysen forsøger at finde skjulte variable, som forklarer opførslen af dine observerede variabler. FA har historiske rødder i psykometri, dvs målingen af mentale egenskaber.</p>
 <p>I modsætning hertil søger man med Klyngeanalysen at finde sammenhænge mellem respondenterne og altså ikke variablene, hvilket er et godt hjælpeværktøj i forbindelse med markedssegmentering.</p>
 <p>Der findes 2 typer af FA Exploratory Factor Analysis (EFA) og Confirmatory Factor Analysis (CFA). EFA betyder, at du ikke rigtig ved, hvilke skjulte variable (eller faktorer) der findes, og hvor mange de er, så du forsøger at finde dem. CFA betyder, at du allerede har nogle gæt eller modeller på skjulte variable (eller faktorer), og vi vil kontrollere, om dette er korrekt. Vi benytter i det følgende EFA</p>
 <div id="hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer" class="section level2">
-<h2><span class="header-section-number">4.1</span> Hvilke faktorer er vigtige når man køber en ny computer:</h2>
+<h2><span class="header-section-number">5.1</span> Hvilke faktorer er vigtige når man køber en ny computer:</h2>
 <p>Lad os sige, man har indsamlet et spørgeskema for at undersøge hvad der er vigtigt, når en forbruger bestemmer, hvilken computer der skal købes. Spørge skemaet er udformet, som hvor vigtig er Pris for computerkøbet, vægt fra 1 til 7 hvor 7 er højest/vigtigst.</p>
 <p>Dette datasæt er lille i forhold til hvad der er realistisk, da vi blot forsøger at illustrere analysen. Normalt vil man have mange variable og for at sikre en solid analyse flere respondenter.</p>
 <p>Læs datasættet ind i R, dette kan du gøre ved at copy paste nedenstående direkte ind i R:</p>
@@ -340,10 +340,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## The degrees of freedom for the model is 0 and the fit was 0.0188</code></pre>
 <p>Nu forklares 70.5% af variationen i datamaterialet altså ud fra de 3 faktorer.</p>
 <div id="hvor-mange-faktorer-br-benyttes" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> Hvor mange faktorer bør benyttes?</h3>
+<h3><span class="header-section-number">5.1.1</span> Hvor mange faktorer bør benyttes?</h3>
 <p>Der er ingen fast regel for hvor mange faktorer der bør benyttes. Der er flere forskelle metoder til bestemmelse af antallet af faktorer.</p>
 <div id="metode-1-eigenvalues" class="section level4">
-<h4><span class="header-section-number">4.1.1.1</span> Metode 1 Eigenvalues</h4>
+<h4><span class="header-section-number">5.1.1.1</span> Metode 1 Eigenvalues</h4>
 <p>Vi kan se på Eigenvalues antallet af faktorer bestemmes af antallet af Eigenvalues større end 1, det er denne metode fx. SPSS benytter. Vi får her kun 2 faktorer, denne metode er ofte lidt konservativ, således at vi får færre faktorer end med de øvrige metoder. Eigenvalues udtrykker hvor meget af datamaterialets samlede varians, der dækkes af den pågældende faktor. Eigenvalues er standardiserede således at summen giver antallet af variable, herunder ses at summen er 6, da der er 6 variable i datasættet. Vi ser hvor stor en del af variationen hver faktor forklarer, når der er 6 faktorer. Faktor 5 og faktor 6 bibringer meget lidt yderligere forklaring af variationen.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">ev &lt;-<span class="st"> </span><span class="kw">eigen</span>(<span class="kw">cor</span>(data))</a>
 <a class="sourceLine" id="cb16-2" data-line-number="2">ev<span class="op">$</span>values</a></code></pre></div>
@@ -357,7 +357,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-10-1.svg" width="672" /></p>
 </div>
 <div id="opgave" class="section level4">
-<h4><span class="header-section-number">4.1.1.2</span> Opgave</h4>
+<h4><span class="header-section-number">5.1.1.2</span> Opgave</h4>
 <p>Hent nu filen personality, hvor 240 Stanford studerende har svaret på i hvor høj grad de mener at besidde 32 forskellige personlighedstræk. 1 til 8 hvor 1 er mindst og 8 er mest. Foretag hvis en test viser dette er fordelagtigt en faktoranalyse.</p>
 <p>Download nedenstående fil og importer den via File - Import Dataset -</p>
 <p><a href="https://drive.google.com/file/d/0B1E7VnhxsDMlWG1aV2dvazRjclk/view?usp=sharing" class="uri">https://drive.google.com/file/d/0B1E7VnhxsDMlWG1aV2dvazRjclk/view?usp=sharing</a></p>

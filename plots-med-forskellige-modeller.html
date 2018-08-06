@@ -148,17 +148,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#selvtest"><i class="fa fa-check"></i><b>2.5</b> Selvtest</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="cran-r.html"><a href="cran-r.html"><i class="fa fa-check"></i><b>3</b> Cran R</a></li>
-<li class="chapter" data-level="4" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>4</b> Faktoranalyse</a><ul>
-<li class="chapter" data-level="4.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>4.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>4.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
+<li class="chapter" data-level="3" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>3</b> ANOVA</a><ul>
+<li class="chapter" data-level="3.1" data-path="anova.html"><a href="anova.html#selvtest-1"><i class="fa fa-check"></i><b>3.1</b> Selvtest</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cran-r.html"><a href="cran-r.html"><i class="fa fa-check"></i><b>4</b> Cran R</a></li>
+<li class="chapter" data-level="5" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>5</b> Faktoranalyse</a><ul>
+<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>5</b> Klyngeanalyse</a></li>
-<li class="chapter" data-level="6" data-path="us-arrestationer-samt-urbaniseringsgrad.html"><a href="us-arrestationer-samt-urbaniseringsgrad.html"><i class="fa fa-check"></i><b>6</b> US arrestationer samt urbaniseringsgrad</a></li>
-<li class="chapter" data-level="7" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>7</b> ANOVA</a><ul>
-<li class="chapter" data-level="7.1" data-path="anova.html"><a href="anova.html#selvtest-1"><i class="fa fa-check"></i><b>7.1</b> Selvtest</a></li>
-</ul></li>
+<li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a></li>
+<li class="chapter" data-level="7" data-path="us-arrestationer-samt-urbaniseringsgrad.html"><a href="us-arrestationer-samt-urbaniseringsgrad.html"><i class="fa fa-check"></i><b>7</b> US arrestationer samt urbaniseringsgrad</a></li>
 <li class="chapter" data-level="8" data-path="kvantitative-metoder.html"><a href="kvantitative-metoder.html"><i class="fa fa-check"></i><b>8</b> Kvantitative metoder</a></li>
 <li class="chapter" data-level="9" data-path="arima000.html"><a href="arima000.html"><i class="fa fa-check"></i><b>9</b> ARIMA(0,0,0)</a></li>
 <li class="chapter" data-level="10" data-path="arima100-eller-ar1-autoregression.html"><a href="arima100-eller-ar1-autoregression.html"><i class="fa fa-check"></i><b>10</b> ARIMA(1,0,0) eller AR(1) autoregression</a></li>
@@ -194,15 +194,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapitel 13</span> Plots med forskellige modeller</h1>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <pre><code>## Series: ap1 
-## ARIMA(0,1,1) with drift 
+## ARIMA(0,1,1) 
 ## 
 ## Coefficients:
-##           ma1    drift
-##       -0.8053  -1.2890
-## s.e.   0.0970   0.2413
+##           ma1
+##       -0.6074
+## s.e.   0.1135
 ## 
-## sigma^2 estimated as 65.95:  log likelihood=-175.17
-## AIC=356.35   AICc=356.87   BIC=362.08</code></pre>
+## sigma^2 estimated as 75.24:  log likelihood=-178.69
+## AIC=361.38   AICc=361.63   BIC=365.2</code></pre>
 <p>Kursen svinger omkring middelværdien.</p>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 <pre><code>## Series: ap2 
@@ -210,35 +210,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Coefficients:
 ##          ar1
-##       0.5388
-## s.e.  0.1169
+##       0.6318
+## s.e.  0.1077
 ## 
-## sigma^2 estimated as 99.46:  log likelihood=-185.61
-## AIC=375.21   AICc=375.47   BIC=379.04</code></pre>
+## sigma^2 estimated as 129.4:  log likelihood=-192.26
+## AIC=388.52   AICc=388.78   BIC=392.35</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 <pre><code>## Series: ap3 
-## ARIMA(1,0,2) with non-zero mean 
+## ARIMA(1,0,1) with non-zero mean 
 ## 
 ## Coefficients:
-##          ar1     ma1      ma2      mean
-##       0.4458  0.0588  -0.4124  100.8390
-## s.e.  0.2682  0.2512   0.1359    0.8685
+##           ar1     ma1     mean
+##       -0.2835  0.8176  99.4067
+## s.e.   0.0940  0.0536   0.9541
 ## 
-## sigma^2 estimated as 112.7:  log likelihood=-754.49
-## AIC=1518.97   AICc=1519.28   BIC=1535.46</code></pre>
+## sigma^2 estimated as 92.37:  log likelihood=-735.19
+## AIC=1478.37   AICc=1478.58   BIC=1491.57</code></pre>
 <p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
-<pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 201      107.18403 93.57902 120.7890 86.37696 127.9911
-## 202       96.92568 81.68648 112.1649 73.61934 120.2320
-## 203       99.09449 83.64344 114.5456 75.46414 122.7248
-## 204      100.06133 84.56852 115.5541 76.36712 123.7555
-## 205      100.49234 84.99124 115.9934 76.78545 124.1992
-## 206      100.68447 85.18173 116.1872 76.97507 124.3939
-## 207      100.77013 85.26706 116.2732 77.06023 124.4800
-## 208      100.80831 85.30518 116.3114 77.09831 124.5183
-## 209      100.82533 85.32218 116.3285 77.11531 124.5354
-## 210      100.83292 85.32977 116.3361 77.12290 124.5429</code></pre>
+<pre><code>##     Point Forecast    Lo 80     Hi 80    Lo 95    Hi 95
+## 201       87.40554 75.08863  99.72244 68.56845 106.2426
+## 202      102.80886 88.84528 116.77245 81.45340 124.1643
+## 203       98.44215 84.35458 112.52973 76.89707 119.9872
+## 204       99.68008 85.58259 113.77757 78.11983 121.2403
+## 205       99.32914 85.23085 113.42743 77.76767 120.8906
+## 206       99.42863 85.33027 113.52698 77.86706 120.9902
+## 207       99.40042 85.30207 113.49878 77.83885 120.9620
+## 208       99.40842 85.31006 113.50678 77.84684 120.9700
+## 209       99.40615 85.30779 113.50451 77.84457 120.9677
+## 210       99.40679 85.30844 113.50515 77.84522 120.9684</code></pre>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <p>#ARIMA af højere orden
