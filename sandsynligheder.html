@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-08-12">
+<meta name="date" content="2018-09-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
@@ -133,6 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li><a href="index.html#section"></a></li>
 <li class="chapter" data-level="1" data-path="sandsynligheder.html"><a href="sandsynligheder.html"><i class="fa fa-check"></i><b>1</b> Sandsynligheder</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#forenings--og-flleshndelser"><i class="fa fa-check"></i><b>1.0.1</b> Forenings- og fælleshændelser</a></li>
 <li class="chapter" data-level="1.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#betingede-sandsynligheder"><i class="fa fa-check"></i><b>1.1</b> Betingede sandsynligheder</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#race-og-ddsdom-eksempel"><i class="fa fa-check"></i><b>1.1.1</b> Race og dødsdom eksempel</a></li>
 </ul></li>
@@ -219,6 +221,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[\small P(Kaffe)=\frac{Antal\ kaffe-drikkere}{Antal\ adspurgte}=\frac{600}{800}=0.75=75\%\]</span></p>
 <p>På samme måde kan man finde sandsynligheden for at en person drikker the:</p>
 <p><span class="math display">\[\small P(The)=\frac{Antal\ the-drikkere}{Antal\ adspurgte}=\frac{400}{800}=0.5=50\%\]</span></p>
+<div id="forenings--og-flleshndelser" class="section level3">
+<h3><span class="header-section-number">1.0.1</span> Forenings- og fælleshændelser</h3>
+<p>Sandsynligheden for at en person drikker the eller kaffe, er en foreningshændelse (vi bruger symbolet <span class="math inline">\(\cup\)</span>), det skriver vi som:
+<span class="math display">\[P(The\cup Kaffe)=\frac{Antal\ the- eller\ kaffedrikkere}{Antal\ adspurgte}=\frac{800}{800}=1\]</span>
+Alle der kommer på denne cafe, drikker altså enten the eller kaffe.</p>
+<p>Sandsynligheden for at en person drikker the og kaffe, er en fælleshændelse (vi bruger symnolet<span class="math inline">\(\cap\)</span>), det skriver vi som:
+<span class="math display">\[P(The\cap Kaffe)=\frac{Antal\ the- og\  kaffedrikkere}{Antal\ adspurgte}=\frac{200}{800}=0.25\]</span></p>
+<p>Har man svært ved at huske betydningen af de 2 symboler. Så tænk på at foreningshændelsen <span class="math inline">\(\cup\)</span> (det ligner er jo en kop), kan rumme mere end fælleshændelsen <span class="math inline">\(\cap\)</span> (der er ikke meget plads på toppen).</p>
+</div>
 <div id="betingede-sandsynligheder" class="section level2">
 <h2><span class="header-section-number">1.1</span> Betingede sandsynligheder</h2>
 <p>Vi kan også se på en mindre gruppe af de adspurgte, hvis fx. man kun vil se på kaffedrikkerne kunne man ønske at undersøge, hvor stor en andel af kaffedrikkerne der både drikker the og kaffe. Vi siger at vi betinger med en hændelse, hvis vi ser på en sådan delmængde af de adspurgte. Betingede sandsynligheder kan formuleres på flere måder fx:</p>
@@ -277,7 +288,10 @@ Vi skal altså bestemme sandsynligheden for B givet A, med symboler skriver vi d
 </div>
 <div id="uafhngighed" class="section level2">
 <h2><span class="header-section-number">1.2</span> Uafhængighed</h2>
-<p>Vi kan sige at 2 hændelser A og B er uafhængige hvis sandsynligheden for at den ene hændelse indtræffer ikke påvirkes af om den anden hændelse indtræffer eller ej. Dette kan vi udtrykke vha. betingede sandsynligheder.</p>
+<p>Vi kan sige at 2 hændelser A og B er uafhængige hvis sandsynligheden for at den ene hændelse indtræffer ikke påvirkes af om den anden hændelse indtræffer eller ej.</p>
+<p>Sandsynligheden for at slå krone med en mønt og slå en sekser med en terning, er 2 hændelser der er uafhængige.</p>
+<p>Trækker man et es fra et spil kort, vil sandsynligheden for igen at trække et es være påvirket af det første træk. Disse hændelser er ikke uafhængige.</p>
+<p>Vi kan udtrykke uafhængige hændelser vha. betingede sandsynligheder.</p>
 <p><span class="math display">\[\small P(A\mid B)=P(A)\]</span>
 Her står sandsynligheden for A er den samme ligegyldigt om hændelsen B indtræffer eller ej.
 <span class="math display">\[\small P(B\mid A)=P(B)\]</span>
@@ -348,10 +362,12 @@ Vi inddeler nu skemaet ovenfor, med en variabel, der angiver offerets race.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>1.</strong> Hvad er sandsynligheden for at blive dødsdømt, hvis man er hvid tiltalt for at have dræbt en hvid?<br />
+<strong>1.</strong> Hvad er sandsynligheden for at blive dødsdømt, hvis man er hvid tiltalt for at have dræbt en hvid?<br />
 <strong>2.</strong> Hvad er sandsynligheden for at blive dødsdømt, givet man er sort tiltalt for at have dræbt en hvid?<br />
 <strong>3.</strong> Hvad er sandsynligheden for at blive dødsdømt, givet man er hvid tiltalt for at have dræbt en sort?<br />
-<strong>4.</strong> Hvad er sandsynligheden for at blive dødsdømt, når man er sort tiltalt for at have dræbt en sort?</p>
+<strong>4.</strong> Hvad er sandsynligheden for at blive dødsdømt, når man er sort tiltalt for at have dræbt en sort?<br />
+<strong>5.</strong> Hvad er sandsynligheden for at blive dødsdømt og ikke blive dødsdømt, når man er hvid?
+<strong>6.</strong> Hvad er sandsynligheden for at blive dødsdømt eller ikke blive dødsdømt, når man er hvid?
 </details>
 <br>
 <details>
@@ -366,7 +382,163 @@ Vi inddeler nu skemaet ovenfor, med en variabel, der angiver offerets race.</p>
 <strong>4.</strong> Sandsynligheden for at blive dødsdømt, når man er sort tiltalt for at have dræbt en sort kan udregnes til
 <span class="math display">\[\small P(Dø\ dsdø\ mt \mid sort\ tiltalt\ og\ sort\ offer)=\frac{4}{143}=0.0280\]</span></p>
 <p>Vi ser nu at der synes at være større sandsynlighed for dødsdom for sorte end for hvide, denne effekt kommer først frem når vi kontrollerer for offer race. Man kalder dette for Simpsons paradoks.</p>
+<p><strong>5.</strong> Sandsynligheden for at blive dødsdømt og ikke blive dødsdømt når man er hvid, er 0, der er ingen hvide der både bliver dødsdømte og ikke dødsdømte. Fællesmængden mellem de 2 hændelser er tom.</p>
+<p><strong>6.</strong> Sandsynligheden for at blive dødsdømt eller ikke blive dødsdømt når man er hvid er 1, alle hvide tiltalte bliver enten dødsdømte eller ikke dødsdømte. Foreningsmængden for de 2 hændelser er alle de mulige udfald. Man kan kun blive dødsdømt eller ikke dødsdømt.</p>
 </details>
+<br>
+<details>
+<p><summary>Spørgsmål utroskab og skolegang</summary></p>
+<p>Herunder er angivet tro og utro personer delt på Uddannelsesniveau. Data stammer fra en kendt amerikansk undersøgelse om utroskab fra 1969. Man har interviewet 601 respondenter om religiøsitet, antal affærer uddannelsesniveau etc.</p>
+<p>Uddannelseniveauet er stigende, hvor Grundskole er lavest og Phd højest. KVU betyder kortere videregående uddannelse.</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="border-bottom:hidden" colspan="1">
+</th>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="8">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+Uddannelsesniveau
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);">
+</th>
+<th style="text-align:right;-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);">
+Basis
+</th>
+<th style="text-align:right;-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);">
+Gymnasie
+</th>
+<th style="text-align:right;-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);">
+KVU1
+</th>
+<th style="text-align:right;-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);">
+KVU2
+</th>
+<th style="text-align:right;-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);">
+KVU3
+</th>
+<th style="text-align:right;-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);">
+Master
+</th>
+<th style="text-align:right;-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);">
+Phd.
+</th>
+<th style="text-align:right;-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Antal utro
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+119
+</td>
+<td style="text-align:right;">
+95
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: Black;">
+451
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Antal tro
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: Black;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: white;background-color: Black;">
+Total
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: Black;">
+7
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: Black;">
+44
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: Black;">
+154
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: Black;">
+115
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: Black;">
+89
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: Black;">
+112
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: Black;">
+80
+</td>
+<td style="text-align:right;font-weight: bold;color: white;background-color: Black;font-weight: bold;color: white;background-color: Black;">
+601
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.</strong> Hvad er sandsynligheden for at man er utro?</p>
+<p><strong>2.</strong> Hvad er sandsynligheden for man er tro?</p>
+<p><strong>3.</strong> Hvad er sandsynligheden for at man er utro eller tro?</p>
+<p><strong>4.</strong> Hvad er sandsynligheden for at man er utro og tro?</p>
+<p><strong>5.</strong> Hvad er sandsynligheden for at man er utro, givet man har en Phd?</p>
+<p><strong>6.</strong> Hvad er sandsynligheden for at man har en Phd?</p>
+<p><strong>7.</strong> Hvad er sandsynligheden for at man har en Phd eller Kandidatgrad og er tro?</p>
+<p><strong>8.</strong> Hvad er sandsynligheden for at man har en Phd, når man er tro?</p>
+<p><strong>9.</strong> Hvad er sandsynligheden for at man har en Phd eller Kandidatgrad, når man er tro?</p>
+<p><strong>10.</strong> Hvad er sandsynligheden for at man har en Phd og Kandidatgrad, givet man er tro?</p>
+<p><strong>11.</strong> Når man er utro, hvad er da sandsynligheden for, at man har en Kandidatgrad?</p>
+<p><strong>12.</strong> Når man er tro, hvad er da sandsynligheden for, at man har en Phd?</p>
+</details>
+<p><br>
+<!-- <details>  -->
+<!--   <summary>Svar utroskab og skolegang</summary> --></p>
+<!-- </details>  -->
+<p><br>
+<br></p>
 </div>
 </div>
             </section>

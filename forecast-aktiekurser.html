@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-08-12">
+<meta name="date" content="2018-09-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
@@ -133,6 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li><a href="index.html#section"></a></li>
 <li class="chapter" data-level="1" data-path="sandsynligheder.html"><a href="sandsynligheder.html"><i class="fa fa-check"></i><b>1</b> Sandsynligheder</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#forenings--og-flleshndelser"><i class="fa fa-check"></i><b>1.0.1</b> Forenings- og fælleshændelser</a></li>
 <li class="chapter" data-level="1.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#betingede-sandsynligheder"><i class="fa fa-check"></i><b>1.1</b> Betingede sandsynligheder</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#race-og-ddsdom-eksempel"><i class="fa fa-check"></i><b>1.1.1</b> Race og dødsdom eksempel</a></li>
 </ul></li>
@@ -196,93 +198,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="kw">getSymbols</span>(<span class="st">&quot;GOOG&quot;</span>,<span class="dt">from =</span> <span class="st">&quot;2017-01-01&quot;</span>, <span class="dt">to =</span> <span class="kw">Sys.Date</span>(),<span class="dt">getSymbols.warning4.0=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;GOOG&quot;</code></pre>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="kw">plot</span>(GOOG[,<span class="dv">6</span>],<span class="dt">main =</span> <span class="st">&quot;Google adj. close&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">agoog &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(GOOG[,<span class="dv">6</span>])</a>
 <a class="sourceLine" id="cb112-2" data-line-number="2">agoog</a></code></pre></div>
 <pre><code>## Series: GOOG[, 6] 
 ## ARIMA(0,1,1) with drift 
 ## 
 ## Coefficients:
-##         ma1   drift
-##       0.089  1.1152
-## s.e.  0.053  0.7130
+##          ma1   drift
+##       0.0838  1.0289
+## s.e.  0.0519  0.6978
 ## 
-## sigma^2 estimated as 174.1:  log likelihood=-1614.52
-## AIC=3235.03   AICc=3235.09   BIC=3247.04</code></pre>
+## sigma^2 estimated as 174.6:  log likelihood=-1675.04
+## AIC=3356.09   AICc=3356.15   BIC=3368.2</code></pre>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1">fagoog &lt;-<span class="st"> </span><span class="kw">forecast</span>(agoog)</a>
 <a class="sourceLine" id="cb114-2" data-line-number="2">fagoog</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 406       1237.585 1220.674 1254.495 1211.722 1263.447
-## 407       1238.700 1213.698 1263.702 1200.462 1276.938
-## 408       1239.815 1208.763 1270.868 1192.325 1287.306
-## 409       1240.931 1204.828 1277.033 1185.716 1296.145
-## 410       1242.046 1201.517 1282.574 1180.063 1304.029
-## 411       1243.161 1198.645 1287.677 1175.079 1311.243
-## 412       1244.276 1196.101 1292.451 1170.599 1317.954
-## 413       1245.391 1193.816 1296.967 1166.514 1324.269
-## 414       1246.507 1191.742 1301.271 1162.752 1330.262
-## 415       1247.622 1189.844 1305.400 1159.258 1335.986</code></pre>
+## 421       1217.467 1200.535 1234.400 1191.571 1243.363
+## 422       1218.496 1193.526 1243.466 1180.307 1256.685
+## 423       1219.525 1188.536 1250.514 1172.131 1266.919
+## 424       1220.554 1184.538 1256.569 1165.473 1275.635
+## 425       1221.583 1181.161 1262.005 1159.763 1283.403
+## 426       1222.612 1178.219 1267.005 1154.718 1290.505
+## 427       1223.640 1175.604 1271.677 1150.174 1297.106
+## 428       1224.669 1173.246 1276.092 1146.024 1303.314
+## 429       1225.698 1171.098 1280.298 1142.195 1309.201
+## 430       1226.727 1169.125 1284.329 1138.633 1314.821</code></pre>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="kw">plot</span>(fagoog,<span class="dt">main =</span> <span class="st">&quot;Google adj. close&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-65-2.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-66-2.png" width="672" /></p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="kw">require</span>(<span class="st">&quot;quantmod&quot;</span>)</a>
 <a class="sourceLine" id="cb117-2" data-line-number="2"><span class="kw">getSymbols</span>(<span class="st">&quot;GS&quot;</span>,<span class="dt">from =</span> <span class="st">&quot;2017-01-01&quot;</span>, <span class="dt">to =</span> <span class="kw">Sys.Date</span>(),<span class="dt">getSymbols.warning4.0=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;GS&quot;</code></pre>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="kw">plot</span>(GS[,<span class="dv">6</span>],<span class="dt">main =</span> <span class="st">&quot;Goldman Sachs adj. close&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1">ags &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(GS[,<span class="dv">6</span>])</a>
 <a class="sourceLine" id="cb120-2" data-line-number="2">ags</a></code></pre></div>
 <pre><code>## Series: GS[, 6] 
 ## ARIMA(0,1,0) 
 ## 
-## sigma^2 estimated as 9.948:  log likelihood=-1037.32
-## AIC=2076.64   AICc=2076.65   BIC=2080.64</code></pre>
+## sigma^2 estimated as 9.806:  log likelihood=-1072.82
+## AIC=2147.64   AICc=2147.65   BIC=2151.67</code></pre>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1">fags &lt;-<span class="st"> </span><span class="kw">forecast</span>(ags)</a>
 <a class="sourceLine" id="cb122-2" data-line-number="2">fags</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 406         229.61 225.5679 233.6521 223.4282 235.7919
-## 407         229.61 223.8936 235.3264 220.8675 238.3525
-## 408         229.61 222.6089 236.6111 218.9027 240.3173
-## 409         229.61 221.5258 237.6942 217.2463 241.9737
-## 410         229.61 220.5716 238.6484 215.7870 243.4330
-## 411         229.61 219.7089 239.5111 214.4676 244.7524
-## 412         229.61 218.9156 240.3044 213.2544 245.9656
-## 413         229.61 218.1772 241.0428 212.1251 247.0949
-## 414         229.61 217.4837 241.7363 211.0645 248.1556
-## 415         229.61 216.8278 242.3922 210.0613 249.1587</code></pre>
+## 421         237.81 233.7969 241.8231 231.6725 243.9475
+## 422         237.81 232.1346 243.4854 229.1303 246.4897
+## 423         237.81 230.8591 244.7609 227.1795 248.4405
+## 424         237.81 229.7838 245.8362 225.5350 250.0850
+## 425         237.81 228.8364 246.7836 224.0861 251.5339
+## 426         237.81 227.9800 247.6400 222.7762 252.8438
+## 427         237.81 227.1923 248.4277 221.5717 254.0483
+## 428         237.81 226.4592 249.1608 220.4505 255.1695
+## 429         237.81 225.7707 249.8493 219.3975 256.2225
+## 430         237.81 225.1195 250.5005 218.4015 257.2185</code></pre>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="kw">plot</span>(fags,<span class="dt">main =</span> <span class="st">&quot;Goldman Sachs adj. close&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-66-2.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-67-2.png" width="672" /></p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="kw">require</span>(<span class="st">&quot;quantmod&quot;</span>)</a>
 <a class="sourceLine" id="cb125-2" data-line-number="2"><span class="kw">getSymbols</span>(<span class="st">&quot;DANSKE.CO&quot;</span>,<span class="dt">from =</span> <span class="st">&quot;2017-01-01&quot;</span>, <span class="dt">to =</span> <span class="kw">Sys.Date</span>(),<span class="dt">getSymbols.warning4.0=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;DANSKE.CO&quot;</code></pre>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="kw">plot</span>(DANSKE.CO[,<span class="dv">6</span>],<span class="dt">main =</span> <span class="st">&quot;Danske Bank adj. close&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1">addb &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(DANSKE.CO[,<span class="dv">6</span>])</a>
 <a class="sourceLine" id="cb128-2" data-line-number="2">addb</a></code></pre></div>
 <pre><code>## Series: DANSKE.CO[, 6] 
-## ARIMA(0,2,1) 
+## ARIMA(1,2,0) 
 ## 
 ## Coefficients:
-##           ma1
-##       -0.9899
-## s.e.   0.0070
+##           ar1
+##       -0.5282
+## s.e.   0.0421
 ## 
-## sigma^2 estimated as 6.276:  log likelihood=-931.91
-## AIC=1867.81   AICc=1867.85   BIC=1875.8</code></pre>
+## sigma^2 estimated as 9.569:  log likelihood=-1052.87
+## AIC=2109.74   AICc=2109.77   BIC=2117.8</code></pre>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1">faddb &lt;-<span class="st"> </span><span class="kw">forecast</span>(addb)</a>
 <a class="sourceLine" id="cb130-2" data-line-number="2">faddb</a></code></pre></div>
-<pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 403       183.1861 179.9756 186.3966 178.2760 188.0962
-## 404       182.8722 178.3088 187.4356 175.8931 189.8513
-## 405       182.5583 176.9411 188.1755 173.9675 191.1491
-## 406       182.2444 175.7255 188.7632 172.2746 192.2141
-## 407       181.9305 174.6056 189.2553 170.7280 193.1329
-## 408       181.6166 173.5524 189.6807 169.2835 193.9496
-## 409       181.3027 172.5490 190.0563 167.9151 194.6902
-## 410       180.9887 171.5842 190.3933 166.6058 195.3717
-## 411       180.6748 170.6505 190.6992 165.3439 196.0058
-## 412       180.3609 169.7422 190.9796 164.1210 196.6008</code></pre>
+<pre><code>##     Point Forecast    Lo 80    Hi 80     Lo 95    Hi 95
+## 418       187.2734 183.3089 191.2378 181.21030 193.3364
+## 419       184.8713 177.8171 191.9254 174.08288 195.6597
+## 420       182.8524 171.5653 194.1395 165.59024 200.1146
+## 421       180.6311 164.7278 196.5345 156.30905 204.9532
+## 422       178.5167 157.3922 199.6412 146.20959 210.8239
+## 423       176.3459 149.5768 203.1150 135.40603 217.2857
+## 424       174.2049 141.3400 207.0697 123.94242 224.4673
+## 425       172.0481 132.6961 211.4001 111.86443 232.2317
+## 426       169.8996 123.6775 216.1218  99.20893 240.5903
+## 427       167.7468 114.2987 221.1948  86.00506 249.4885</code></pre>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="kw">plot</span>(faddb,<span class="dt">main =</span> <span class="st">&quot;Danske Bank adj. close&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-67-2.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-68-2.png" width="672" /></p>
 
 </div>
             </section>

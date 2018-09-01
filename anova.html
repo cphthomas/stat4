@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-08-12">
+<meta name="date" content="2018-09-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
@@ -133,6 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li><a href="index.html#section"></a></li>
 <li class="chapter" data-level="1" data-path="sandsynligheder.html"><a href="sandsynligheder.html"><i class="fa fa-check"></i><b>1</b> Sandsynligheder</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#forenings--og-flleshndelser"><i class="fa fa-check"></i><b>1.0.1</b> Forenings- og fælleshændelser</a></li>
 <li class="chapter" data-level="1.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#betingede-sandsynligheder"><i class="fa fa-check"></i><b>1.1</b> Betingede sandsynligheder</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="sandsynligheder.html"><a href="sandsynligheder.html#race-og-ddsdom-eksempel"><i class="fa fa-check"></i><b>1.1.1</b> Race og dødsdom eksempel</a></li>
 </ul></li>
@@ -239,7 +241,7 @@ Vi undersøger om k populationer har samme middelværdi, hypoteserne bliver:</p>
 <details>
 <p><summary>Spørgsmål 3 banker afkast</summary></p>
 <p>Hent datasættet <a href="3 Danske Banker Ugeafkast i procent.xls" download>3 Danske Banker Ugeafkast i procent</a>
-, i dette datasæt er de seneste 241 ugers afkast i procent for hhv. Danske Bank, Jyske Bank og Sydbank. Er der signifikant forskel på afkastene på de 3 bankaktier?</p>
+, i dette datasæt er de seneste 244 ugers afkast i procent for hhv. Danske Bank, Jyske Bank og Sydbank. Er der signifikant forskel på afkastene på de 3 bankaktier?</p>
 </details>
 <br>
 <details>
@@ -258,21 +260,21 @@ Vi opstiller hypoteserne for test af om middelværdierne er identiske:
 <tbody>
 <tr class="odd">
 <td align="left">Danske Bank - Jyske Bank</td>
-<td align="left">0.12</td>
+<td align="left">0.17</td>
 </tr>
 <tr class="even">
 <td align="left">Danske Bank - Sydbank</td>
-<td align="left">0.03</td>
+<td align="left">0.04</td>
 </tr>
 <tr class="odd">
 <td align="left">Jyske Bank - Sydbank</td>
-<td align="left">0.15</td>
+<td align="left">0.12</td>
 </tr>
 </tbody>
 </table>
 <p>Vi skal tjekke forudsætningen om varianshomogenitet</p>
 <p><span class="math display">\[H_0:\sigma_{Danske Bank}=\sigma_{Jyske Bank}=\sigma_{Sydbank}\]</span><span class="math display">\[H_1:Ikke\ alle\ varianser\ er\ ens\ for\ de\ 3\ banker.\]</span></p>
-<p>Vi får en teststørrelse på 8.8152647. Chi i anden testet giver os en p-værdi på 0.012184, hvilket er mindre end signifikanssandsynligheden på 0.05, vi afviser nulhypotesen. Varianserne er ikke ens, så forudsætningen er ikke opfyldt. Vi kan således have problemer med kvaliteten af analysen.</p>
+<p>Vi får en teststørrelse på 12.5297392. Chi i anden testet giver os en p-værdi på 0.001902, hvilket er mindre end signifikanssandsynligheden på 0.05, vi afviser nulhypotesen. Varianserne er ikke ens, så forudsætningen er ikke opfyldt. Vi kan således have problemer med kvaliteten af analysen.</p>
 <p>Normalitet</p>
 <p><img src="bookdown-demo_files/figure-html/qqplotbank-1.svg" width="864" /></p>
 <p>Vi kan grafisk sammenligne middelværdierne for ugeafkastet for de 3 banker i boxplots , her ser vi der ikke er stor forskel på middelværdierne. Middelværdierne er markeret med orange prikker.</p>
