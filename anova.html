@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-09-01">
+<meta name="date" content="2018-09-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -241,15 +241,15 @@ Vi undersøger om k populationer har samme middelværdi, hypoteserne bliver:</p>
 <details>
 <p><summary>Spørgsmål 3 banker afkast</summary></p>
 <p>Hent datasættet <a href="3 Danske Banker Ugeafkast i procent.xls" download>3 Danske Banker Ugeafkast i procent</a>
-, i dette datasæt er de seneste 244 ugers afkast i procent for hhv. Danske Bank, Jyske Bank og Sydbank. Er der signifikant forskel på afkastene på de 3 bankaktier?</p>
+, i dette datasæt er de seneste 247 ugers afkast i procent for hhv. Danske Bank, Jyske Bank og Sydbank. Er der signifikant forskel på afkastene på de 3 bankaktier?</p>
 </details>
 <br>
 <details>
 <p><summary>Svar 3 banker afkast</summary>
 Vi opstiller hypoteserne for test af om middelværdierne er identiske:
 <span class="math display">\[H_0:\mu_{Danske Bank}=\mu_{Jyske Bank}=\mu_{Sydbank}\]</span><span class="math display">\[H_1:Ikke\ alle\ middelvæ\ rdier\ er\ ens\ for\ de\ 3\ banker\]</span></p>
-<p>Vi får variationen i grupperne SSW til 296772869957.892 og variationen mellem grupperne SSA til 15155248763.2056. Dette giver en F-teststørrelse på 6.0429 der resulterer i p-værdi på 0.0005. Vi kan altså ikke forkaste altså nulhypotesen om ens middelværdier.</p>
-<p>Vi kan da også se at de absolutte forskelle mellem stikprøvegennemsnittene er relativt små:</p>
+<p>Vi får variationen i grupperne SSW til 6516.0012 og variationen mellem grupperne SSA til 2.8799. Dette giver en F-teststørrelse på 0.1631 der resulterer i p-værdi på 0.8495. Vi kan altså ikke forkaste altså nulhypotesen om ens middelværdier.</p>
+<p>Vi kan da se at de absolutte forskelle mellem stikprøvegennemsnittene er relativt små:</p>
 <table>
 <thead>
 <tr class="header">
@@ -260,21 +260,21 @@ Vi opstiller hypoteserne for test af om middelværdierne er identiske:
 <tbody>
 <tr class="odd">
 <td align="left">Danske Bank - Jyske Bank</td>
-<td align="left">0.17</td>
+<td align="left">0.14</td>
 </tr>
 <tr class="even">
 <td align="left">Danske Bank - Sydbank</td>
-<td align="left">0.04</td>
+<td align="left">0.01</td>
 </tr>
 <tr class="odd">
 <td align="left">Jyske Bank - Sydbank</td>
-<td align="left">0.12</td>
+<td align="left">0.13</td>
 </tr>
 </tbody>
 </table>
 <p>Vi skal tjekke forudsætningen om varianshomogenitet</p>
 <p><span class="math display">\[H_0:\sigma_{Danske Bank}=\sigma_{Jyske Bank}=\sigma_{Sydbank}\]</span><span class="math display">\[H_1:Ikke\ alle\ varianser\ er\ ens\ for\ de\ 3\ banker.\]</span></p>
-<p>Vi får en teststørrelse på 12.5297392. Chi i anden testet giver os en p-værdi på 0.001902, hvilket er mindre end signifikanssandsynligheden på 0.05, vi afviser nulhypotesen. Varianserne er ikke ens, så forudsætningen er ikke opfyldt. Vi kan således have problemer med kvaliteten af analysen.</p>
+<p>Vi får en teststørrelse på 10.5224152. Chi i anden testet giver os en p-værdi på 0.005189, hvilket er mindre end signifikanssandsynligheden på 0.05, vi afviser nulhypotesen. Varianserne er ikke ens, så forudsætningen er ikke opfyldt. Vi har således problemer med kvaliteten af analysen.</p>
 <p>Normalitet</p>
 <p><img src="bookdown-demo_files/figure-html/qqplotbank-1.svg" width="864" /></p>
 <p>Vi kan grafisk sammenligne middelværdierne for ugeafkastet for de 3 banker i boxplots , her ser vi der ikke er stor forskel på middelværdierne. Middelværdierne er markeret med orange prikker.</p>
