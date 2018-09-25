@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-09-18">
+<meta name="date" content="2018-09-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,7 +153,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>3</b> ANOVA</a><ul>
 <li class="chapter" data-level="3.1" data-path="anova.html"><a href="anova.html#selvtest-1"><i class="fa fa-check"></i><b>3.1</b> Selvtest</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="cran-r.html"><a href="cran-r.html"><i class="fa fa-check"></i><b>4</b> Cran R</a></li>
+<li class="chapter" data-level="4" data-path="cran-r.html"><a href="cran-r.html"><i class="fa fa-check"></i><b>4</b> Cran R</a><ul>
+<li class="chapter" data-level="4.1" data-path="cran-r.html"><a href="cran-r.html#r-video-tutorials"><i class="fa fa-check"></i><b>4.1</b> R video-tutorials</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>5</b> Faktoranalyse</a><ul>
 <li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
@@ -206,24 +208,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Coefficients:
 ##          ma1
-##       0.0937
-## s.e.  0.0505
+##       0.0874
+## s.e.  0.0501
 ## 
-## sigma^2 estimated as 174.6:  log likelihood=-1715.59
-## AIC=3435.18   AICc=3435.21   BIC=3443.3</code></pre>
+## sigma^2 estimated as 174.7:  log likelihood=-1735.75
+## AIC=3475.5   AICc=3475.53   BIC=3483.65</code></pre>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1">fagoog &lt;-<span class="st"> </span><span class="kw">forecast</span>(agoog)</a>
 <a class="sourceLine" id="cb114-2" data-line-number="2">fagoog</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 431       1154.542 1137.608 1171.476 1128.643 1180.441
-## 432       1154.542 1129.446 1179.638 1116.162 1192.923
-## 433       1154.542 1123.352 1185.732 1106.841 1202.243
-## 434       1154.542 1118.268 1190.817 1099.065 1210.019
-## 435       1154.542 1113.813 1195.271 1092.252 1216.832
-## 436       1154.542 1109.800 1199.285 1086.114 1222.970
-## 437       1154.542 1106.118 1202.966 1080.484 1228.601
-## 438       1154.542 1102.697 1206.387 1075.252 1233.833
-## 439       1154.542 1099.488 1209.596 1070.344 1238.740
-## 440       1154.542 1096.456 1212.628 1065.707 1243.377</code></pre>
+## 436       1174.175 1157.234 1191.116 1148.267 1200.083
+## 437       1174.175 1149.149 1199.202 1135.900 1212.450
+## 438       1174.175 1143.100 1205.250 1126.650 1221.700
+## 439       1174.175 1138.050 1210.300 1118.927 1229.423
+## 440       1174.175 1133.624 1214.726 1112.158 1236.192
+## 441       1174.175 1129.636 1218.714 1106.059 1242.291
+## 442       1174.175 1125.977 1222.373 1100.463 1247.887
+## 443       1174.175 1122.577 1225.773 1095.262 1253.088
+## 444       1174.175 1119.387 1228.963 1090.384 1257.966
+## 445       1174.175 1116.373 1231.977 1085.775 1262.575</code></pre>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="kw">plot</span>(fagoog,<span class="dt">main =</span> <span class="st">&quot;Google adj. close&quot;</span>)</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-66-2.png" width="672" /></p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="kw">require</span>(<span class="st">&quot;quantmod&quot;</span>)</a>
@@ -236,21 +238,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Series: GS[, 6] 
 ## ARIMA(0,1,0) 
 ## 
-## sigma^2 estimated as 9.632:  log likelihood=-1094.58
-## AIC=2191.17   AICc=2191.18   BIC=2195.23</code></pre>
+## sigma^2 estimated as 9.658:  log likelihood=-1107.92
+## AIC=2217.83   AICc=2217.84   BIC=2221.91</code></pre>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1">fags &lt;-<span class="st"> </span><span class="kw">forecast</span>(ags)</a>
 <a class="sourceLine" id="cb122-2" data-line-number="2">fags</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 431         227.89 223.9126 231.8674 221.8072 233.9728
-## 432         227.89 222.2652 233.5148 219.2876 236.4924
-## 433         227.89 221.0010 234.7790 217.3542 238.4258
-## 434         227.89 219.9353 235.8447 215.7243 240.0557
-## 435         227.89 218.9964 236.7836 214.2883 241.4917
-## 436         227.89 218.1475 237.6325 212.9901 242.7899
-## 437         227.89 217.3669 238.4131 211.7963 243.9837
-## 438         227.89 216.6403 239.1397 210.6851 245.0949
-## 439         227.89 215.9579 239.8221 209.6415 246.1385
-## 440         227.89 215.3125 240.4675 208.6544 247.1256</code></pre>
+## 436          232.9 228.9174 236.8826 226.8091 238.9909
+## 437          232.9 227.2677 238.5323 224.2861 241.5139
+## 438          232.9 226.0019 239.7981 222.3502 243.4498
+## 439          232.9 224.9347 240.8653 220.7182 245.0818
+## 440          232.9 223.9945 241.8054 219.2803 246.5197
+## 441          232.9 223.1446 242.6554 217.9803 247.8196
+## 442          232.9 222.3629 243.4371 216.7849 249.0151
+## 443          232.9 221.6354 244.1646 215.6723 250.1277
+## 444          232.9 220.9521 244.8479 214.6272 251.1728
+## 445          232.9 220.3058 245.4942 213.6388 252.1612</code></pre>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="kw">plot</span>(fags,<span class="dt">main =</span> <span class="st">&quot;Goldman Sachs adj. close&quot;</span>)</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-67-2.png" width="672" /></p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="kw">require</span>(<span class="st">&quot;quantmod&quot;</span>)</a>
@@ -261,28 +263,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1">addb &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(DANSKE.CO[,<span class="dv">6</span>])</a>
 <a class="sourceLine" id="cb128-2" data-line-number="2">addb</a></code></pre></div>
 <pre><code>## Series: DANSKE.CO[, 6] 
-## ARIMA(0,2,1) 
+## ARIMA(0,2,2) 
 ## 
 ## Coefficients:
-##           ma1
-##       -0.9901
-## s.e.   0.0065
+##           ma1     ma2
+##       -1.0818  0.0908
+## s.e.   0.0506  0.0504
 ## 
-## sigma^2 estimated as 6.691:  log likelihood=-1003.03
-## AIC=2010.07   AICc=2010.1   BIC=2018.18</code></pre>
+## sigma^2 estimated as 6.846:  log likelihood=-1015.22
+## AIC=2036.45   AICc=2036.5   BIC=2048.64</code></pre>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1">faddb &lt;-<span class="st"> </span><span class="kw">forecast</span>(addb)</a>
 <a class="sourceLine" id="cb130-2" data-line-number="2">faddb</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 429       169.5801 166.2652 172.8950 164.5104 174.6498
-## 430       169.2102 164.4989 173.9215 162.0050 176.4154
-## 431       168.8403 163.0417 174.6390 159.9720 177.7086
-## 432       168.4704 161.7417 175.1991 158.1797 178.7611
-## 433       168.1005 160.5406 175.6604 156.5386 179.6624
-## 434       167.7306 159.4086 176.0527 155.0031 180.4581
-## 435       167.3607 158.3280 176.3935 153.5463 181.1751
-## 436       166.9908 157.2874 176.6942 152.1507 181.8309
-## 437       166.6209 156.2790 176.9629 150.8043 182.4376
-## 438       166.2510 155.2970 177.2051 149.4983 183.0038</code></pre>
+## 433       176.3013 172.9417 179.6609 171.1632 181.4393
+## 434       176.0108 171.4536 180.5679 169.0412 182.9803
+## 435       175.7203 170.2034 181.2371 167.2830 184.1575
+## 436       175.4298 169.0822 181.7774 165.7219 185.1376
+## 437       175.1393 168.0442 182.2343 164.2884 185.9902
+## 438       174.8488 167.0655 182.6320 162.9453 186.7522
+## 439       174.5583 166.1313 182.9852 161.6704 187.4461
+## 440       174.2678 165.2321 183.3034 160.4489 188.0866
+## 441       173.9773 164.3611 183.5935 159.2706 188.6840
+## 442       173.6868 163.5133 183.8602 158.1278 189.2457</code></pre>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="kw">plot</span>(faddb,<span class="dt">main =</span> <span class="st">&quot;Danske Bank adj. close&quot;</span>)</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-68-2.png" width="672" /></p>
 
