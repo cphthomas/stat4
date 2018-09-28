@@ -143,12 +143,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html"><i class="fa fa-check"></i><b>2</b> Chi i anden tests</a><ul>
 <li class="chapter" data-level="2.1" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#goodness-of-fit-test"><i class="fa fa-check"></i><b>2.1</b> Goodness of fit test</a></li>
 <li class="chapter" data-level="2.2" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#forudstning"><i class="fa fa-check"></i><b>2.2</b> Forudsætning</a></li>
-<li class="chapter" data-level="2.3" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#chi-i-anden-test"><i class="fa fa-check"></i><b>2.3</b> Chi i anden test</a></li>
-<li class="chapter" data-level="2.4" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#chi-i-anden-test-2"><i class="fa fa-check"></i><b>2.4</b> Chi i anden test 2</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#uafhngighed-1"><i class="fa fa-check"></i><b>2.4.1</b> Uafhængighed</a></li>
-<li class="chapter" data-level="2.4.2" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#anmeldte-skader-fordelt-pa-regioner-og-antal-skader"><i class="fa fa-check"></i><b>2.4.2</b> Anmeldte skader fordelt på regioner og antal skader</a></li>
+<li class="chapter" data-level="2.3" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#chi-i-anden-test"><i class="fa fa-check"></i><b>2.3</b> Chi i anden test</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#uafhngighed-1"><i class="fa fa-check"></i><b>2.3.1</b> Uafhængighed</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#anmeldte-skader-fordelt-pa-regioner-og-antal-skader"><i class="fa fa-check"></i><b>2.3.2</b> Anmeldte skader fordelt på regioner og antal skader</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#selvtest"><i class="fa fa-check"></i><b>2.5</b> Selvtest</a></li>
+<li class="chapter" data-level="2.4" data-path="chi-i-anden-tests.html"><a href="chi-i-anden-tests.html#selvtest"><i class="fa fa-check"></i><b>2.4</b> Selvtest</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>3</b> ANOVA</a><ul>
 <li class="chapter" data-level="3.1" data-path="anova.html"><a href="anova.html#selvtest-1"><i class="fa fa-check"></i><b>3.1</b> Selvtest</a></li>
@@ -410,47 +409,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Vi kunne også have brugt kmeans metoden, her skal vi så angive hvor mange klynger, vi ønsker i analysen. Her benytter vi K-means og får 4 klynger med 12, 9, 7, 4 biler. Vi kan se at når vi sammenligner grupperne med antal cylindre stemmer disse fint overens.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">mtcarsCluster4 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(mtcars, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb62-2" data-line-number="2">mtcarsCluster4</a></code></pre></div>
-<pre><code>## K-means clustering with 4 clusters of sizes 16, 7, 4, 5
+<pre><code>## K-means clustering with 4 clusters of sizes 12, 4, 7, 9
 ## 
 ## Cluster means:
 ##        mpg      cyl     disp       hp     drat       wt     qsec        vs
-## 1 24.50000 4.625000 122.2937  96.8750 4.002500 2.518000 18.54312 0.7500000
-## 2 17.01429 7.428571 276.0571 150.7143 2.994286 3.601429 18.11857 0.2857143
-## 3 14.60000 8.000000 340.5000 272.2500 3.675000 3.537500 15.08750 0.0000000
-## 4 14.68000 8.000000 426.4000 200.0000 3.078000 4.660800 17.45800 0.0000000
-##       am  gear     carb
-## 1 0.6875 4.125 2.437500
-## 2 0.0000 3.000 2.142857
-## 3 0.5000 4.000 5.000000
-## 4 0.0000 3.000 3.200000
+## 1 22.33333 4.833333 137.6833 108.4167 3.894167 2.725250 18.32500 0.6666667
+## 2 31.00000 4.000000  76.1250  62.2500 4.327500 1.896250 19.19750 1.0000000
+## 3 17.01429 7.428571 276.0571 150.7143 2.994286 3.601429 18.11857 0.2857143
+## 4 14.64444 8.000000 388.2222 232.1111 3.343333 4.161556 16.40444 0.0000000
+##          am     gear     carb
+## 1 0.5833333 4.166667 2.833333
+## 2 1.0000000 4.000000 1.250000
+## 3 0.0000000 3.000000 2.142857
+## 4 0.2222222 3.444444 4.000000
 ## 
 ## Clustering vector:
 ##           Mazda RX4       Mazda RX4 Wag          Datsun 710 
 ##                   1                   1                   1 
 ##      Hornet 4 Drive   Hornet Sportabout             Valiant 
-##                   2                   4                   2 
+##                   3                   4                   3 
 ##          Duster 360           Merc 240D            Merc 230 
-##                   3                   1                   1 
-##            Merc 280           Merc 280C          Merc 450SE 
-##                   1                   1                   2 
-##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
-##                   2                   2                   4 
-## Lincoln Continental   Chrysler Imperial            Fiat 128 
-##                   4                   4                   1 
-##         Honda Civic      Toyota Corolla       Toyota Corona 
-##                   1                   1                   1 
-##    Dodge Challenger         AMC Javelin          Camaro Z28 
-##                   2                   2                   3 
-##    Pontiac Firebird           Fiat X1-9       Porsche 914-2 
 ##                   4                   1                   1 
+##            Merc 280           Merc 280C          Merc 450SE 
+##                   1                   1                   3 
+##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
+##                   3                   3                   4 
+## Lincoln Continental   Chrysler Imperial            Fiat 128 
+##                   4                   4                   2 
+##         Honda Civic      Toyota Corolla       Toyota Corona 
+##                   2                   2                   1 
+##    Dodge Challenger         AMC Javelin          Camaro Z28 
+##                   3                   3                   4 
+##    Pontiac Firebird           Fiat X1-9       Porsche 914-2 
+##                   4                   2                   1 
 ##        Lotus Europa      Ford Pantera L        Ferrari Dino 
-##                   1                   3                   1 
+##                   1                   4                   1 
 ##       Maserati Bora          Volvo 142E 
-##                   3                   1 
+##                   4                   1 
 ## 
 ## Within cluster sum of squares by cluster:
-## [1] 32837.997 11846.095  7654.146 10981.601
-##  (between_SS / total_SS =  89.8 %)
+## [1] 14626.8084   208.0365 11846.0950 46659.3172
+##  (between_SS / total_SS =  88.2 %)
 ## 
 ## Available components:
 ## 
@@ -459,18 +458,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [9] &quot;ifault&quot;</code></pre>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="kw">table</span>(mtcarsCluster4<span class="op">$</span>cluster, mtcars<span class="op">$</span>cyl)</a></code></pre></div>
 <pre><code>##    
-##      4  6  8
-##   1 11  5  0
-##   2  0  2  5
-##   3  0  0  4
-##   4  0  0  5</code></pre>
+##     4 6 8
+##   1 7 5 0
+##   2 4 0 0
+##   3 0 2 5
+##   4 0 0 9</code></pre>
 <p>Nedenfor ser vi på en inddeling med 3 klynger med henholdsvis 11, 4, 17 biler. Her passer klyngeinddelingen ikke helt så godt med antallet af cylindre.</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">mtcarsCluster3 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(mtcars, <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb66-2" data-line-number="2"><span class="kw">table</span>(mtcarsCluster3<span class="op">$</span>cluster, mtcars<span class="op">$</span>cyl)</a></code></pre></div>
 <pre><code>##    
 ##      4  6  8
-##   1  0  2  5
-##   2  0  0  9
+##   1  0  0  9
+##   2  0  2  5
 ##   3 11  5  0</code></pre>
 <!-- # Validering -->
 <!-- Skal man undersøge om grupperne er forskellige med hensyn til de forskellige variable, kan man benytte Anova, hvor klyngerne er den uafhængige variabel. Man skal da gerne have at klyngegennemsnittede er signifikant forskellige mht flere af variablene der indgår i analysen.  -->
