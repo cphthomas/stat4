@@ -200,13 +200,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="faktoranalyse" class="section level1">
 <h1><span class="header-section-number">Kapitel 5</span> Faktoranalyse</h1>
-<!-- http://yatani.jp/teaching/doku.php?id=hcistats:fa -->
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/292365661" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
 <p>Faktoranalyse FA er ligesom, klyngeanalyse vi ser på senere, en strukturanalyse, der belyser hvilke sammenhænge der er i et datasæt. FA er en statistikmodel der navnlig bruges til at forenkle tolkningen af et datamateriale, der indeholder en stor mængde variable. FA bygger på et kæmpe antal udregninger med udgangspunkt i korrelationskoefficienter og er i praksis nærmest umulig at gennemføre uden brug af computersoftware. Før computerens opfindelse kunne en faktoranalyse nemt lægge beslag på en halv snes statistikere på fuld tid gennem flere måneder. Resultatet ville være identifikation få faktorer, skjult i et datamateriale.</p>
 <p>Faktoranalysen kan fx. hjælpe med at vise sammenhænge mellem svar i spørgeskemaer, hvilket kan være en hjælp markedsføringsmæssigt, til at forstå hvilke svar samvarierer. En sådan gruppering af spørgsmål kan hjælpe med bedre at forstå kundernes ønsker og behov. Faktoranalyse FA er et godt værktøj til at forstå, hvad dine spørgeskemadata betyder, især når du har mange variable. Faktoranalysen forsøger at finde skjulte variable, som forklarer opførslen af dine observerede variable. FA har historiske rødder i psykometri, dvs målingen af mentale egenskaber.</p>
 <p>I modsætning hertil søger man med Klyngeanalysen at finde sammenhænge mellem respondenterne/observationerne og altså ikke variablene, hvilket er et godt hjælpeværktøj i forbindelse med markedssegmentering.</p>
 <p>Der findes 2 typer af FA Exploratory Factor Analysis (EFA) og Confirmatory Factor Analysis (CFA). EFA betyder, at du ikke rigtig ved, hvilke skjulte variable (eller faktorer) der findes, og hvor mange de er, så du forsøger at finde dem. CFA betyder, at du allerede har nogle gæt eller modeller på skjulte variable (eller faktorer), og vi vil kontrollere, om dette er korrekt. Vi benytter i det følgende EFA</p>
 <div id="hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer" class="section level2">
 <h2><span class="header-section-number">5.1</span> Hvilke faktorer er vigtige når man køber en ny computer:</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/292365603" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
 <p>Lad os sige, man har indsamlet et spørgeskema for at undersøge, hvad der er vigtigt, når en forbruger bestemmer, hvilken computer der skal købes. Spørgeskemaet er udformet, som hvor vigtig er Pris for computerkøbet, vægt fra 1 til 7 hvor 7 er højest/vigtigst.</p>
 <p>Dette datasæt er lille i forhold til, hvad der er realistisk, da vi blot forsøger at illustrere analysen. Normalt vil man have flere end 6 variable. For at sikre solid analyseresultater vil man have flere respondenter/observationer.</p>
 <p>I noterne er input til R og output fra R, markeret i grå rammer. Output dvs. resultaterne R leverer er markeret med ## i hver linje. Input dvs. de kommandoer vi skal skrive ind i R er ikke markeret.</p>
@@ -223,6 +232,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="forudstninger-for-faktoranalysen." class="section level2">
 <h2><span class="header-section-number">5.2</span> Forudsætninger for faktoranalysen.</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/292365022" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
 <p>Nu skal vi undersøge om det er fornuftigt at foretage en faktoranalyse, dette kan vi undersøge ved enten Bartletts korrelationstest eller Kaiser-Meyer-Olkin KMO.</p>
 <p>For at teste dette skal man installere og loade pakken psych, vi skal kun installere første gang. Bemærk install.packages(“psych”) er kommenteret ud nedenfor, så første gang skal du kommentere install.packages(“psych”) ud.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">#install.packages(&quot;psych&quot;)</span></a>
@@ -278,6 +292,11 @@ Venner har en stærk positiv sammenhæng med Familie.</p>
 </div>
 <div id="selve-faktoranalysen" class="section level2">
 <h2><span class="header-section-number">5.3</span> Selve Faktoranalysen</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/292365273" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
 <p>Vi er nu klar til at teste om der er grundlag for at sammenlægge variable til faktorer. Dette tester vi i selve faktor analysen, ved hjælp af funktionen factanal.</p>
 <p>Hvis vi samler alle spørgsmål til en samlet faktor, har vi følgende faktor analyse:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">fa1 &lt;-<span class="st"> </span><span class="kw">factanal</span>(data, <span class="dt">factor=</span><span class="dv">1</span>)</a>
@@ -369,6 +388,11 @@ Venner har en stærk positiv sammenhæng med Familie.</p>
 </div>
 <div id="hvor-mange-faktorer-br-benyttes" class="section level2">
 <h2><span class="header-section-number">5.4</span> Hvor mange faktorer bør benyttes?</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/292365468" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
 <p>Der er ingen fast regel for hvor mange faktorer der bør benyttes. Der er flere forskelle metoder til bestemmelse af antallet af faktorer, vi viser herunder 2 metoder.</p>
 <div id="eigenvalues-metoden" class="section level3">
 <h3><span class="header-section-number">5.4.1</span> Eigenvalues metoden</h3>
@@ -395,33 +419,173 @@ Hent nu filen personality, hvor 240 Stanford studerende har svaret på i hvor h�
 </details>
 <br>
 <details>
-<p><summary>Svar personality Stanford</summary>
-Løsning med video bliver lagt op senere.</p>
-<!-- ```{r echo=FALSE, warning=FALSE} -->
-<!-- library(readxl) -->
-<!-- personality <- read_excel("personality.xlsx") -->
-<!-- ``` -->
-<!-- ```{r} -->
-<!-- library("psych") -->
-<!-- cortest.bartlett(personality) -->
-<!-- KMO(personality) -->
-<!-- ``` -->
-<!-- Vi gennemfører klart analysen viser begge tests. -->
-<!-- ```{r, dev='svg'} -->
-<!-- #cor(personality) korrelationsmatricen er udeladt af pladshensyn. -->
-<!-- corrplot(cor(personality), order = "hclust", tl.col='black', tl.cex=.5)  -->
-<!-- ``` -->
-<!-- ```{r, dev='svg'} -->
-<!-- screeplot(princomp(personality),type="line", main="Screeplot personality") -->
-<!-- ``` -->
-<!-- ```{r} -->
-<!-- evp <- eigen(cor(personality)) -->
-<!-- evp$values -->
-<!-- ``` -->
-<!-- Vi benytter 8 faktorer -->
-<!-- ```{r} -->
-<!-- fapers8 <- factanal(personality,8) -->
-<!-- ``` -->
+<p><summary>Svar personality Stanford</summary></p>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/292364790" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">pacman<span class="op">::</span><span class="kw">p_load</span>(psych)</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">cortest.bartlett</span>(personality)</a></code></pre></div>
+<pre><code>## R was not square, finding R from data</code></pre>
+<pre><code>## $chisq
+## [1] 4009.545
+## 
+## $p.value
+## [1] 0
+## 
+## $df
+## [1] 496</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">KMO</span>(personality)</a></code></pre></div>
+<pre><code>## Kaiser-Meyer-Olkin factor adequacy
+## Call: KMO(r = personality)
+## Overall MSA =  0.84
+## MSA for each item = 
+## distant talkatv carelss hardwrk anxious agreebl   tense    kind opposng 
+##    0.88    0.86    0.82    0.87    0.82    0.73    0.84    0.81    0.79 
+## relaxed disorgn outgoin approvn     shy discipl   harsh persevr friendl 
+##    0.86    0.75    0.87    0.89    0.87    0.84    0.85    0.86    0.87 
+## worryin respnsi contrar sociabl    lazy coopera   quiet organiz criticl 
+##    0.81    0.86    0.83    0.90    0.89    0.83    0.87    0.78    0.87 
+##     lax laidbck withdrw givinup easygon 
+##    0.81    0.73    0.90    0.89    0.78</code></pre>
+<p>Vi gennemfører klart analysen viser begge tests.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co">#cor(personality) korrelationsmatricen er udeladt af pladshensyn.</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="kw">corrplot</span>(<span class="kw">cor</span>(personality), <span class="dt">order =</span> <span class="st">&quot;hclust&quot;</span>, <span class="dt">tl.col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">tl.cex=</span>.<span class="dv">5</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-17-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">screeplot</span>(<span class="kw">princomp</span>(personality),<span class="dt">type=</span><span class="st">&quot;line&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Screeplot personality&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-18-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">evp &lt;-<span class="st"> </span><span class="kw">eigen</span>(<span class="kw">cor</span>(personality))</a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">evp<span class="op">$</span>values</a></code></pre></div>
+<pre><code>##  [1] 7.2407068 4.5250901 3.1240573 2.3335890 1.8783611 1.1940636 0.9268636
+##  [8] 0.8553802 0.7968460 0.7128793 0.6936229 0.6396893 0.6277046 0.5399600
+## [15] 0.5074253 0.4719721 0.4639916 0.4455816 0.4376430 0.4135706 0.3906941
+## [22] 0.3696839 0.3273829 0.3014077 0.2940833 0.2800131 0.2522101 0.2349649
+## [29] 0.2199461 0.2011492 0.1658493 0.1336176</code></pre>
+<p>Vi benytter her 7 faktorer:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">fapers7 &lt;-<span class="st"> </span><span class="kw">factanal</span>(personality,<span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">fapers7</a></code></pre></div>
+<pre><code>## 
+## Call:
+## factanal(x = personality, factors = 7)
+## 
+## Uniquenesses:
+## distant talkatv carelss hardwrk anxious agreebl   tense    kind opposng 
+##   0.529   0.377   0.491   0.416   0.347   0.576   0.273   0.416   0.512 
+## relaxed disorgn outgoin approvn     shy discipl   harsh persevr friendl 
+##   0.390   0.181   0.251   0.640   0.387   0.478   0.517   0.560   0.377 
+## worryin respnsi contrar sociabl    lazy coopera   quiet organiz criticl 
+##   0.388   0.411   0.392   0.367   0.421   0.528   0.284   0.229   0.562 
+##     lax laidbck withdrw givinup easygon 
+##   0.663   0.248   0.362   0.557   0.549 
+## 
+## Loadings:
+##         Factor1 Factor2 Factor3 Factor4 Factor5 Factor6 Factor7
+## distant  0.586           0.121  -0.172   0.246   0.137         
+## talkatv -0.760                           0.144   0.105         
+## carelss         -0.280   0.137  -0.134   0.192   0.586   0.111 
+## hardwrk -0.182   0.700   0.141                  -0.187         
+## anxious  0.153           0.774           0.136                 
+## agreebl                          0.577  -0.194           0.212 
+## tense    0.150           0.787           0.208          -0.179 
+## kind    -0.102   0.188           0.699  -0.118  -0.189         
+## opposng                         -0.115   0.672                 
+## relaxed         -0.104  -0.526   0.263                   0.491 
+## disorgn         -0.340                           0.830         
+## outgoin -0.834   0.107           0.166                   0.113 
+## approvn -0.284   0.137           0.438  -0.142           0.214 
+## shy      0.724  -0.240   0.153                                 
+## discipl          0.698                          -0.164         
+## harsh                           -0.265   0.619   0.132         
+## persevr -0.134   0.598           0.216                         
+## friendl -0.504   0.129           0.571  -0.131                 
+## worryin  0.163           0.722           0.119          -0.216 
+## respnsi          0.578           0.331          -0.343  -0.152 
+## contrar                  0.159  -0.162   0.730   0.120         
+## sociabl -0.733                   0.263                         
+## lazy     0.167  -0.664   0.152           0.163   0.208   0.130 
+## coopera          0.136  -0.123   0.603  -0.248                 
+## quiet    0.789  -0.157   0.191   0.173                         
+## organiz          0.433                          -0.753         
+## criticl          0.112   0.124           0.614  -0.122         
+## lax             -0.355           0.102           0.227   0.377 
+## laidbck         -0.102  -0.288                   0.109   0.801 
+## withdrw  0.720           0.172  -0.150   0.224   0.105         
+## givinup  0.337  -0.438   0.280  -0.165   0.136   0.115         
+## easygon -0.159  -0.116  -0.245   0.302                   0.508 
+## 
+##                Factor1 Factor2 Factor3 Factor4 Factor5 Factor6 Factor7
+## SS loadings      4.501   3.076   2.494   2.403   2.221   2.068   1.560
+## Proportion Var   0.141   0.096   0.078   0.075   0.069   0.065   0.049
+## Cumulative Var   0.141   0.237   0.315   0.390   0.459   0.524   0.573
+## 
+## Test of the hypothesis that 7 factors are sufficient.
+## The chi square statistic is 460.58 on 293 degrees of freedom.
+## The p-value is 0.00000000137</code></pre>
+<p>Vi benytter her 8 faktorer:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">fapers8 &lt;-<span class="st"> </span><span class="kw">factanal</span>(personality,<span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb35-2" data-line-number="2">fapers8</a></code></pre></div>
+<pre><code>## 
+## Call:
+## factanal(x = personality, factors = 8)
+## 
+## Uniquenesses:
+## distant talkatv carelss hardwrk anxious agreebl   tense    kind opposng 
+##   0.534   0.375   0.484   0.425   0.342   0.204   0.263   0.439   0.533 
+## relaxed disorgn outgoin approvn     shy discipl   harsh persevr friendl 
+##   0.417   0.170   0.257   0.649   0.364   0.490   0.468   0.497   0.333 
+## worryin respnsi contrar sociabl    lazy coopera   quiet organiz criticl 
+##   0.347   0.420   0.391   0.365   0.420   0.502   0.276   0.236   0.565 
+##     lax laidbck withdrw givinup easygon 
+##   0.682   0.005   0.367   0.550   0.580 
+## 
+## Loadings:
+##         Factor1 Factor2 Factor3 Factor4 Factor5 Factor6 Factor7 Factor8
+## distant  0.587           0.103  -0.118   0.262   0.134                 
+## talkatv -0.761                           0.152   0.104                 
+## carelss         -0.307   0.115           0.218   0.584          -0.108 
+## hardwrk -0.182   0.694   0.139                  -0.188                 
+## anxious  0.149           0.772           0.144                         
+## agreebl                          0.795  -0.173           0.140  -0.327 
+## tense    0.150           0.796           0.211          -0.152         
+## kind    -0.118   0.227           0.615  -0.151  -0.182           0.238 
+## opposng                  0.102  -0.116   0.654                         
+## relaxed         -0.108  -0.535   0.276                   0.441         
+## disorgn         -0.336                           0.836                 
+## outgoin -0.836   0.107           0.147                                 
+## approvn -0.294   0.129           0.445  -0.135           0.163         
+## shy      0.729  -0.224   0.161                                   0.153 
+## discipl          0.677                          -0.168          -0.105 
+## harsh                           -0.178   0.658   0.124          -0.195 
+## persevr -0.133   0.644           0.127                           0.206 
+## friendl -0.517   0.170           0.471  -0.160                   0.326 
+## worryin  0.164           0.744           0.101          -0.170   0.177 
+## respnsi          0.599           0.285          -0.337  -0.117   0.105 
+## contrar                  0.153  -0.152   0.732   0.118                 
+## sociabl -0.737                   0.222                   0.104   0.123 
+## lazy     0.166  -0.665   0.142           0.166   0.208   0.116         
+## coopera -0.112   0.143  -0.130   0.614  -0.252                         
+## quiet    0.789  -0.147   0.195   0.169                           0.109 
+## organiz          0.434                          -0.748                 
+## criticl          0.124   0.132           0.604  -0.119                 
+## lax             -0.361           0.107           0.231   0.323         
+## laidbck                 -0.277                   0.105   0.942         
+## withdrw  0.721           0.152  -0.111   0.241   0.101                 
+## givinup  0.337  -0.465   0.254  -0.106   0.161   0.108                 
+## easygon -0.169  -0.117  -0.261   0.284                   0.467         
+## 
+##                Factor1 Factor2 Factor3 Factor4 Factor5 Factor6 Factor7
+## SS loadings      4.549   3.181   2.531   2.325   2.287   2.052   1.583
+## Proportion Var   0.142   0.099   0.079   0.073   0.071   0.064   0.049
+## Cumulative Var   0.142   0.242   0.321   0.393   0.465   0.529   0.578
+##                Factor8
+## SS loadings      0.539
+## Proportion Var   0.017
+## Cumulative Var   0.595
+## 
+## Test of the hypothesis that 8 factors are sufficient.
+## The chi square statistic is 398.53 on 268 degrees of freedom.
+## The p-value is 0.000000379</code></pre>
 </details>
 <br>
 <details>
