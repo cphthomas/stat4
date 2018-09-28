@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-09-25">
+<meta name="date" content="2018-09-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,8 +157,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="cran-r.html"><a href="cran-r.html#r-video-tutorials"><i class="fa fa-check"></i><b>4.1</b> R video-tutorials</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>5</b> Faktoranalyse</a><ul>
-<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
+<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a></li>
+<li class="chapter" data-level="5.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#forudstninger-for-faktoranalysen."><i class="fa fa-check"></i><b>5.2</b> Forudsætninger for faktoranalysen.</a></li>
+<li class="chapter" data-level="5.3" data-path="faktoranalyse.html"><a href="faktoranalyse.html#selve-faktoranalysen"><i class="fa fa-check"></i><b>5.3</b> Selve Faktoranalysen</a></li>
+<li class="chapter" data-level="5.4" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.4</b> Hvor mange faktorer bør benyttes?</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#eigenvalues-metoden"><i class="fa fa-check"></i><b>5.4.1</b> Eigenvalues metoden</a></li>
+<li class="chapter" data-level="5.4.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#screeplot-metoden"><i class="fa fa-check"></i><b>5.4.2</b> Screeplot metoden</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a></li>
@@ -243,14 +247,14 @@ Vi undersøger om k populationer har samme middelværdi, hypoteserne bliver:</p>
 <details>
 <p><summary>Spørgsmål 3 banker afkast</summary></p>
 <p>Hent datasættet <a href="3 Danske Banker Ugeafkast i procent.xls" download>3 Danske Banker Ugeafkast i procent</a>
-, i dette datasæt er de seneste 247 ugers afkast i procent for hhv. Danske Bank, Jyske Bank og Sydbank. Er der signifikant forskel på afkastene på de 3 bankaktier?</p>
+, i dette datasæt er de seneste 248 ugers afkast i procent for hhv. Danske Bank, Jyske Bank og Sydbank. Er der signifikant forskel på afkastene på de 3 bankaktier?</p>
 </details>
 <br>
 <details>
 <p><summary>Svar 3 banker afkast</summary>
 Vi opstiller hypoteserne for test af om middelværdierne er identiske:
 <span class="math display">\[H_0:\mu_{Danske Bank}=\mu_{Jyske Bank}=\mu_{Sydbank}\]</span><span class="math display">\[H_1:Ikke\ alle\ middelvæ\ rdier\ er\ ens\ for\ de\ 3\ banker\]</span></p>
-<p>Vi får variationen i grupperne SSW til 6547.3237 og variationen mellem grupperne SSA til 3.0714. Dette giver en F-teststørrelse på 0.1731 der resulterer i p-værdi på 0.8411. Vi kan altså ikke forkaste altså nulhypotesen om ens middelværdier.</p>
+<p>Vi får variationen i grupperne SSW til 6525.4195 og variationen mellem grupperne SSA til 2.8138. Dette giver en F-teststørrelse på 0.1598 der resulterer i p-værdi på 0.8524. Vi kan altså ikke forkaste altså nulhypotesen om ens middelværdier.</p>
 <p>Vi kan da se at de absolutte forskelle mellem stikprøvegennemsnittene er relativt små:</p>
 <table>
 <thead>
@@ -262,7 +266,7 @@ Vi opstiller hypoteserne for test af om middelværdierne er identiske:
 <tbody>
 <tr class="odd">
 <td align="left">Danske Bank - Jyske Bank</td>
-<td align="left">0.14</td>
+<td align="left">0.13</td>
 </tr>
 <tr class="even">
 <td align="left">Danske Bank - Sydbank</td>
@@ -276,7 +280,7 @@ Vi opstiller hypoteserne for test af om middelværdierne er identiske:
 </table>
 <p>Vi skal tjekke forudsætningen om varianshomogenitet</p>
 <p><span class="math display">\[H_0:\sigma_{Danske Bank}=\sigma_{Jyske Bank}=\sigma_{Sydbank}\]</span><span class="math display">\[H_1:Ikke\ alle\ varianser\ er\ ens\ for\ de\ 3\ banker.\]</span></p>
-<p>Vi får en teststørrelse på 9.8760639. Chi i anden testet giver os en p-værdi på 0.0071687, hvilket er mindre end signifikanssandsynligheden på 0.05, vi afviser nulhypotesen. Varianserne er ikke ens, så forudsætningen er ikke opfyldt. Vi har således problemer med kvaliteten af analysen.</p>
+<p>Vi får en teststørrelse på 10.7075919. Chi i anden testet giver os en p-værdi på 0.0047302, hvilket er mindre end signifikanssandsynligheden på 0.05, vi afviser nulhypotesen. Varianserne er ikke ens, så forudsætningen er ikke opfyldt. Vi har således problemer med kvaliteten af analysen.</p>
 <p>Normalitet</p>
 <p><img src="bookdown-demo_files/figure-html/qqplotbank-1.svg" width="864" /></p>
 <p>Vi kan grafisk sammenligne middelværdierne for ugeafkastet for de 3 banker i boxplots , her ser vi der ikke er stor forskel på middelværdierne. Middelværdierne er markeret med orange prikker.</p>

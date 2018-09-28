@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-09-25">
+<meta name="date" content="2018-09-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,8 +157,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="cran-r.html"><a href="cran-r.html#r-video-tutorials"><i class="fa fa-check"></i><b>4.1</b> R video-tutorials</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>5</b> Faktoranalyse</a><ul>
-<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
+<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a></li>
+<li class="chapter" data-level="5.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#forudstninger-for-faktoranalysen."><i class="fa fa-check"></i><b>5.2</b> Forudsætninger for faktoranalysen.</a></li>
+<li class="chapter" data-level="5.3" data-path="faktoranalyse.html"><a href="faktoranalyse.html#selve-faktoranalysen"><i class="fa fa-check"></i><b>5.3</b> Selve Faktoranalysen</a></li>
+<li class="chapter" data-level="5.4" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.4</b> Hvor mange faktorer bør benyttes?</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#eigenvalues-metoden"><i class="fa fa-check"></i><b>5.4.1</b> Eigenvalues metoden</a></li>
+<li class="chapter" data-level="5.4.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#screeplot-metoden"><i class="fa fa-check"></i><b>5.4.2</b> Screeplot metoden</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a></li>
@@ -206,9 +210,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 89.622, 91.413, 116.587, 119.88, 111.579, 100.377, 108.997, 104.367, 
 82.48, 79.99, 85.062, 102.597, 98.046, 101.043, 109.051), .Dim = c(50L, 
 1L), .Dimnames = list(NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 50, 1), class = &quot;ts&quot;)</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA2)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA2)</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA2)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA2)</a></code></pre></div>
 <pre><code>## Series: ARIMA2 
 ## ARIMA(1,0,0) with non-zero mean 
 ## 
@@ -229,7 +233,7 @@ Så kan vi beregne <span class="math inline">\(c=(1-\phi)\cdot \mu=(1-0.5)\cdot 
 <p><span class="math inline">\(\phi\)</span> må kun antage værdier mellem og ikke lig med -1 og 1, hvilket betyder den er stationær, altså nærmer sig den sande middelværdi <span class="math inline">\(\mu\)</span>.</p>
 <p>Hvad vil der ske hvis <span class="math inline">\(\mu=100\)</span> og <span class="math inline">\(\phi=-0.5\)</span> for en ARIMA(1,0,0) model (husk <span class="math inline">\(c=(1-\phi)\cdot\mu\)</span> når man skal bestemme modellen)?</p>
 <p>Vi kan nu i R forudsige aktiekursen 12 perioder frem med predict:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">predict</span>(<span class="kw">auto.arima</span>(ARIMA2), <span class="dt">n.ahead =</span> <span class="dv">12</span>)<span class="op">$</span>pred</a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="kw">predict</span>(<span class="kw">auto.arima</span>(ARIMA2), <span class="dt">n.ahead =</span> <span class="dv">12</span>)<span class="op">$</span>pred</a></code></pre></div>
 <pre><code>## Time Series:
 ## Start = 51 
 ## End = 62 

@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-09-25">
+<meta name="date" content="2018-09-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,8 +157,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="cran-r.html"><a href="cran-r.html#r-video-tutorials"><i class="fa fa-check"></i><b>4.1</b> R video-tutorials</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>5</b> Faktoranalyse</a><ul>
-<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
+<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a></li>
+<li class="chapter" data-level="5.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#forudstninger-for-faktoranalysen."><i class="fa fa-check"></i><b>5.2</b> Forudsætninger for faktoranalysen.</a></li>
+<li class="chapter" data-level="5.3" data-path="faktoranalyse.html"><a href="faktoranalyse.html#selve-faktoranalysen"><i class="fa fa-check"></i><b>5.3</b> Selve Faktoranalysen</a></li>
+<li class="chapter" data-level="5.4" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.4</b> Hvor mange faktorer bør benyttes?</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#eigenvalues-metoden"><i class="fa fa-check"></i><b>5.4.1</b> Eigenvalues metoden</a></li>
+<li class="chapter" data-level="5.4.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#screeplot-metoden"><i class="fa fa-check"></i><b>5.4.2</b> Screeplot metoden</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a></li>
@@ -201,25 +205,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="traktorer" class="section level2">
 <h2><span class="header-section-number">14.1</span> Traktorer</h2>
 <p>Hent følgende data for traktor salg, med følgende kommandoer i R.</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1">data =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;http://ucanalytics.com/blogs/wp-content/uploads/2015/06/Tractor-Sales.csv&#39;</span>)</a>
-<a class="sourceLine" id="cb92-2" data-line-number="2">data =<span class="st"> </span><span class="kw">ts</span>(data[,<span class="dv">2</span>],<span class="dt">start =</span> <span class="kw">c</span>(<span class="dv">2003</span>,<span class="dv">1</span>),<span class="dt">frequency =</span> <span class="dv">12</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1">data =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;http://ucanalytics.com/blogs/wp-content/uploads/2015/06/Tractor-Sales.csv&#39;</span>)</a>
+<a class="sourceLine" id="cb93-2" data-line-number="2">data =<span class="st"> </span><span class="kw">ts</span>(data[,<span class="dv">2</span>],<span class="dt">start =</span> <span class="kw">c</span>(<span class="dv">2003</span>,<span class="dv">1</span>),<span class="dt">frequency =</span> <span class="dv">12</span>)</a></code></pre></div>
 <p>Vi ser salget er voksende over tid, der er ligeledes en sæsonkomponent.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="kw">plot</span>(data, <span class="dt">xlab=</span><span class="st">&#39;Years&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Tractor Sales&#39;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
-<p>Differens tranformer data for at generere stationære data mht. middel (fjern trend)</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">diff</span>(data),<span class="dt">ylab=</span><span class="st">&#39;Differenced Tractor Sales&#39;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
-<p>log transformer data for at sikre stationaritet mht. varians.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">log10</span>(data),<span class="dt">ylab=</span><span class="st">&#39;Log (Tractor Sales)&#39;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
-<p>Eventuel Differens og log transformation af data for at sikre stationaritet både mht. middel og varians.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">diff</span>(<span class="kw">log10</span>(data)),<span class="dt">ylab=</span><span class="st">&#39;Differenced Log (Tractor Sales)&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="kw">plot</span>(data, <span class="dt">xlab=</span><span class="st">&#39;Years&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Tractor Sales&#39;</span>)</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<p>Differens tranformer data for at generere stationære data mht. middel (fjern trend)</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">diff</span>(data),<span class="dt">ylab=</span><span class="st">&#39;Differenced Tractor Sales&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<p>log transformer data for at sikre stationaritet mht. varians.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">log10</span>(data),<span class="dt">ylab=</span><span class="st">&#39;Log (Tractor Sales)&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p>Eventuel Differens og log transformation af data for at sikre stationaritet både mht. middel og varians.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">diff</span>(<span class="kw">log10</span>(data)),<span class="dt">ylab=</span><span class="st">&#39;Differenced Log (Tractor Sales)&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <p>Find bedste model med auto.arima, når der er stationaritet.</p>
 <p>Akaike Information Criterion (AIC) , og Bayesian Information Criterion (BIC), vælg ARIMA modellen med mindst AIC and BIC værdier. auto.arima finder den bedste model automatisk.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">require</span>(forecast)</a>
-<a class="sourceLine" id="cb97-2" data-line-number="2">ARIMAfit =<span class="st"> </span><span class="kw">auto.arima</span>(<span class="kw">log10</span>(data), <span class="dt">approximation=</span><span class="ot">FALSE</span>,<span class="dt">trace=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb97-3" data-line-number="3">ARIMAfit</a></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="kw">require</span>(forecast)</a>
+<a class="sourceLine" id="cb98-2" data-line-number="2">ARIMAfit =<span class="st"> </span><span class="kw">auto.arima</span>(<span class="kw">log10</span>(data), <span class="dt">approximation=</span><span class="ot">FALSE</span>,<span class="dt">trace=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb98-3" data-line-number="3">ARIMAfit</a></code></pre></div>
 <pre><code>## Series: log10(data) 
 ## ARIMA(0,1,1)(0,1,1)[12] 
 ## 
@@ -231,10 +235,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sigma^2 estimated as 0.0002571:  log likelihood=354.4
 ## AIC=-702.79   AICc=-702.6   BIC=-694.17</code></pre>
 <p>Nu kan vi forudsige kommende traktor salg med modellen</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb99-2" data-line-number="2">pred =<span class="st"> </span><span class="kw">predict</span>(ARIMAfit, <span class="dt">n.ahead =</span> <span class="dv">36</span>)</a>
-<a class="sourceLine" id="cb99-3" data-line-number="3">salg &lt;-<span class="st"> </span><span class="dv">10</span><span class="op">^</span>pred<span class="op">$</span>pred</a>
-<a class="sourceLine" id="cb99-4" data-line-number="4">salg</a></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb100-2" data-line-number="2">pred =<span class="st"> </span><span class="kw">predict</span>(ARIMAfit, <span class="dt">n.ahead =</span> <span class="dv">36</span>)</a>
+<a class="sourceLine" id="cb100-3" data-line-number="3">salg &lt;-<span class="st"> </span><span class="dv">10</span><span class="op">^</span>pred<span class="op">$</span>pred</a>
+<a class="sourceLine" id="cb100-4" data-line-number="4">salg</a></code></pre></div>
 <pre><code>##            Jan       Feb       Mar       Apr       May       Jun       Jul
 ## 2015  567.7645  566.4765  670.8226  758.9138  855.9482  817.2827  938.7239
 ## 2016  625.2464  623.8280  738.7384  835.7481  942.6065  900.0265 1033.7626
@@ -243,23 +247,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2015  934.5120  703.5005  626.9879  571.9988  668.5363
 ## 2016 1029.1243  774.7246  690.4657  629.9094  736.2206
 ## 2017 1133.3154  853.1596  760.3701  693.6830  810.7573</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">plot</span>(data,<span class="dt">type=</span><span class="st">&#39;l&#39;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">2003</span>,<span class="dv">2018</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1600</span>),<span class="dt">xlab =</span> <span class="st">&#39;Year&#39;</span>,<span class="dt">ylab =</span> <span class="st">&#39;Tractor Salg&#39;</span>)</a>
-<a class="sourceLine" id="cb101-2" data-line-number="2"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred),<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</a>
-<a class="sourceLine" id="cb101-3" data-line-number="3"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred<span class="op">+</span><span class="dv">2</span><span class="op">*</span>pred<span class="op">$</span>se),<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</a>
-<a class="sourceLine" id="cb101-4" data-line-number="4"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred<span class="dv">-2</span><span class="op">*</span>pred<span class="op">$</span>se),<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="kw">plot</span>(data,<span class="dt">type=</span><span class="st">&#39;l&#39;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">2003</span>,<span class="dv">2018</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1600</span>),<span class="dt">xlab =</span> <span class="st">&#39;Year&#39;</span>,<span class="dt">ylab =</span> <span class="st">&#39;Tractor Salg&#39;</span>)</a>
+<a class="sourceLine" id="cb102-2" data-line-number="2"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred),<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</a>
+<a class="sourceLine" id="cb102-3" data-line-number="3"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred<span class="op">+</span><span class="dv">2</span><span class="op">*</span>pred<span class="op">$</span>se),<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</a>
+<a class="sourceLine" id="cb102-4" data-line-number="4"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred<span class="dv">-2</span><span class="op">*</span>pred<span class="op">$</span>se),<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 </div>
 <div id="detail-debet-card-forbrug-pa-island-millioner-isk." class="section level2">
 <h2><span class="header-section-number">14.2</span> Detail debet card forbrug på Island (millioner ISK).</h2>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="co">#Hent fpp pakken og load den</span></a>
-<a class="sourceLine" id="cb102-2" data-line-number="2"><span class="kw">plot</span>(debitcards)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1">dldebitcards &lt;-<span class="st"> </span><span class="kw">diff</span>(<span class="kw">log10</span>(debitcards))</a>
-<a class="sourceLine" id="cb103-2" data-line-number="2"><span class="kw">plot</span>(dldebitcards,<span class="dt">ylab=</span><span class="st">&quot;Differenced Log (debitcards)&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">require</span>(forecast)</a>
-<a class="sourceLine" id="cb104-2" data-line-number="2">ARIMAfit =<span class="st"> </span><span class="kw">auto.arima</span>(<span class="kw">log10</span>(debitcards), <span class="dt">approximation=</span><span class="ot">FALSE</span>,<span class="dt">trace=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb104-3" data-line-number="3">ARIMAfit</a></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="co">#Hent fpp pakken og load den</span></a>
+<a class="sourceLine" id="cb103-2" data-line-number="2"><span class="kw">plot</span>(debitcards)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1">dldebitcards &lt;-<span class="st"> </span><span class="kw">diff</span>(<span class="kw">log10</span>(debitcards))</a>
+<a class="sourceLine" id="cb104-2" data-line-number="2"><span class="kw">plot</span>(dldebitcards,<span class="dt">ylab=</span><span class="st">&quot;Differenced Log (debitcards)&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">require</span>(forecast)</a>
+<a class="sourceLine" id="cb105-2" data-line-number="2">ARIMAfit =<span class="st"> </span><span class="kw">auto.arima</span>(<span class="kw">log10</span>(debitcards), <span class="dt">approximation=</span><span class="ot">FALSE</span>,<span class="dt">trace=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb105-3" data-line-number="3">ARIMAfit</a></code></pre></div>
 <pre><code>## Series: log10(debitcards) 
 ## ARIMA(2,1,0)(0,1,1)[12] 
 ## 
@@ -271,15 +275,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sigma^2 estimated as 0.0004402:  log likelihood=343.95
 ## AIC=-679.9   AICc=-679.61   BIC=-668.05</code></pre>
 <p>Nu kan vi forudsige kommende debetkort omsætning med modellen</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb106-2" data-line-number="2">pred =<span class="st"> </span><span class="kw">predict</span>(ARIMAfit, <span class="dt">n.ahead =</span> <span class="dv">36</span>)</a>
-<a class="sourceLine" id="cb106-3" data-line-number="3"><span class="kw">plot</span>(debitcards,<span class="dt">type=</span><span class="st">&#39;l&#39;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">2000</span>,<span class="dv">2016</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">40000</span>),<span class="dt">xlab =</span> <span class="st">&#39;Year&#39;</span>,<span class="dt">ylab =</span> <span class="st">&#39;Debetcard usage&#39;</span>)</a>
-<a class="sourceLine" id="cb106-4" data-line-number="4"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred),<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</a>
-<a class="sourceLine" id="cb106-5" data-line-number="5"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred<span class="op">+</span><span class="dv">2</span><span class="op">*</span>pred<span class="op">$</span>se),<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</a>
-<a class="sourceLine" id="cb106-6" data-line-number="6"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred<span class="dv">-2</span><span class="op">*</span>pred<span class="op">$</span>se),<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb107-2" data-line-number="2">pred =<span class="st"> </span><span class="kw">predict</span>(ARIMAfit, <span class="dt">n.ahead =</span> <span class="dv">36</span>)</a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="kw">plot</span>(debitcards,<span class="dt">type=</span><span class="st">&#39;l&#39;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">2000</span>,<span class="dv">2016</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">40000</span>),<span class="dt">xlab =</span> <span class="st">&#39;Year&#39;</span>,<span class="dt">ylab =</span> <span class="st">&#39;Debetcard usage&#39;</span>)</a>
+<a class="sourceLine" id="cb107-4" data-line-number="4"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred),<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</a>
+<a class="sourceLine" id="cb107-5" data-line-number="5"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred<span class="op">+</span><span class="dv">2</span><span class="op">*</span>pred<span class="op">$</span>se),<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</a>
+<a class="sourceLine" id="cb107-6" data-line-number="6"><span class="kw">lines</span>(<span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred<span class="dv">-2</span><span class="op">*</span>pred<span class="op">$</span>se),<span class="dt">col=</span><span class="st">&#39;orange&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
 <p>Forudsagt brug af debetkort bliver:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred)</a></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="dv">10</span><span class="op">^</span>(pred<span class="op">$</span>pred)</a></code></pre></div>
 <pre><code>##           Jan      Feb      Mar      Apr      May      Jun      Jul
 ## 2013 19717.77 19162.87 20436.29 20506.84 23262.14 23545.62 24292.86
 ## 2014 20701.39 20352.57 21886.85 21721.53 24745.18 25091.09 25806.49

@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-09-25">
+<meta name="date" content="2018-09-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,8 +157,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="cran-r.html"><a href="cran-r.html#r-video-tutorials"><i class="fa fa-check"></i><b>4.1</b> R video-tutorials</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>5</b> Faktoranalyse</a><ul>
-<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
+<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a></li>
+<li class="chapter" data-level="5.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#forudstninger-for-faktoranalysen."><i class="fa fa-check"></i><b>5.2</b> Forudsætninger for faktoranalysen.</a></li>
+<li class="chapter" data-level="5.3" data-path="faktoranalyse.html"><a href="faktoranalyse.html#selve-faktoranalysen"><i class="fa fa-check"></i><b>5.3</b> Selve Faktoranalysen</a></li>
+<li class="chapter" data-level="5.4" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.4</b> Hvor mange faktorer bør benyttes?</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#eigenvalues-metoden"><i class="fa fa-check"></i><b>5.4.1</b> Eigenvalues metoden</a></li>
+<li class="chapter" data-level="5.4.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#screeplot-metoden"><i class="fa fa-check"></i><b>5.4.2</b> Screeplot metoden</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a></li>
@@ -210,9 +214,9 @@ Hvis vi forestiller os <span class="math inline">\(\mu=50\)</span> <span class="
 93.411, 104.566, 115.626, 93.047, 91.644, 120.28, 109.674, 95.901, 
 102.858, 105.829, 99.581, 112.855), .Dim = c(50L, 1L), .Dimnames = list(
     NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 50, 1), class = &quot;ts&quot;)</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA4)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA4)</a></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA4)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA4)</a></code></pre></div>
 <pre><code>## Series: ARIMA4 
 ## ARIMA(0,0,1) with non-zero mean 
 ## 
@@ -224,7 +228,7 @@ Hvis vi forestiller os <span class="math inline">\(\mu=50\)</span> <span class="
 ## sigma^2 estimated as 95.68:  log likelihood=-184.81
 ## AIC=375.62   AICc=376.14   BIC=381.35</code></pre>
 <p>Vi kan nu forudsige aktiekursen 12 perioder frem med predict:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">predict</span>(<span class="kw">auto.arima</span>(ARIMA4), <span class="dt">n.ahead =</span> <span class="dv">12</span>)<span class="op">$</span>pred</a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">predict</span>(<span class="kw">auto.arima</span>(ARIMA4), <span class="dt">n.ahead =</span> <span class="dv">12</span>)<span class="op">$</span>pred</a></code></pre></div>
 <pre><code>## Time Series:
 ## Start = 51 
 ## End = 62 

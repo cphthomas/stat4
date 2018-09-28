@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-09-25">
+<meta name="date" content="2018-09-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,8 +157,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="cran-r.html"><a href="cran-r.html#r-video-tutorials"><i class="fa fa-check"></i><b>4.1</b> R video-tutorials</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>5</b> Faktoranalyse</a><ul>
-<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
+<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a></li>
+<li class="chapter" data-level="5.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#forudstninger-for-faktoranalysen."><i class="fa fa-check"></i><b>5.2</b> Forudsætninger for faktoranalysen.</a></li>
+<li class="chapter" data-level="5.3" data-path="faktoranalyse.html"><a href="faktoranalyse.html#selve-faktoranalysen"><i class="fa fa-check"></i><b>5.3</b> Selve Faktoranalysen</a></li>
+<li class="chapter" data-level="5.4" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.4</b> Hvor mange faktorer bør benyttes?</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#eigenvalues-metoden"><i class="fa fa-check"></i><b>5.4.1</b> Eigenvalues metoden</a></li>
+<li class="chapter" data-level="5.4.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#screeplot-metoden"><i class="fa fa-check"></i><b>5.4.2</b> Screeplot metoden</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a></li>
@@ -209,9 +213,9 @@ Dette betyder at Y stiger konstant med <span class="math inline">\(\mu\)</span> 
 455.257, 455.92, 473.371, 475.472, 490.525, 492.407, 500.438, 
 506.987, 504.54, 495.746), .Dim = c(51L, 1L), .Dimnames = list(
     NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 51, 1), class = &quot;ts&quot;)</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA3)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA3)</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA3)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA3)</a></code></pre></div>
 <pre><code>## Series: ARIMA3 
 ## ARIMA(0,1,0) with drift 
 ## 

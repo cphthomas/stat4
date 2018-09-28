@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-09-25">
+<meta name="date" content="2018-09-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,8 +157,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="cran-r.html"><a href="cran-r.html#r-video-tutorials"><i class="fa fa-check"></i><b>4.1</b> R video-tutorials</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="faktoranalyse.html"><a href="faktoranalyse.html"><i class="fa fa-check"></i><b>5</b> Faktoranalyse</a><ul>
-<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.1.1</b> Hvor mange faktorer bør benyttes?</a></li>
+<li class="chapter" data-level="5.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvilke-faktorer-er-vigtige-nar-man-kber-en-ny-computer"><i class="fa fa-check"></i><b>5.1</b> Hvilke faktorer er vigtige når man køber en ny computer:</a></li>
+<li class="chapter" data-level="5.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#forudstninger-for-faktoranalysen."><i class="fa fa-check"></i><b>5.2</b> Forudsætninger for faktoranalysen.</a></li>
+<li class="chapter" data-level="5.3" data-path="faktoranalyse.html"><a href="faktoranalyse.html#selve-faktoranalysen"><i class="fa fa-check"></i><b>5.3</b> Selve Faktoranalysen</a></li>
+<li class="chapter" data-level="5.4" data-path="faktoranalyse.html"><a href="faktoranalyse.html#hvor-mange-faktorer-br-benyttes"><i class="fa fa-check"></i><b>5.4</b> Hvor mange faktorer bør benyttes?</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="faktoranalyse.html"><a href="faktoranalyse.html#eigenvalues-metoden"><i class="fa fa-check"></i><b>5.4.1</b> Eigenvalues metoden</a></li>
+<li class="chapter" data-level="5.4.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#screeplot-metoden"><i class="fa fa-check"></i><b>5.4.2</b> Screeplot metoden</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a></li>
@@ -196,55 +200,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="plots-med-forskellige-modeller" class="section level1">
 <h1><span class="header-section-number">Kapitel 13</span> Plots med forskellige modeller</h1>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
-<pre><code>## Series: ap1 
-## ARIMA(1,1,3) 
-## 
-## Coefficients:
-##           ar1     ma1      ma2      ma3
-##       -0.7106  0.4120  -0.3889  -0.4300
-## s.e.   0.2385  0.2259   0.1560   0.1311
-## 
-## sigma^2 estimated as 89.89:  log likelihood=-181.74
-## AIC=373.47   AICc=374.84   BIC=383.03</code></pre>
-<p>Kursen svinger omkring middelværdien.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
-<pre><code>## Series: ap2 
-## ARIMA(0,2,1) 
-## 
-## Coefficients:
-##           ma1
-##       -0.4927
-## s.e.   0.1304
-## 
-## sigma^2 estimated as 113.3:  log likelihood=-185.05
-## AIC=374.1   AICc=374.36   BIC=377.88</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
-<pre><code>## Series: ap3 
-## ARIMA(1,0,1) with non-zero mean 
-## 
-## Coefficients:
-##           ar1     ma1     mean
-##       -0.3144  0.7665  99.7453
-## s.e.   0.1115  0.0752   0.8715
-## 
-## sigma^2 estimated as 85.55:  log likelihood=-727.4
-## AIC=1462.81   AICc=1463.01   BIC=1476</code></pre>
-<p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
-<pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 201       96.60996 84.75662 108.4633 78.48184 114.7381
-## 202      100.73109 87.72245 113.7397 80.83609 120.6261
-## 203       99.43542 86.31811 112.5527 79.37423 119.4966
-## 204       99.84277 86.71477 112.9708 79.76523 119.9203
-## 205       99.71470 86.58564 112.8438 79.63554 119.7939
-## 206       99.75497 86.62581 112.8841 79.67565 119.8343
-## 207       99.74231 86.61314 112.8715 79.66297 119.8216
-## 208       99.74629 86.61711 112.8755 79.66695 119.8256
-## 209       99.74504 86.61586 112.8742 79.66570 119.8244
-## 210       99.74543 86.61626 112.8746 79.66609 119.8248</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<pre><code>## Series: ap1 
+## ARIMA(1,0,0) with non-zero mean 
+## 
+## Coefficients:
+##          ar1      mean
+##       0.4399  106.5547
+## s.e.  0.1262    2.1608
+## 
+## sigma^2 estimated as 80.13:  log likelihood=-183.24
+## AIC=372.47   AICc=372.98   BIC=378.27</code></pre>
+<p>Kursen svinger omkring middelværdien.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<pre><code>## Series: ap2 
+## ARIMA(0,1,1) 
+## 
+## Coefficients:
+##          ma1
+##       0.4309
+## s.e.  0.1457
+## 
+## sigma^2 estimated as 99.4:  log likelihood=-185.52
+## AIC=375.05   AICc=375.3   BIC=378.87</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<pre><code>## Series: ap3 
+## ARIMA(2,1,2) 
+## 
+## Coefficients:
+##           ar1      ar2      ma1     ma2
+##       -0.0809  -0.2354  -0.3956  -0.562
+## s.e.   0.1500   0.1012   0.1515   0.151
+## 
+## sigma^2 estimated as 114.1:  log likelihood=-753.23
+## AIC=1516.46   AICc=1516.77   BIC=1532.93</code></pre>
+<p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
+<pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+## 201      105.00350 91.31687 118.6901 84.07161 125.9354
+## 202       99.37191 83.92350 114.8203 75.74561 122.9982
+## 203      102.28553 86.50482 118.0662 78.15102 126.4200
+## 204      103.37538 87.57202 119.1787 79.20623 127.5445
+## 205      102.60138 86.73556 118.4672 78.33669 126.8661
+## 206      102.40747 86.52771 118.2872 78.12147 126.6935
+## 207      102.60535 86.72438 118.4863 78.31751 126.8932
+## 208      102.63498 86.74879 118.5212 78.33915 126.9308
+## 209      102.58601 86.69192 118.4801 78.27810 126.8939
+## 210      102.58299 86.68272 118.4833 78.26563 126.9004</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <p>#ARIMA af højere orden
 Arima modeller kan afhænge af flere tidligere perioder, fx kan ligningen for ARIMA(2,0,0) eller AR(2), opskrives som:</p>
 <p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1}+ \phi_2 Y_{t-2}\]</span>
