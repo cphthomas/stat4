@@ -226,9 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Nu skal vi undersøge om det er fornuftigt at foretage en faktoranalyse, dette kan vi undersøge ved enten Bartletts korrelationstest eller Kaiser-Meyer-Olkin KMO.</p>
 <p>For at teste dette skal man installere og loade pakken psych, vi skal kun installere første gang. Bemærk install.packages(“psych”) er kommenteret ud nedenfor, så første gang skal du kommentere install.packages(“psych”) ud.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">#install.packages(&quot;psych&quot;)</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;psych&quot;</span>)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">cortest.bartlett</span>(data)</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">KMO</span>(data)</a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;psych&quot;</span>)</a></code></pre></div>
 <p>Du kan alternativt benytte pacman pakken, hvilket ofte er at foretrække. Hvis du indlæser nedenstående installeres og loades pakken psych:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">pacman<span class="op">::</span><span class="kw">p_load</span>(psych)</a></code></pre></div>
@@ -424,6 +422,58 @@ Løsning med video bliver lagt op senere.</p>
 <!-- ```{r} -->
 <!-- fapers8 <- factanal(personality,8) -->
 <!-- ``` -->
+</details>
+<br>
+<details>
+<p><summary>Spørgsmål Mediedata</summary></p>
+<p>Download filen om mediedata <a href="mediedata.xlsx" download>her</a>. Importer denne i R, husk under importen at vælge det korrekte sheet, der indeholder data.</p>
+<p>Datasættet omhandler danskernes medievaner, 324 danskere er blevet spurgt om deres medievaner. Datasættet indeholder følgende 11 variable.</p>
+<p><strong>TV-kigning</strong><br />
+samlet Antal minutter pr. dag.</p>
+<p><strong>Radiolytning</strong><br />
+Samlet Antal minutter pr. dag.</p>
+<p><strong>Avislæsning</strong><br />
+Samlet Antal minutter pr. dag.</p>
+<p><strong>TV-kigning</strong><br />
+Nyheder Antal minutter pr. dag. “Nyheder” omfatter “Nyheder, politik og aktuelt”</p>
+<p><strong>Radiolytning</strong><br />
+Nyheder Antal minutter pr. dag. “Nyheder” omfatter “Nyheder, politik og aktuelt”</p>
+<p><strong>Avislæsning</strong><br />
+Nyheder Antal minutter pr. dag. “Nyheder” omfatter “Nyheder, politik og aktuelt”</p>
+<p><strong>Internetforbrug</strong><br />
+0 Ingen internetadgang hjemme eller på arbejde<br />
+1 Bruger aldrig<br />
+2 Mindre end en gang om måneden<br />
+3 En gang om måneden<br />
+4 Flere gange om måneden<br />
+5 En gang om ugen<br />
+6 Flere gange om ugen<br />
+7 Hver dag</p>
+<p><strong>Alder</strong><br />
+Alder i år</p>
+<p><strong>Højest fuldførte uddannelse </strong><br />
+1 Folkeskole 6.-8. klasse<br />
+2 Folkeskole 9.-10. klasse<br />
+3 Gymnasielle uddannelser, studentereksamen, HF, HHX, HTX<br />
+4 Kort erhvervsudd. under 1-2 års varighed, F.eks AMU Arbejdsmarkedsudd., Basisår Erhvervsfaglige udd.<br />
+5 Faglig udd. (håndværk, handel, landbrug mv.), F.eks. Faglærte, Social- og sundhedsassistent-udd. og tilsvarende<br />
+6 Kort videreg. udd af op til 2-3 år, F.eks. Erhv.akademi, datamatiker, tandplejer, byggetekniker, installatør, HD<br />
+7 Mellemlang videreg.udd. 3-4 år. Prof.bachelorer, F.eks. Diploming, sygeplejerske, skolelærer, pædagog, journalist, HA<br />
+8 Universitetsbachelor. 1. del af kandidatuddannelse
+9 Lang videregående uddannelse. Kandidatuddannelser af 5.-6. års varighed, F.eks. Cand.mag., cand.jur., cand.polyt. etc.<br />
+10 Forskeruddannelse. Ph.d., doktor</p>
+<p><strong>Kvindedummy</strong><br />
+Dummy variabel kodet med kvinde=1, mand=0</p>
+<p><strong>Hjemmeboendebørndummy</strong><br />
+Dummy variabel kodet med Ja=1, Nej=0</p>
+<p>Gennemfør en faktor analyse på datasættet.</p>
+</details>
+<br>
+<details>
+<p><summary>Spørgsmål Genderroles</summary></p>
+<p>Download filen genderroles <a href="genderroles.xlsx" download>her</a> og importer den i R via File - Import Dataset.
+Pas på variablene skal konverteres til dummy variable hvor det giver mening, man kan ændre variablen Region til et passende antal dummy variable.</p>
+<p>Gennemfør en faktor analyse på datasættet.</p>
 </details>
 <p><br></p>
 </div>
