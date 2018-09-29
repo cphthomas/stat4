@@ -167,6 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a><ul>
 <li class="chapter" data-level="6.1" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html#hierakisk-klyngeanalyse-hclust-kommandoen"><i class="fa fa-check"></i><b>6.1</b> Hierakisk klyngeanalyse hclust kommandoen</a></li>
 <li class="chapter" data-level="6.2" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html#ikke-hierakisk-klyngeanalyse-kmeans-kommandoen"><i class="fa fa-check"></i><b>6.2</b> Ikke hierakisk klyngeanalyse kmeans kommandoen</a></li>
+<li class="chapter" data-level="6.3" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html#validering-med-anova"><i class="fa fa-check"></i><b>6.3</b> Validering med ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="us-arrestationer-samt-urbaniseringsgrad.html"><a href="us-arrestationer-samt-urbaniseringsgrad.html"><i class="fa fa-check"></i><b>7</b> US arrestationer samt urbaniseringsgrad</a></li>
 <li class="chapter" data-level="8" data-path="kvantitative-metoder.html"><a href="kvantitative-metoder.html"><i class="fa fa-check"></i><b>8</b> Kvantitative metoder</a></li>
@@ -433,64 +434,65 @@ Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fines
 </div>
 <div id="ikke-hierakisk-klyngeanalyse-kmeans-kommandoen" class="section level2">
 <h2><span class="header-section-number">6.2</span> Ikke hierakisk klyngeanalyse kmeans kommandoen</h2>
-<p>Vi kunne også have brugt kmeans metoden, her skal vi så angive hvor mange klynger, vi ønsker i analysen. Her benytter vi K-means og får 4 klynger med 12, 9, 7, 4 biler. Vi kan se at når vi sammenligner grupperne med antal cylindre stemmer disse fint overens.</p>
+<p>Vi kunne også have brugt kmeans metoden, her skal vi så angive hvor mange klynger, vi ønsker i analysen. Her benytter vi K-means og får 4 klynger med 7, 6, 9, 10 biler. I output fra R kan vi under Cluster means se gennemsnit, for de 4 klynger for alle 11 variable.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">mtcarsCluster4 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(mtcars, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb62-2" data-line-number="2">mtcarsCluster4</a></code></pre></div>
-<pre><code>## K-means clustering with 4 clusters of sizes 7, 6, 9, 10
+<pre><code>## K-means clustering with 4 clusters of sizes 10, 7, 9, 6
 ## 
 ## Cluster means:
-##        mpg      cyl     disp        hp     drat       wt     qsec
-## 1 17.01429 7.428571 276.0571 150.71429 2.994286 3.601429 18.11857
-## 2 29.53333 4.000000  84.6000  75.83333 4.155000 1.903000 18.71667
-## 3 14.64444 8.000000 388.2222 232.11111 3.343333 4.161556 16.40444
-## 4 21.48000 5.000000 144.9100 109.50000 3.911000 2.887000 18.43900
-##          vs        am     gear     carb
-## 1 0.2857143 0.0000000 3.000000 2.142857
-## 2 1.0000000 1.0000000 4.166667 1.333333
-## 3 0.0000000 0.2222222 3.444444 4.000000
-## 4 0.6000000 0.5000000 4.100000 3.100000
+##        mpg      cyl     disp       hp     drat       wt     qsec        vs
+## 1 27.05000 4.000000 101.5700  81.4000 4.086000 2.199300 18.76100 0.9000000
+## 2 19.94286 5.714286 166.5714 120.1429 3.705714 3.107857 18.47143 0.5714286
+## 3 14.64444 8.000000 388.2222 232.1111 3.343333 4.161556 16.40444 0.0000000
+## 4 16.83333 7.666667 284.5667 158.3333 3.033333 3.625000 17.76833 0.1666667
+##          am     gear     carb
+## 1 0.8000000 4.100000 1.500000
+## 2 0.4285714 4.000000 3.571429
+## 3 0.2222222 3.444444 4.000000
+## 4 0.0000000 3.000000 2.333333
 ## 
 ## Clustering vector:
 ##           Mazda RX4       Mazda RX4 Wag          Datsun 710 
-##                   4                   4                   2 
+##                   2                   2                   1 
 ##      Hornet 4 Drive   Hornet Sportabout             Valiant 
-##                   1                   3                   1 
+##                   4                   3                   2 
 ##          Duster 360           Merc 240D            Merc 230 
-##                   3                   4                   4 
+##                   3                   1                   2 
 ##            Merc 280           Merc 280C          Merc 450SE 
-##                   4                   4                   1 
-##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
-##                   1                   1                   3 
-## Lincoln Continental   Chrysler Imperial            Fiat 128 
-##                   3                   3                   2 
-##         Honda Civic      Toyota Corolla       Toyota Corona 
 ##                   2                   2                   4 
+##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
+##                   4                   4                   3 
+## Lincoln Continental   Chrysler Imperial            Fiat 128 
+##                   3                   3                   1 
+##         Honda Civic      Toyota Corolla       Toyota Corona 
+##                   1                   1                   1 
 ##    Dodge Challenger         AMC Javelin          Camaro Z28 
-##                   1                   1                   3 
+##                   4                   4                   3 
 ##    Pontiac Firebird           Fiat X1-9       Porsche 914-2 
-##                   3                   2                   4 
+##                   3                   1                   1 
 ##        Lotus Europa      Ford Pantera L        Ferrari Dino 
-##                   2                   3                   4 
+##                   1                   3                   2 
 ##       Maserati Bora          Volvo 142E 
-##                   3                   4 
+##                   3                   1 
 ## 
 ## Within cluster sum of squares by cluster:
-## [1] 11846.095  3628.265 46659.317 11055.093
-##  (between_SS / total_SS =  88.3 %)
+## [1] 10247.471  8808.032 46659.317  6355.581
+##  (between_SS / total_SS =  88.4 %)
 ## 
 ## Available components:
 ## 
 ## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;    
 ## [5] &quot;tot.withinss&quot; &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;        
 ## [9] &quot;ifault&quot;</code></pre>
+<p>Nedenfor ser vi på en tabel inddeling med 4 klynger med de 32 biler, sorteret efter antallet af cylindre.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="kw">table</span>(mtcarsCluster4<span class="op">$</span>cluster, mtcars<span class="op">$</span>cyl)</a></code></pre></div>
 <pre><code>##    
-##     4 6 8
-##   1 0 2 5
-##   2 6 0 0
-##   3 0 0 9
-##   4 5 5 0</code></pre>
-<p>Nedenfor ser vi på en inddeling med 3 klynger med henholdsvis 11, 4, 17 biler. Her passer klyngeinddelingen ikke helt så godt med antallet af cylindre.</p>
+##      4  6  8
+##   1 10  0  0
+##   2  1  6  0
+##   3  0  0  9
+##   4  0  1  5</code></pre>
+<p>Nedenfor ser vi på en tabel inddeling med 3 klynger med de 32 biler, sorteret efter antallet af cylindre. Kører vi kmeans analysen igen, falder bilerne ikke nødvendigvis i samme klynger som tidligere, det skyldes algoritmen kan give forskellig optimale inddelinger.</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">mtcarsCluster3 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(mtcars, <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb66-2" data-line-number="2"><span class="kw">table</span>(mtcarsCluster3<span class="op">$</span>cluster, mtcars<span class="op">$</span>cyl)</a></code></pre></div>
 <pre><code>##    
@@ -498,8 +500,10 @@ Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fines
 ##   1 11  5  0
 ##   2  0  0  9
 ##   3  0  2  5</code></pre>
-<!-- # Validering -->
-<!-- Skal man undersøge om grupperne er forskellige med hensyn til de forskellige variable, kan man benytte Anova, hvor klyngerne er den uafhængige variabel. Man skal da gerne have at klyngegennemsnittede er signifikant forskellige mht flere af variablene der indgår i analysen.  -->
+</div>
+<div id="validering-med-anova" class="section level2">
+<h2><span class="header-section-number">6.3</span> Validering med ANOVA</h2>
+<p>Skal man undersøge om grupperne/klyngerne er forskellige med hensyn til de forskellige variable, kan man benytte Anova, hvor klyngerne er den uafhængige variabel. Man skal da gerne nå frem til at klyngegennemsnittede er signifikant forskellige mht. flere af variablene der indgår i analysen.</p>
 <!-- Undersøg om der er forskel på hestekræfter hp i de 5 klynger dannet af kmeans analysen hvis du vil gennemføre Anova analysen i Freestat skal du eksportere datasættet.   -->
 <!-- Du kan benytte kmeans og export (rio pakken) kommandoerne   -->
 <!-- Man kan danne en kvalitativ variabel med fx. 3 klynger med kmeans kommandoen   -->
