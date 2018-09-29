@@ -164,7 +164,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#screeplot-metoden"><i class="fa fa-check"></i><b>5.4.2</b> Screeplot metoden</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a></li>
+<li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a><ul>
+<li class="chapter" data-level="6.1" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html#hierakisk-klyngeanalyse-hclust-kommandoen"><i class="fa fa-check"></i><b>6.1</b> Hierakisk klyngeanalyse hclust kommandoen</a></li>
+<li class="chapter" data-level="6.2" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html#ikke-hierakisk-klyngeanalyse-kmeans-kommandoen"><i class="fa fa-check"></i><b>6.2</b> Ikke hierakisk klyngeanalyse kmeans kommandoen</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="us-arrestationer-samt-urbaniseringsgrad.html"><a href="us-arrestationer-samt-urbaniseringsgrad.html"><i class="fa fa-check"></i><b>7</b> US arrestationer samt urbaniseringsgrad</a></li>
 <li class="chapter" data-level="8" data-path="kvantitative-metoder.html"><a href="kvantitative-metoder.html"><i class="fa fa-check"></i><b>8</b> Kvantitative metoder</a></li>
 <li class="chapter" data-level="9" data-path="arima000.html"><a href="arima000.html"><i class="fa fa-check"></i><b>9</b> ARIMA(0,0,0)</a></li>
@@ -246,14 +249,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(hp, mpg, <span class="dt">color =</span> cyl,<span class="dt">label=</span><span class="kw">rownames</span>(mtcars)))<span class="op">+</span></a>
 <a class="sourceLine" id="cb40-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">size=</span><span class="dv">3</span>,<span class="dt">check_overlap =</span> <span class="ot">TRUE</span>) </a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-23-2.png" width="672" /></p>
-<p>Vi kan benytte t til at transponere data matricen, så kan vi tegne et corrplot, det er meget mørkt da alle bilerne er positivt korrelerede, men man kan ane nogle sammenhænge.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw">library</span>(corrplot)</a>
-<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="kw">corrplot</span>(<span class="kw">cor</span>(<span class="kw">t</span>(mtcars)), <span class="dt">order =</span> <span class="st">&quot;hclust&quot;</span>, <span class="dt">tl.col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">tl.cex=</span>.<span class="dv">5</span>) <span class="co">#transponeret mtcars data, hclust betyder vi ordner efter variable der passer sammen</span></a></code></pre></div>
+<p>Vi kan benytte t til at transponere data matricen, så kan vi tegne et corrplot, det er meget mørkt da alle bilerne er positivt korrelerede, men man kan ane nogle sammenhænge. t(mtcars) betyder vi transponerer (vender) matricen, så ser vi i stedet på grupper af respondenter, som vi netop analyserer i klyngeanalysen. Hvis ikke vi vender matricen ser vi på korrelationsmatricen mellem de 11 variable i stedet, ligesom vi tidligere har gjort med faktoranalysen.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co">#korrelationsmatricen for transponeret mtcars data, hclust betyder vi ordner efter variable der passer sammen</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">pacman<span class="op">::</span><span class="kw">p_load</span>(corrplot)</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="kw">corrplot</span>(<span class="kw">cor</span>(<span class="kw">t</span>(mtcars)), <span class="dt">order =</span> <span class="st">&quot;hclust&quot;</span>, <span class="dt">tl.col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">tl.cex=</span>.<span class="dv">5</span>)</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-24-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">corrplot</span>(<span class="kw">cor</span>(mtcars), <span class="dt">order =</span> <span class="st">&quot;hclust&quot;</span>, <span class="dt">tl.col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">tl.cex=</span>.<span class="dv">5</span>) <span class="co">#Her ikke transponeret, hvilket svarer til faktoranalysen vi tidligere så på.</span></a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-24-2.svg" width="672" /></p>
-<p>t(mtcars) betyder vi transponerer (vender) matricen, så ser vi i stedet på grupper af respondenter, som vi netop analyserer i klyngeanalysen.</p>
-<p>Vi får nu R til at danne klynger vha. af hclust (hierarcical cluster) kommandoen, denne benytter default en metode der hedder complete til at finde ens klynger, der findes mange andre metoder. Algoritmen beregner afstandene mellem de forskellige bilmodeller vha. af den euklidiske metrik. Biler med kort afstand kommer i klynger sammen, biler med lang afstand kommer i forskellige klynger. Neden for ses afstandende mellem hver af de 32 biler, det er en meget stor 32 <span class="math inline">\(\times\)</span> 32 matrice. Fx er afstanden mellem to forskellige biler som en Mazda RX4 og en Lincoln Continental 318.05 hvilket er en stor afstand i forhold til fx. Mazda RX4 og Mazda RX4 Wag på kun 0.62. Bemærk hvordan supersportsvognen Maserati Bora har store afstande til de fleste af de øvrige biler, Maseratien var en komfortabel, rummeligere og kraftigere og tungere sportsvogn end fx. Ferrari Dino.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="co">#Her er korrelationsmatricen ikke transponeret, hvilket svarer til en matrice baseret på variable som ved faktoranalysen vi tidligere så på.</span></a>
+<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="kw">corrplot</span>(<span class="kw">cor</span>(mtcars), <span class="dt">order =</span> <span class="st">&quot;hclust&quot;</span>, <span class="dt">tl.col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">tl.cex=</span>.<span class="dv">5</span>) </a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<div id="hierakisk-klyngeanalyse-hclust-kommandoen" class="section level2">
+<h2><span class="header-section-number">6.1</span> Hierakisk klyngeanalyse hclust kommandoen</h2>
+<p>Vi får nu R til at danne klynger vha. af hclust (hierarcical cluster) kommandoen, denne benytter default en metode der hedder complete til at finde ens klynger, der findes mange andre metoder. For at benytte hclust skal R først beregne afstandene mellem bilerne dette gøres med dist kommandoen. Algoritmen beregner afstandene mellem de forskellige bilmodeller vha. af den euklidiske metrik. Biler med kort afstand kommer i klynger sammen, biler med lang afstand kommer i forskellige klynger.</p>
+<p>Nedenfor ses et udsnit af afstandende mellem hver af de 32 biler, det er en meget stor 32 <span class="math inline">\(\times\)</span> 32 matrice, derfor har vi benyttet head for kun at vise noget af matricen. Fx er afstanden mellem to forskellige biler som en Mazda RX4 og en Lincoln Continental 318.05 hvilket er en stor afstand i forhold til fx. Mazda RX4 og Mazda RX4 Wag på kun 0.62. Bemærk hvordan supersportsvognen Maserati Bora har store afstande til de fleste af de øvrige biler, Maseratien var en komfortabel, rummeligere og kraftigere og tungere sportsvogn end fx. Ferrari Dino.</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">head</span>(<span class="kw">as.matrix</span>(<span class="kw">dist</span>(mtcars))) </a></code></pre></div>
 <pre><code>##                     Mazda RX4 Mazda RX4 Wag Datsun 710 Hornet 4 Drive
 ## Mazda RX4           0.0000000     0.6153251   54.90861       98.11252
@@ -311,13 +318,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Hornet 4 Drive          180.1140    130.55230      229.3419  137.03633
 ## Hornet Sportabout        89.5934    215.06739      170.7094  248.00634
 ## Valiant                 203.0178    106.56948      242.4393  104.18637</code></pre>
-<p>Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fineste inddeling, hvor samtlige biler er i deres egen klynge. Den blå linje med 3 skæringer i dendogrammet indikerer der er 3 klynger, den røde 4 klynger.</p>
+<p>Vi gemmer hclust data i clusters variablen, vi så kan benytte til at tegne en oversigt over klyngerne.
+Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fineste inddeling, hvor samtlige biler er i deres egen klynge. Den blå linje med 3 skæringer i dendogrammet indikerer der er 3 klynger, den røde 4 klynger.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">clusters &lt;-<span class="st"> </span><span class="kw">hclust</span>(<span class="kw">dist</span>(mtcars))</a>
 <a class="sourceLine" id="cb45-2" data-line-number="2"><span class="kw">plot</span>(clusters,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">main =</span> <span class="st">&quot;Dendogram af mtcars&quot;</span>,<span class="dt">xlab =</span> <span class="st">&quot;Klyngetræ&quot;</span>,<span class="dt">sub=</span><span class="st">&quot;Bilmodeller&quot;</span>)</a>
 <a class="sourceLine" id="cb45-3" data-line-number="3"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">190</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>) <span class="co">#Tegn rød vandret linje h betyder horisontal</span></a>
 <a class="sourceLine" id="cb45-4" data-line-number="4"><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">230</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-26-1.svg" width="672" /></p>
-<p>Hvis vi ønsker at undersøge en indeling med et bestemt antal klynger, kan vi bruge cutree i R, til at undersøge klyngerne i en skæring med fx. 4 klynger nærmere. Her ser vi som nævnt, Maserati Bora skiller sig ud ved at have sin egen klynge.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-27-1.svg" width="672" /></p>
+<p>Hvis vi ønsker at undersøge en indeling med et bestemt antal klynger, kan vi bruge cutree i R, til at undersøge klyngerne i en skæring med fx. 4 klynger nærmere. Her ser vi som nævnt, Maserati Bora skiller sig ud ved at have sin egen klynge. Nummeret ved hver af de 32 biler angiver hvilken klynge bilen tilhører.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">clusterCut &lt;-<span class="st"> </span><span class="kw">cutree</span>(clusters, <span class="dv">4</span>) <span class="co">#Opdeling i 4 klynger.</span></a>
 <a class="sourceLine" id="cb46-2" data-line-number="2">clusterCut</a></code></pre></div>
 <pre><code>##           Mazda RX4       Mazda RX4 Wag          Datsun 710 
@@ -417,55 +425,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb60-4" data-line-number="4">clus4 =<span class="st"> </span><span class="kw">cutree</span>(clusters, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb60-5" data-line-number="5"><span class="kw">plot</span>(<span class="kw">as.phylo</span>(clusters), <span class="dt">type =</span> <span class="st">&quot;fan&quot;</span>, <span class="dt">tip.color =</span> colors[clus4],</a>
 <a class="sourceLine" id="cb60-6" data-line-number="6">     <span class="dt">label.offset =</span> <span class="dv">0</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-30-1.svg" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-31-1.svg" width="672" /></p>
 <p>Herunder er et plot, hvor farvekoden er baseret på klyngerne.</p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(hp, mpg)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb61-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.4</span>, <span class="dt">size =</span> <span class="fl">3.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">col =</span> clusterCut) </a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-31-1.svg" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-32-1.svg" width="672" /></p>
+</div>
+<div id="ikke-hierakisk-klyngeanalyse-kmeans-kommandoen" class="section level2">
+<h2><span class="header-section-number">6.2</span> Ikke hierakisk klyngeanalyse kmeans kommandoen</h2>
 <p>Vi kunne også have brugt kmeans metoden, her skal vi så angive hvor mange klynger, vi ønsker i analysen. Her benytter vi K-means og får 4 klynger med 12, 9, 7, 4 biler. Vi kan se at når vi sammenligner grupperne med antal cylindre stemmer disse fint overens.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">mtcarsCluster4 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(mtcars, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb62-2" data-line-number="2">mtcarsCluster4</a></code></pre></div>
-<pre><code>## K-means clustering with 4 clusters of sizes 4, 7, 14, 7
+<pre><code>## K-means clustering with 4 clusters of sizes 7, 6, 9, 10
 ## 
 ## Cluster means:
-##        mpg cyl     disp        hp     drat       wt     qsec        vs
-## 1 31.00000   4  76.1250  62.25000 4.327500 1.896250 19.19750 1.0000000
-## 2 19.74286   6 183.3143 122.28571 3.585714 3.117143 17.97714 0.5714286
-## 3 15.10000   8 353.1000 209.21429 3.229286 3.999214 16.77214 0.0000000
-## 4 24.18571   4 121.7143  94.28571 3.924286 2.508286 19.10286 0.8571429
-##          am     gear     carb
-## 1 1.0000000 4.000000 1.250000
-## 2 0.4285714 3.857143 3.428571
-## 3 0.1428571 3.285714 3.500000
-## 4 0.5714286 4.142857 1.714286
+##        mpg      cyl     disp        hp     drat       wt     qsec
+## 1 17.01429 7.428571 276.0571 150.71429 2.994286 3.601429 18.11857
+## 2 29.53333 4.000000  84.6000  75.83333 4.155000 1.903000 18.71667
+## 3 14.64444 8.000000 388.2222 232.11111 3.343333 4.161556 16.40444
+## 4 21.48000 5.000000 144.9100 109.50000 3.911000 2.887000 18.43900
+##          vs        am     gear     carb
+## 1 0.2857143 0.0000000 3.000000 2.142857
+## 2 1.0000000 1.0000000 4.166667 1.333333
+## 3 0.0000000 0.2222222 3.444444 4.000000
+## 4 0.6000000 0.5000000 4.100000 3.100000
 ## 
 ## Clustering vector:
 ##           Mazda RX4       Mazda RX4 Wag          Datsun 710 
-##                   2                   2                   4 
+##                   4                   4                   2 
 ##      Hornet 4 Drive   Hornet Sportabout             Valiant 
-##                   2                   3                   2 
+##                   1                   3                   1 
 ##          Duster 360           Merc 240D            Merc 230 
 ##                   3                   4                   4 
 ##            Merc 280           Merc 280C          Merc 450SE 
-##                   2                   2                   3 
+##                   4                   4                   1 
 ##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
-##                   3                   3                   3 
+##                   1                   1                   3 
 ## Lincoln Continental   Chrysler Imperial            Fiat 128 
-##                   3                   3                   1 
+##                   3                   3                   2 
 ##         Honda Civic      Toyota Corolla       Toyota Corona 
-##                   1                   1                   4 
+##                   2                   2                   4 
 ##    Dodge Challenger         AMC Javelin          Camaro Z28 
-##                   3                   3                   3 
+##                   1                   1                   3 
 ##    Pontiac Firebird           Fiat X1-9       Porsche 914-2 
-##                   3                   1                   4 
+##                   3                   2                   4 
 ##        Lotus Europa      Ford Pantera L        Ferrari Dino 
-##                   4                   3                   2 
+##                   2                   3                   4 
 ##       Maserati Bora          Volvo 142E 
 ##                   3                   4 
 ## 
 ## Within cluster sum of squares by cluster:
-## [1]   208.0365 13954.3363 93643.9039  3616.8297
-##  (between_SS / total_SS =  82.1 %)
+## [1] 11846.095  3628.265 46659.317 11055.093
+##  (between_SS / total_SS =  88.3 %)
 ## 
 ## Available components:
 ## 
@@ -474,11 +485,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [9] &quot;ifault&quot;</code></pre>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="kw">table</span>(mtcarsCluster4<span class="op">$</span>cluster, mtcars<span class="op">$</span>cyl)</a></code></pre></div>
 <pre><code>##    
-##      4  6  8
-##   1  4  0  0
-##   2  0  7  0
-##   3  0  0 14
-##   4  7  0  0</code></pre>
+##     4 6 8
+##   1 0 2 5
+##   2 6 0 0
+##   3 0 0 9
+##   4 5 5 0</code></pre>
 <p>Nedenfor ser vi på en inddeling med 3 klynger med henholdsvis 11, 4, 17 biler. Her passer klyngeinddelingen ikke helt så godt med antallet af cylindre.</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">mtcarsCluster3 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(mtcars, <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb66-2" data-line-number="2"><span class="kw">table</span>(mtcarsCluster3<span class="op">$</span>cluster, mtcars<span class="op">$</span>cyl)</a></code></pre></div>
@@ -503,6 +514,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- # ```{r} -->
 <!-- # anova(lm(mtcarsklynge$V2 ~ mtcarsklynge$V1,data=mtcarsklynge)) -->
 <!-- <!-- ``` -->
+</div>
 </div>
             </section>
 

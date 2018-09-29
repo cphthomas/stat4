@@ -164,7 +164,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.2" data-path="faktoranalyse.html"><a href="faktoranalyse.html#screeplot-metoden"><i class="fa fa-check"></i><b>5.4.2</b> Screeplot metoden</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a></li>
+<li class="chapter" data-level="6" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html"><i class="fa fa-check"></i><b>6</b> Klyngeanalyse</a><ul>
+<li class="chapter" data-level="6.1" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html#hierakisk-klyngeanalyse-hclust-kommandoen"><i class="fa fa-check"></i><b>6.1</b> Hierakisk klyngeanalyse hclust kommandoen</a></li>
+<li class="chapter" data-level="6.2" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html#ikke-hierakisk-klyngeanalyse-kmeans-kommandoen"><i class="fa fa-check"></i><b>6.2</b> Ikke hierakisk klyngeanalyse kmeans kommandoen</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="us-arrestationer-samt-urbaniseringsgrad.html"><a href="us-arrestationer-samt-urbaniseringsgrad.html"><i class="fa fa-check"></i><b>7</b> US arrestationer samt urbaniseringsgrad</a></li>
 <li class="chapter" data-level="8" data-path="kvantitative-metoder.html"><a href="kvantitative-metoder.html"><i class="fa fa-check"></i><b>8</b> Kvantitative metoder</a></li>
 <li class="chapter" data-level="9" data-path="arima000.html"><a href="arima000.html"><i class="fa fa-check"></i><b>9</b> ARIMA(0,0,0)</a></li>
@@ -199,55 +202,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="plots-med-forskellige-modeller" class="section level1">
 <h1><span class="header-section-number">Kapitel 13</span> Plots med forskellige modeller</h1>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
 <pre><code>## Series: ap1 
+## ARIMA(0,1,0) 
+## 
+## sigma^2 estimated as 129.4:  log likelihood=-192.52
+## AIC=387.04   AICc=387.12   BIC=388.95</code></pre>
+<p>Kursen svinger omkring middelværdien.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<pre><code>## Series: ap2 
 ## ARIMA(0,1,1) 
 ## 
 ## Coefficients:
-##           ma1
-##       -0.4702
-## s.e.   0.1176
+##          ma1
+##       0.6256
+## s.e.  0.1048
 ## 
-## sigma^2 estimated as 84.79:  log likelihood=-181.57
-## AIC=367.14   AICc=367.4   BIC=370.97</code></pre>
-<p>Kursen svinger omkring middelværdien.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
-<pre><code>## Series: ap2 
-## ARIMA(0,1,1) with drift 
-## 
-## Coefficients:
-##          ma1   drift
-##       0.6755  8.4476
-## s.e.  0.1071  2.2791
-## 
-## sigma^2 estimated as 97.89:  log likelihood=-184.83
-## AIC=375.66   AICc=376.18   BIC=381.39</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+## sigma^2 estimated as 101.7:  log likelihood=-186.25
+## AIC=376.5   AICc=376.76   BIC=380.33</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
 <pre><code>## Series: ap3 
-## ARIMA(2,0,1) with non-zero mean 
+## ARIMA(1,0,1) with non-zero mean 
 ## 
 ## Coefficients:
-##           ar1     ar2     ma1     mean
-##       -0.3744  0.0452  0.8013  99.3717
-## s.e.   0.1354  0.0991  0.1137   0.8276
+##           ar1     ma1      mean
+##       -0.2704  0.7571  100.0198
+## s.e.   0.1152  0.0805    0.9692
 ## 
-## sigma^2 estimated as 76.29:  log likelihood=-715.43
-## AIC=1440.85   AICc=1441.16   BIC=1457.34</code></pre>
+## sigma^2 estimated as 99.93:  log likelihood=-742.96
+## AIC=1493.92   AICc=1494.13   BIC=1507.11</code></pre>
 <p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 201       96.96628 85.77249 108.1601 79.84686 114.0857
-## 202       99.99211 87.82099 112.1632 81.37799 118.6062
-## 203       99.03071 86.79207 111.2694 80.31333 117.7481
-## 204       99.52733 87.26888 111.7858 80.77965 118.2750
-## 205       99.29797 87.03538 111.5606 80.54396 118.0520
-## 206       99.40627 87.14276 111.6698 80.65084 118.1617
-## 207       99.35536 87.09164 111.6191 80.59962 118.1111
-## 208       99.37932 87.11555 111.6431 80.62350 118.1351
-## 209       99.36805 87.10427 111.6318 80.61222 118.1239
-## 210       99.37335 87.10957 111.6371 80.61752 118.1292</code></pre>
+## 201      106.26345 93.45229 119.0746 86.67047 125.8564
+## 202       98.33126 84.08353 112.5790 76.54124 120.1213
+## 203      100.47640 86.12925 114.8235 78.53433 122.4185
+## 204       99.89628 85.54189 114.2507 77.94313 121.8494
+## 205      100.05316 85.69824 114.4081 78.09921 122.0071
+## 206      100.01074 85.65578 114.3657 78.05672 121.9648
+## 207      100.02221 85.66725 114.3772 78.06819 121.9762
+## 208      100.01911 85.66414 114.3741 78.06509 121.9731
+## 209      100.01995 85.66498 114.3749 78.06593 121.9740
+## 210      100.01972 85.66476 114.3747 78.06570 121.9737</code></pre>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <p>#ARIMA af højere orden
 Arima modeller kan afhænge af flere tidligere perioder, fx kan ligningen for ARIMA(2,0,0) eller AR(2), opskrives som:</p>
 <p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1}+ \phi_2 Y_{t-2}\]</span>
