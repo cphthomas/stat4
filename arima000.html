@@ -214,11 +214,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 16.3, 23.12, 21.26, 18.52, 24.58, 21.26), .Dim = c(50L, 1L), .Dimnames = list(
     NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 50, 1), class = &quot;ts&quot;)</code></pre>
 <p>Vi kan nu plotte vore data i R.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="kw">plot.ts</span>(ARIMA1, <span class="dt">xlab=</span><span class="st">&#39;Tid&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Kursdata&#39;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">plot.ts</span>(ARIMA1, <span class="dt">xlab=</span><span class="st">&#39;Tid&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Kursdata&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <p>Det er svært at se nogen tydelig udvikling i kursen.</p>
 <p>Vi benytter auto.arima til at undersøge om der er en systematik i tidsserien, for at bruge denne funktion skal vi hente og loade pakken forecast med hhv. install.packages(“forecast”) kun første gang og require(“forecast”) eller library(“forecast”)</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA1)</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA1)</a></code></pre></div>
 <pre><code>## Series: ARIMA1 
 ## ARIMA(0,0,0) with non-zero mean 
 ## 

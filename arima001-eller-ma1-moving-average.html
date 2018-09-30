@@ -214,9 +214,9 @@ Hvis vi forestiller os <span class="math inline">\(\mu=50\)</span> <span class="
 93.411, 104.566, 115.626, 93.047, 91.644, 120.28, 109.674, 95.901, 
 102.858, 105.829, 99.581, 112.855), .Dim = c(50L, 1L), .Dimnames = list(
     NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 50, 1), class = &quot;ts&quot;)</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA4)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA4)</a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">ts.plot</span>(ARIMA4)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA4)</a></code></pre></div>
 <pre><code>## Series: ARIMA4 
 ## ARIMA(0,0,1) with non-zero mean 
 ## 
@@ -228,7 +228,7 @@ Hvis vi forestiller os <span class="math inline">\(\mu=50\)</span> <span class="
 ## sigma^2 estimated as 95.68:  log likelihood=-184.81
 ## AIC=375.62   AICc=376.14   BIC=381.35</code></pre>
 <p>Vi kan nu forudsige aktiekursen 12 perioder frem med predict:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">predict</span>(<span class="kw">auto.arima</span>(ARIMA4), <span class="dt">n.ahead =</span> <span class="dv">12</span>)<span class="op">$</span>pred</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="kw">predict</span>(<span class="kw">auto.arima</span>(ARIMA4), <span class="dt">n.ahead =</span> <span class="dv">12</span>)<span class="op">$</span>pred</a></code></pre></div>
 <pre><code>## Time Series:
 ## Start = 51 
 ## End = 62 

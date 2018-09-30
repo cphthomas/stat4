@@ -200,55 +200,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="plots-med-forskellige-modeller" class="section level1">
 <h1><span class="header-section-number">Kapitel 11</span> Plots med forskellige modeller</h1>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
-<pre><code>## Series: ap1 
-## ARIMA(1,0,0) with non-zero mean 
-## 
-## Coefficients:
-##          ar1     mean
-##       0.5560  86.8311
-## s.e.  0.1194   3.0095
-## 
-## sigma^2 estimated as 99.4:  log likelihood=-188.81
-## AIC=383.62   AICc=384.13   BIC=389.41</code></pre>
-<p>Kursen svinger omkring middelværdien.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
-<pre><code>## Series: ap2 
-## ARIMA(2,1,2) with drift 
-## 
-## Coefficients:
-##          ar1      ar2      ma1     ma2   drift
-##       1.0770  -0.8090  -0.6946  0.8206  4.0533
-## s.e.  0.1215   0.0924   0.0926  0.1690  1.9073
-## 
-## sigma^2 estimated as 85.59:  log likelihood=-180.47
-## AIC=372.95   AICc=374.9   BIC=384.42</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
-<pre><code>## Series: ap3 
-## ARIMA(1,0,1) with non-zero mean 
-## 
-## Coefficients:
-##           ar1     ma1     mean
-##       -0.2075  0.7427  99.5640
-## s.e.   0.1105  0.0762   1.0405
-## 
-## sigma^2 estimated as 105.8:  log likelihood=-748.68
-## AIC=1505.37   AICc=1505.57   BIC=1518.56</code></pre>
-<p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
-<pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 201      101.22507 88.04333 114.4068 81.06534 121.3848
-## 202       99.21927 84.26824 114.1703 76.35365 122.0849
-## 203       99.63552 84.61298 114.6581 76.66053 122.6105
-## 204       99.54914 84.52352 114.5748 76.56944 122.5288
-## 205       99.56707 84.54132 114.5928 76.58717 122.5470
-## 206       99.56335 84.53759 114.5891 76.58344 122.5433
-## 207       99.56412 84.53836 114.5899 76.58421 122.5440
-## 208       99.56396 84.53820 114.5897 76.58405 122.5439
-## 209       99.56399 84.53824 114.5897 76.58408 122.5439
-## 210       99.56399 84.53823 114.5897 76.58408 122.5439</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<pre><code>## Series: ap1 
+## ARIMA(1,1,0) with drift 
+## 
+## Coefficients:
+##           ar1    drift
+##       -0.5649  -1.5264
+## s.e.   0.1166   0.9512
+## 
+## sigma^2 estimated as 113.7:  log likelihood=-188.46
+## AIC=382.93   AICc=383.45   BIC=388.66</code></pre>
+<p>Kursen svinger omkring middelværdien.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<pre><code>## Series: ap2 
+## ARIMA(1,2,1) 
+## 
+## Coefficients:
+##          ar1      ma1
+##       0.6236  -0.9273
+## s.e.  0.1567   0.0901
+## 
+## sigma^2 estimated as 106.1:  log likelihood=-183.16
+## AIC=372.31   AICc=372.84   BIC=377.99</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<pre><code>## Series: ap3 
+## ARIMA(3,0,0) with non-zero mean 
+## 
+## Coefficients:
+##          ar1      ar2     ar3      mean
+##       0.4832  -0.4134  0.2288  100.0785
+## s.e.  0.0689   0.0725  0.0707    1.0440
+## 
+## sigma^2 estimated as 109.9:  log likelihood=-751.98
+## AIC=1513.96   AICc=1514.27   BIC=1530.45</code></pre>
+<p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
+<pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+## 201      105.66688 92.23090 119.1029 85.11833 126.2154
+## 202       99.03656 84.11448 113.9586 76.21521 121.8579
+## 203       96.91187 81.79522 112.0285 73.79294 120.0308
+## 204      100.25770 85.12104 115.3944 77.10818 123.4072
+## 205      101.23577 85.95295 116.5186 77.86271 124.6088
+## 206       99.83918 84.53609 115.1423 76.43512 123.2432
+## 207       99.52550 84.20778 114.8432 76.09907 122.9519
+## 208      100.17502 84.85640 115.4936 76.74721 123.6028
+## 209      100.29902 84.97577 115.6223 76.86413 123.7339
+## 210      100.01867 84.69511 115.3422 76.58331 123.4540</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <p>#ARIMA af højere orden
 Arima modeller kan afhænge af flere tidligere perioder, fx kan ligningen for ARIMA(2,0,0) eller AR(2), opskrives som:</p>
 <p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1}+ \phi_2 Y_{t-2}\]</span>
