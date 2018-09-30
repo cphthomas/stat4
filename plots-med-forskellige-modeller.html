@@ -170,7 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html#validering-med-anova"><i class="fa fa-check"></i><b>6.3</b> Validering med ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="kvantitative-metoder.html"><a href="kvantitative-metoder.html"><i class="fa fa-check"></i><b>7</b> Kvantitative metoder</a></li>
-<li class="chapter" data-level="8" data-path="arima000.html"><a href="arima000.html"><i class="fa fa-check"></i><b>8</b> ARIMA(0,0,0)</a></li>
+<li class="chapter" data-level="8" data-path="arima000.html"><a href="arima000.html"><i class="fa fa-check"></i><b>8</b> ARIMA(0,0,0)</a><ul>
+<li class="chapter" data-level="8.1" data-path="arima000.html"><a href="arima000.html#tidsrkker-og-arima"><i class="fa fa-check"></i><b>8.1</b> Tidsrækker og ARIMA</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="arima100-eller-ar1-autoregression.html"><a href="arima100-eller-ar1-autoregression.html"><i class="fa fa-check"></i><b>9</b> ARIMA(1,0,0) eller AR(1) autoregression</a></li>
 <li class="chapter" data-level="10" data-path="arima010-eller-i1-random-walk-with-a-drift.html"><a href="arima010-eller-i1-random-walk-with-a-drift.html"><i class="fa fa-check"></i><b>10</b> ARIMA(0,1,0) eller I(1) Random Walk with a drift</a></li>
 <li class="chapter" data-level="11" data-path="arima001-eller-ma1-moving-average.html"><a href="arima001-eller-ma1-moving-average.html"><i class="fa fa-check"></i><b>11</b> ARIMA(0,0,1) eller MA(1) Moving average</a></li>
@@ -204,52 +206,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapitel 12</span> Plots med forskellige modeller</h1>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <pre><code>## Series: ap1 
-## ARIMA(0,1,1) with drift 
+## ARIMA(2,0,1) with non-zero mean 
 ## 
 ## Coefficients:
-##           ma1    drift
-##       -0.7823  -0.6533
-## s.e.   0.1286   0.2728
+##           ar1     ar2     ma1      mean
+##       -0.1545  0.7084  0.5891  116.4011
+## s.e.   0.1371  0.1066  0.1630    3.8727
 ## 
-## sigma^2 estimated as 70.01:  log likelihood=-176.62
-## AIC=359.23   AICc=359.76   BIC=364.97</code></pre>
+## sigma^2 estimated as 72.73:  log likelihood=-180.26
+## AIC=370.52   AICc=371.85   BIC=380.17</code></pre>
 <p>Kursen svinger omkring middelværdien.</p>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <pre><code>## Series: ap2 
-## ARIMA(0,1,1) 
+## ARIMA(1,1,0) 
 ## 
 ## Coefficients:
-##          ma1
-##       0.7915
-## s.e.  0.1088
+##          ar1
+##       0.6680
+## s.e.  0.1076
 ## 
-## sigma^2 estimated as 83.63:  log likelihood=-181.6
-## AIC=367.19   AICc=367.45   BIC=371.02</code></pre>
+## sigma^2 estimated as 114.6:  log likelihood=-189.27
+## AIC=382.53   AICc=382.79   BIC=386.36</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 <pre><code>## Series: ap3 
 ## ARIMA(1,0,1) with non-zero mean 
 ## 
 ## Coefficients:
-##           ar1     ma1      mean
-##       -0.3473  0.8224  101.7940
-## s.e.   0.0922  0.0524    0.9183
+##           ar1     ma1     mean
+##       -0.3103  0.7748  101.755
+## s.e.   0.1007  0.0633    1.033
 ## 
-## sigma^2 estimated as 93.75:  log likelihood=-736.63
-## AIC=1481.27   AICc=1481.47   BIC=1494.46</code></pre>
+## sigma^2 estimated as 118.3:  log likelihood=-759.86
+## AIC=1527.73   AICc=1527.93   BIC=1540.92</code></pre>
 <p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 201       102.3022 89.89347 114.7109 83.32469 121.2797
-## 202       101.6175 87.87930 115.3558 80.60671 122.6284
-## 203       101.8553 87.96532 115.7453 80.61240 123.0982
-## 204       101.7727 87.86457 115.6809 80.50203 123.0434
-## 205       101.8014 87.89105 115.7118 80.52735 123.0755
-## 206       101.7915 87.88083 115.7021 80.51699 123.0659
-## 207       101.7949 87.88425 115.7056 80.52040 123.0694
-## 208       101.7937 87.88305 115.7044 80.51919 123.0682
-## 209       101.7941 87.88347 115.7048 80.51961 123.0686
-## 210       101.7940 87.88332 115.7046 80.51946 123.0685</code></pre>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
+## 201       103.6168 89.67565 117.5579 82.29567 124.9379
+## 202       101.1773 85.80539 116.5492 77.66799 124.6866
+## 203       101.9343 86.43156 117.4370 78.22492 125.6436
+## 204       101.6994 86.18414 117.2146 77.97087 125.4279
+## 205       101.7723 86.25582 117.2887 78.04190 125.5026
+## 206       101.7497 86.23309 117.2662 78.01911 125.4802
+## 207       101.7567 86.24009 117.2732 78.02611 125.4872
+## 208       101.7545 86.23791 117.2711 78.02393 125.4851
+## 209       101.7552 86.23859 117.2717 78.02461 125.4857
+## 210       101.7550 86.23838 117.2715 78.02440 125.4855</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <p>#ARIMA af højere orden
 Arima modeller kan afhænge af flere tidligere perioder, fx kan ligningen for ARIMA(2,0,0) eller AR(2), opskrives som:</p>

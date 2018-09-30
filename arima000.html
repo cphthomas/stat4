@@ -170,7 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="klyngeanalyse.html"><a href="klyngeanalyse.html#validering-med-anova"><i class="fa fa-check"></i><b>6.3</b> Validering med ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="kvantitative-metoder.html"><a href="kvantitative-metoder.html"><i class="fa fa-check"></i><b>7</b> Kvantitative metoder</a></li>
-<li class="chapter" data-level="8" data-path="arima000.html"><a href="arima000.html"><i class="fa fa-check"></i><b>8</b> ARIMA(0,0,0)</a></li>
+<li class="chapter" data-level="8" data-path="arima000.html"><a href="arima000.html"><i class="fa fa-check"></i><b>8</b> ARIMA(0,0,0)</a><ul>
+<li class="chapter" data-level="8.1" data-path="arima000.html"><a href="arima000.html#tidsrkker-og-arima"><i class="fa fa-check"></i><b>8.1</b> Tidsrækker og ARIMA</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="arima100-eller-ar1-autoregression.html"><a href="arima100-eller-ar1-autoregression.html"><i class="fa fa-check"></i><b>9</b> ARIMA(1,0,0) eller AR(1) autoregression</a></li>
 <li class="chapter" data-level="10" data-path="arima010-eller-i1-random-walk-with-a-drift.html"><a href="arima010-eller-i1-random-walk-with-a-drift.html"><i class="fa fa-check"></i><b>10</b> ARIMA(0,1,0) eller I(1) Random Walk with a drift</a></li>
 <li class="chapter" data-level="11" data-path="arima001-eller-ma1-moving-average.html"><a href="arima001-eller-ma1-moving-average.html"><i class="fa fa-check"></i><b>11</b> ARIMA(0,0,1) eller MA(1) Moving average</a></li>
@@ -202,24 +204,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="arima000" class="section level1">
 <h1><span class="header-section-number">Kapitel 8</span> ARIMA(0,0,0)</h1>
+<div id="tidsrkker-og-arima" class="section level2">
+<h2><span class="header-section-number">8.1</span> Tidsrækker og ARIMA</h2>
+<p>En tidsrække er observationer, der er observeret over tid, fx. lukkekursen på Novo i 2018, kan vi beskrive som en tidsrække. Hvor vi både registrerer dato og lukkekursen. ARIMA er et avanceret analyseværktøj til at beskrive tidsrækker. Vi vil i de følgende kaptiler, med eksempler beskrive hvordan de enkelte elementer i ARIMA rent praktisk fungerer.</p>
+<p><strong><em>AR</em></strong> står for AutoRegressive<br />
+<strong><em>I</em></strong> står for Integrated<br />
+<strong><em>MA</em></strong> står for Moving Average</p>
+<p>Lad os starte med nogle simple eksempler for trinvis, at kunne beskrive hvorledes modellen fungerer:</p>
 <p>Nedenfor har vi aktiekurser for 50 dage for en fiktiv aktie, vi vil nu undersøge om disse kan bruges til at forudsige noget om fremtidige aktiekurser. For at gøre dette, skal man enten importere Excelfilen, eller copy paste data fra rammen nedenfor.</p>
-<!-- Importer nedenstående Excelfil til R via menuen File - Import Dataset Excel.  -->
-<!-- Ret data til tidsserie med ts(ARIMA1) kommandoen i R, du har nu data som en tidsserie -->
-<!-- <a href="https://drive.google.com/uc?export=download&id=0B1E7VnhxsDMleDUtWjA2c0piYTA" download="Kursdata">Hent kursdata</a> -->
-<p>Data nedenfor kan kopieres direkte ind i R. Navngiv data ARIMA1 ved at skrive følgende tekst foran det du kopierer.</p>
-<p>ARIMA1 &lt;-</p>
-<pre><code>structure(c(21.64, 19.62, 14.7, 20.52, 19.94, 20.1, 19.46, 20.76, 
-20.64, 15.66, 18.76, 22.24, 22.94, 16.56, 18.44, 17.98, 20.6, 
-19.86, 18.28, 18.1, 18.54, 20.86, 19.4, 23.86, 18.44, 20.48, 
-21.92, 19.42, 18.96, 22.52, 21.28, 19.64, 21.38, 18.26, 16.48, 
-17.92, 20.72, 20.14, 18.58, 21.34, 21.12, 21.96, 19.74, 20.02, 
-16.3, 23.12, 21.26, 18.52, 24.58, 21.26), .Dim = c(50L, 1L), .Dimnames = list(
-    NULL, &quot;Dagskurs&quot;), .Tsp = c(1, 50, 1), class = &quot;ts&quot;)</code></pre>
+<p>Hent ARIMA1.xlsx Excel filen <a href="ARIMA1.xlsx" download>her</a>. Importer ARIMA1.xlsx til R via menuen File - Import Dataset - Excel. Nu skal datasættet rettes til en tidsserie med ts() kommandoen.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">ARIMA1 &lt;-<span class="st"> </span><span class="kw">ts</span>(ARIMA1)</a></code></pre></div>
+<!-- ```{r, echo=FALSE, comment="",warning=FALSE} -->
+<!-- # write.table(as.data.frame(ARIMA1), file = "ARIMA1") kommando til gemme ts -->
+<!-- library("readxl") -->
+<!-- ARIMA1 <- read_xlsx("ARIMA1.xlsx") -->
+<!-- ARIMA1 <- ts(ARIMA1) -->
+<!-- dput(ARIMA1) -->
+<!-- ``` -->
 <p>Vi kan nu plotte vore data i R.</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">plot.ts</span>(ARIMA1, <span class="dt">xlab=</span><span class="st">&#39;Tid&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Kursdata&#39;</span>)</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <p>Det er svært at se nogen tydelig udvikling i kursen.</p>
-<p>Vi benytter auto.arima til at undersøge om der er en systematik i tidsserien, for at bruge denne funktion skal vi hente og loade pakken forecast med hhv. install.packages(“forecast”) kun første gang og require(“forecast”) eller library(“forecast”)</p>
+<p>Vi benytter auto.arima til at undersøge om der er en systematik i tidsserien, for at bruge denne funktion skal vi hente og loade pakken forecast med fx. pacman:</p>
+<p>Funktionen auto.arima i R er en fantastisk funktion, der automatisk finder den ARIMA model, der passer bedst på observationerne.</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA1)</a></code></pre></div>
 <pre><code>## Series: ARIMA1 
 ## ARIMA(0,0,0) with non-zero mean 
@@ -231,11 +238,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## sigma^2 estimated as 4.209:  log likelihood=-106.37
 ## AIC=216.74   AICc=217   BIC=220.57</code></pre>
-<p>Funktionen auto.arima i R finder automatisk den ARIMA model der passer bedst på observationerne.</p>
-<p>Output ARIMA(0,0,0) with non-zero mean, fortæller os at data er ligesom hvid støj. Den bedste forudsigelse af aktieprisen vi kan komme med er gennemsnittet af alle kurserne. Vi kan altså ikke forudsige prisen vha. vore fine værktøjer.</p>
+<p>Output ARIMA(0,0,0) with non-zero mean, fortæller os at data er ligesom hvid støj. Den bedste forudsigelse af aktieprisen, vi kan komme med er gennemsnittet af alle kurserne. Vi kan altså ikke forudsige prisen vha. vore fine værktøjer.</p>
 <p>Akaike Information Criterion (AIC) , og Bayesian Information Criterion (BIC) benyttes til at vælge ARIMA modellen med mindst AIC og BIC værdier. auto.arima finder den bedste model automatisk.</p>
 <p>Her er ligningen for aktiekursen, den bedste forudsigelse af den fremtidige kurs er den gennemsnitlige kurs der tidligere er observeret.</p>
 <p><span class="math display">\[\hat{Y_t}=19.90\]</span></p>
+<p>Variablen <span class="math inline">\(\hat{Y}_t\)</span>, kaldet Y hat t angiver vort estimat (gæt) på aktiekursen på tidspunkt <span class="math inline">\(t=1,2,3,...\)</span>. Der er således så lidt systematik i Data at her er tale om en ARIMA(0,0,0) model. Vi ser også at der står “ARIMA(0,0,0) with non-zero mean” i output fra R.</p>
+</div>
 </div>
             </section>
 
