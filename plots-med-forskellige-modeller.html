@@ -206,51 +206,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Kapitel 12</span> Plots med forskellige modeller</h1>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <pre><code>## Series: ap1 
-## ARIMA(2,0,1) with non-zero mean 
+## ARIMA(0,1,0) 
 ## 
-## Coefficients:
-##           ar1     ar2     ma1      mean
-##       -0.1545  0.7084  0.5891  116.4011
-## s.e.   0.1371  0.1066  0.1630    3.8727
-## 
-## sigma^2 estimated as 72.73:  log likelihood=-180.26
-## AIC=370.52   AICc=371.85   BIC=380.17</code></pre>
+## sigma^2 estimated as 94.53:  log likelihood=-184.67
+## AIC=371.34   AICc=371.42   BIC=373.25</code></pre>
 <p>Kursen svinger omkring middelværdien.</p>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <pre><code>## Series: ap2 
-## ARIMA(1,1,0) 
+## ARIMA(2,0,0) with non-zero mean 
 ## 
 ## Coefficients:
-##          ar1
-##       0.6680
-## s.e.  0.1076
+##          ar1      ar2     mean
+##       1.4397  -0.6048  43.6974
+## s.e.  0.1104   0.1170   7.0312
 ## 
-## sigma^2 estimated as 114.6:  log likelihood=-189.27
-## AIC=382.53   AICc=382.79   BIC=386.36</code></pre>
+## sigma^2 estimated as 73.36:  log likelihood=-181.62
+## AIC=371.25   AICc=372.12   BIC=378.97</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 <pre><code>## Series: ap3 
-## ARIMA(1,0,1) with non-zero mean 
+## ARIMA(3,0,2) with non-zero mean 
 ## 
 ## Coefficients:
-##           ar1     ma1     mean
-##       -0.3103  0.7748  101.755
-## s.e.   0.1007  0.0633    1.033
+##           ar1      ar2     ar3     ma1     ma2      mean
+##       -1.1149  -0.0177  0.2553  1.8374  0.8690  100.4026
+## s.e.   0.1219   0.1075  0.0780  0.1113  0.0972    1.2930
 ## 
-## sigma^2 estimated as 118.3:  log likelihood=-759.86
-## AIC=1527.73   AICc=1527.93   BIC=1540.92</code></pre>
+## sigma^2 estimated as 89.05:  log likelihood=-730.45
+## AIC=1474.89   AICc=1475.48   BIC=1497.98</code></pre>
 <p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 201       103.6168 89.67565 117.5579 82.29567 124.9379
-## 202       101.1773 85.80539 116.5492 77.66799 124.6866
-## 203       101.9343 86.43156 117.4370 78.22492 125.6436
-## 204       101.6994 86.18414 117.2146 77.97087 125.4279
-## 205       101.7723 86.25582 117.2887 78.04190 125.5026
-## 206       101.7497 86.23309 117.2662 78.01911 125.4802
-## 207       101.7567 86.24009 117.2732 78.02611 125.4872
-## 208       101.7545 86.23791 117.2711 78.02393 125.4851
-## 209       101.7552 86.23859 117.2717 78.02461 125.4857
-## 210       101.7550 86.23838 117.2715 78.02440 125.4855</code></pre>
+## 201       92.48627 80.39302 104.5795 73.99124 110.9813
+## 202       98.76728 83.84741 113.6871 75.94931 121.5852
+## 203       98.28535 83.35522 113.2155 75.45168 121.1190
+## 204      100.77057 85.66185 115.8793 77.66378 123.8774
+## 205       99.61219 84.49917 114.7252 76.49882 122.7256
+## 206      100.73658 85.61520 115.8580 77.61043 123.8627
+## 207      100.13812 85.01670 115.2595 77.01190 123.2643
+## 208      100.48964 85.36754 115.6117 77.36238 123.6169
+## 209      100.39544 85.27062 115.5203 77.26402 123.5269
+## 210      100.34142 85.21347 115.4694 77.20522 123.4776</code></pre>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <p>#ARIMA af højere orden

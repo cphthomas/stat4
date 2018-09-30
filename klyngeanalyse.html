@@ -456,47 +456,47 @@ Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fines
 <p>Vi kunne også have brugt kmeans metoden, her skal vi så angive hvor mange klynger, vi ønsker i analysen. Her benytter vi K-means og får 4 klynger med 7, 6, 9, 10 biler. I output fra R kan vi under Cluster means se gennemsnit, for de 4 klynger for alle 11 variable.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">mtcarsCluster4 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(mtcars, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb62-2" data-line-number="2">mtcarsCluster4</a></code></pre></div>
-<pre><code>## K-means clustering with 4 clusters of sizes 7, 4, 12, 9
+<pre><code>## K-means clustering with 4 clusters of sizes 10, 9, 6, 7
 ## 
 ## Cluster means:
-##        mpg      cyl     disp       hp     drat       wt     qsec        vs
-## 1 17.01429 7.428571 276.0571 150.7143 2.994286 3.601429 18.11857 0.2857143
-## 2 31.00000 4.000000  76.1250  62.2500 4.327500 1.896250 19.19750 1.0000000
-## 3 22.33333 4.833333 137.6833 108.4167 3.894167 2.725250 18.32500 0.6666667
-## 4 14.64444 8.000000 388.2222 232.1111 3.343333 4.161556 16.40444 0.0000000
-##          am     gear     carb
-## 1 0.0000000 3.000000 2.142857
-## 2 1.0000000 4.000000 1.250000
-## 3 0.5833333 4.166667 2.833333
-## 4 0.2222222 3.444444 4.000000
+##        mpg      cyl     disp        hp     drat       wt     qsec
+## 1 21.48000 5.000000 144.9100 109.50000 3.911000 2.887000 18.43900
+## 2 14.64444 8.000000 388.2222 232.11111 3.343333 4.161556 16.40444
+## 3 29.53333 4.000000  84.6000  75.83333 4.155000 1.903000 18.71667
+## 4 17.01429 7.428571 276.0571 150.71429 2.994286 3.601429 18.11857
+##          vs        am     gear     carb
+## 1 0.6000000 0.5000000 4.100000 3.100000
+## 2 0.0000000 0.2222222 3.444444 4.000000
+## 3 1.0000000 1.0000000 4.166667 1.333333
+## 4 0.2857143 0.0000000 3.000000 2.142857
 ## 
 ## Clustering vector:
 ##           Mazda RX4       Mazda RX4 Wag          Datsun 710 
-##                   3                   3                   3 
+##                   1                   1                   3 
 ##      Hornet 4 Drive   Hornet Sportabout             Valiant 
-##                   1                   4                   1 
+##                   4                   2                   4 
 ##          Duster 360           Merc 240D            Merc 230 
-##                   4                   3                   3 
+##                   2                   1                   1 
 ##            Merc 280           Merc 280C          Merc 450SE 
-##                   3                   3                   1 
+##                   1                   1                   4 
 ##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
-##                   1                   1                   4 
-## Lincoln Continental   Chrysler Imperial            Fiat 128 
 ##                   4                   4                   2 
-##         Honda Civic      Toyota Corolla       Toyota Corona 
+## Lincoln Continental   Chrysler Imperial            Fiat 128 
 ##                   2                   2                   3 
+##         Honda Civic      Toyota Corolla       Toyota Corona 
+##                   3                   3                   1 
 ##    Dodge Challenger         AMC Javelin          Camaro Z28 
-##                   1                   1                   4 
+##                   4                   4                   2 
 ##    Pontiac Firebird           Fiat X1-9       Porsche 914-2 
-##                   4                   2                   3 
+##                   2                   3                   1 
 ##        Lotus Europa      Ford Pantera L        Ferrari Dino 
-##                   3                   4                   3 
+##                   3                   2                   1 
 ##       Maserati Bora          Volvo 142E 
-##                   4                   3 
+##                   2                   1 
 ## 
 ## Within cluster sum of squares by cluster:
-## [1] 11846.0950   208.0365 14626.8084 46659.3172
-##  (between_SS / total_SS =  88.2 %)
+## [1] 11055.093 46659.317  3628.265 11846.095
+##  (between_SS / total_SS =  88.3 %)
 ## 
 ## Available components:
 ## 
@@ -507,18 +507,18 @@ Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fines
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="kw">table</span>(mtcarsCluster4<span class="op">$</span>cluster, mtcars<span class="op">$</span>cyl)</a></code></pre></div>
 <pre><code>##    
 ##     4 6 8
-##   1 0 2 5
-##   2 4 0 0
-##   3 7 5 0
-##   4 0 0 9</code></pre>
+##   1 5 5 0
+##   2 0 0 9
+##   3 6 0 0
+##   4 0 2 5</code></pre>
 <p>Nedenfor ser vi på en tabel inddeling med 3 klynger med de 32 biler, sorteret efter antallet af cylindre. Kører vi kmeans analysen igen, falder bilerne ikke nødvendigvis i samme klynger som tidligere, det skyldes algoritmen kan give forskellig optimale inddelinger.</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">mtcarsCluster3 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(mtcars, <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb66-2" data-line-number="2"><span class="kw">table</span>(mtcarsCluster3<span class="op">$</span>cluster, mtcars<span class="op">$</span>cyl)</a></code></pre></div>
 <pre><code>##    
 ##      4  6  8
-##   1  0  0 14
-##   2 11  0  0
-##   3  0  7  0</code></pre>
+##   1  0  2  5
+##   2  0  0  9
+##   3 11  5  0</code></pre>
 <p>Vi kan lave et klyngeplot der viser forskellene på de 32 biler, herunder ses plottet med 3 klynger. Bemærk vi skal hente pakken <strong>factoextra</strong>, der indeholder plotfunktionen fviz_cluster(). Vi har benyttet funktionen <strong>scale()</strong>, det er en rigtig god ide at benytte hvis, der er stor forskel på måleenhederne i en data.frame. Funktionen <strong>scale()</strong> bringer variablene i samme skale. Der er fx. stor forskel på enhederne i carb og disp, prøv at sammenligne nedenstående plot med et tilsvarende plot uden scale.</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">km3.res &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">scale</span>(mtcars), <span class="dv">3</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</a>
 <a class="sourceLine" id="cb68-2" data-line-number="2">pacman<span class="op">::</span><span class="kw">p_load</span>(factoextra)</a>
@@ -599,12 +599,17 @@ Undersøg om der kan dannes klynger og hvorledes disse kan karakteriseres, der e
 <br>
 <details>
 <p><summary>Spørgsmål Forbes 100 US</summary></p>
-<p>Download filen om de 100 rigeste i USA <a href="Forbes400.xlsx" download>her</a>. Filen er tilrettet dvs., dvs. binære kvalitative variable skal kodes om.</p>
+<p>Download filen om de 100 rigeste i USA <a href="Forbes100.xlsx" download>her</a>. Filen er tilrettet, dvs. binære kvalitative variable er kodet om til dummy variable.</p>
 <p>Undersøg om der kan dannes klynger og hvorledes disse kan karakteriseres. Illustrer grafisk og kommenter på karakteristika for klyngerne.</p>
 <p>Bemærk det er godt at sætte navnene på de velhavende som rækkenavne i din data.frame, for at det er nemmere at få et overblik i klyngetræ diagrammet, dette kan du fx. gøre som nedenfor:</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">row.names</span>(Forbes100) &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(Forbes100[,<span class="dv">1</span>])</a>
 <a class="sourceLine" id="cb74-2" data-line-number="2">clusters &lt;-<span class="st"> </span><span class="kw">hclust</span>(<span class="kw">dist</span>(Forbes100))</a>
 <a class="sourceLine" id="cb74-3" data-line-number="3"><span class="kw">plot</span>(clusters,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">main =</span> <span class="st">&quot;US 100 Rigeste&quot;</span>,<span class="dt">xlab =</span> <span class="st">&quot;Klyngetræ&quot;</span>,<span class="dt">sub=</span><span class="st">&quot;US top 100&quot;</span>)</a></code></pre></div>
+</details>
+<br>
+<details>
+<summary>Spørgsmål Valgfri datasæt</summary>
+Find et valgfrit datasæt fx. på nettet, gennemfør en klyngeanalyse på dette datasæt.
 </details>
 <p><br></p>
 </div>
