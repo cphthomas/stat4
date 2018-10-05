@@ -258,8 +258,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="arima100-eller-ar1-autoregression" class="section level2">
 <h2><span class="header-section-number">7.2</span> ARIMA(1,0,0) eller AR(1) autoregression</h2>
-<p>Hvis vi forestiller os eksemplet hvor den sande middelværdi for tidsrækken er <span class="math inline">\(\mu=100\)</span> og <span class="math inline">\(\phi=0.5\)</span> for en ARIMA(1,0,0) model.
-Så kan vi beregne <span class="math inline">\(c=(1-\phi)\cdot \mu=(1-0.5)\cdot 100=50\)</span> er middelværdien estimeret ved den gennemsnitlige kurs. Ligningen for modellen kan så skrives som:</p>
+<p>En ARIMA(1,0,0) model kan skrives som:</p>
+<p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1}\]</span></p>
+<p>Vi kan forklare <span class="math inline">\(\hat{Y_t}\)</span> er værdien for tidsrækken på tidspunkt <span class="math inline">\(t\)</span>, ud fra en konstant <span class="math inline">\(c\)</span> plus en faktor <span class="math inline">\(\phi\)</span>, der ganges på værdien for tidsrækken på tidspunkt <span class="math inline">\(t-1\)</span>. For at bestemme c skal vi kende tidsrækkens sande middelværdi <span class="math inline">\(\mu\)</span> og <span class="math inline">\(\phi\)</span>, disse værdier kan R beregne for os. Vi kan så beregne konstanten <span class="math inline">\(c=(1-\phi)\cdot \mu\)</span>. Det betyder så at vi kan estimere fremtidige værdier tidsrækken.</p>
+<p>Vi har nu et eksempel hvor den sande middelværdi for tidsrækken er <span class="math inline">\(\mu=100\)</span> og <span class="math inline">\(\phi=0.5\)</span> for en ARIMA(1,0,0) model. Så kan vi beregne <span class="math inline">\(c=(1-\phi)\cdot \mu=(1-0.5)\cdot 100=50\)</span> er middelværdien estimeret ved den gennemsnitlige kurs. Ligningen for modellen kan så skrives som:</p>
 <p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1} \Leftrightarrow \hat{Y_t}=50 + 0.5 Y_{t-1}\]</span></p>
 <p><span class="math inline">\(\phi\)</span> fortæller, hvis kursen dagen før var 80 gennemsnitskursen er 100, vil kursen imorgen <span class="math inline">\(t=1\)</span> ifølge modellen være forudsagt som:
 <span class="math display">\[50+0.5\cdot 80=90\]</span>
@@ -267,13 +269,17 @@ Dagen efter <span class="math inline">\(t=2\)</span> vil kursen så være foruds
 <span class="math display">\[50+0.5\cdot 90=95\]</span>
 Om 3 dage dvs. <span class="math inline">\(t=3\)</span> vil kursen så være forudsagt til:
 <span class="math display">\[50+0.5\cdot 95=97.5\]</span>
-De forudsagte værdier konvergerer (nærmer sig) <span class="math inline">\(\mu=100\)</span>.</p>
+Om 4 dage dvs. <span class="math inline">\(t=4\)</span> vil kursen så være forudsagt til:
+<span class="math display">\[50+0.5\cdot 97.5=98.75\]</span></p>
+<p>Osv..</p>
+<p>Vi siger at forudsagte værdier konvergerer mod (dvs. nærmer sig) <span class="math inline">\(\mu=100\)</span>.</p>
 <p>AR i ARIMA, står for autoregression, selv-regression mod middelværdien, i eksemplet så vi hvordan værdien nærmer sig 100, hvis vi forudsiger flere dages kurser kan vi se dette.</p>
 <p><span class="math inline">\(\phi\)</span> må kun antage værdier mellem og ikke lig med -1 og 1, hvilket betyder den er stationær, altså nærmer sig den sande middelværdi <span class="math inline">\(\mu\)</span>.</p>
 <p>Hvad vil der ske hvis <span class="math inline">\(\mu=100\)</span> og <span class="math inline">\(\phi=-0.5\)</span> for en ARIMA(1,0,0) model (husk <span class="math inline">\(c=(1-\phi)\cdot\mu\)</span> når man skal bestemme modellen)?</p>
-<p>Hent ARIMA2.xlsx Excel filen <a href="ARIMA2.xlsx" download>her</a>. Importer ARIMA2.xlsx til R via menuen File - Import Dataset - Excel. Nu skal datasættet ligesom tidligere rettes til en tidsserie med ts() kommandoen.</p>
+<p>Hent ARIMA2.xlsx Excel filen <a href="ARIMA2.xlsx" download>her</a>. Importer ARIMA2.xlsx til R via menuen File - Import Dataset - Excel. Nu skal datasættet rettes til en tidsserie med ts() kommandoen.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">ARIMA2 &lt;-<span class="st"> </span><span class="kw">ts</span>(ARIMA2)</a></code></pre></div>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">auto.arima</span>(ARIMA2)</a></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">aaa2 &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(ARIMA2)</a>
+<a class="sourceLine" id="cb80-2" data-line-number="2">aaa2</a></code></pre></div>
 <pre><code>## Series: ARIMA2 
 ## ARIMA(1,0,0) with non-zero mean 
 ## 
@@ -286,7 +292,7 @@ De forudsagte værdier konvergerer (nærmer sig) <span class="math inline">\(\mu
 ## AIC=388.73   AICc=389.25   BIC=394.46</code></pre>
 <p>Her afslører auto.arima 1. ordens autoregression dvs.</p>
 <p>Modellen kan skrives som.</p>
-<p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1}\]</span></p>
+<p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1}\Leftrightarrow \hat{Y_t}=(1-0.3664)\cdot 103.2372 + 0.3664Y_{t-1}\Leftrightarrow \hat{Y_t}=65.4125 + 0.3664Y_{t-1}\]</span></p>
 <p>Vi ser nu igen på vores eksempel med ARIMA2, vi kan nu i R forudsige aktiekursen 12 perioder frem med predict:</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="kw">predict</span>(<span class="kw">auto.arima</span>(ARIMA2), <span class="dt">n.ahead =</span> <span class="dv">12</span>)<span class="op">$</span>pred</a></code></pre></div>
 <pre><code>## Time Series:
@@ -374,51 +380,51 @@ Hvis vi forestiller os <span class="math inline">\(\mu=50\)</span> <span class="
 <h2><span class="header-section-number">7.5</span> Plots med forskellige modeller</h2>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <pre><code>## Series: ap1 
-## ARIMA(0,1,1) 
+## ARIMA(1,1,0) 
 ## 
 ## Coefficients:
-##           ma1
-##       -0.7082
-## s.e.   0.1247
+##           ar1
+##       -0.4406
+## s.e.   0.1261
 ## 
-## sigma^2 estimated as 83.15:  log likelihood=-181.31
-## AIC=366.61   AICc=366.87   BIC=370.44</code></pre>
+## sigma^2 estimated as 118.8:  log likelihood=-189.99
+## AIC=383.97   AICc=384.23   BIC=387.8</code></pre>
 <p>Kursen svinger omkring middelværdien.</p>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <pre><code>## Series: ap2 
-## ARIMA(2,1,0) 
+## ARIMA(0,2,2) 
 ## 
 ## Coefficients:
-##          ar1      ar2
-##       0.9684  -0.2691
-## s.e.  0.1340   0.1364
+##           ma1      ma2
+##       -0.2171  -0.5704
+## s.e.   0.1378   0.1509
 ## 
-## sigma^2 estimated as 111.9:  log likelihood=-188.37
-## AIC=382.74   AICc=383.26   BIC=388.47</code></pre>
+## sigma^2 estimated as 122.9:  log likelihood=-186.93
+## AIC=379.86   AICc=380.4   BIC=385.54</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 <pre><code>## Series: ap3 
-## ARIMA(1,0,2) with non-zero mean 
+## ARIMA(3,0,1) with non-zero mean 
 ## 
 ## Coefficients:
-##          ar1      ma1      ma2      mean
-##       0.8102  -0.1796  -0.7195  100.6591
-## s.e.  0.0916   0.0816   0.0594    0.4024
+##           ar1      ar2     ar3     ma1      mean
+##       -0.2446  -0.2126  0.1063  0.6728  100.0008
+## s.e.   0.1211   0.0771  0.0890  0.1031    0.9127
 ## 
-## sigma^2 estimated as 103.2:  log likelihood=-746
-## AIC=1502   AICc=1502.31   BIC=1518.49</code></pre>
+## sigma^2 estimated as 111.5:  log likelihood=-753.06
+## AIC=1518.12   AICc=1518.56   BIC=1537.91</code></pre>
 <p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 201       94.94224 81.92337 107.9611 75.03159 114.8529
-## 202      103.59498 88.20413 118.9858 80.05670 127.1333
-## 203      103.03769 87.40899 118.6664 79.13566 126.9397
-## 204      102.58618 86.80332 118.3690 78.44838 126.7240
-## 205      102.22038 86.33714 118.1036 77.92906 126.5117
-## 206      101.92402 85.97524 117.8728 77.53246 126.3156
-## 207      101.68392 85.69226 117.6756 77.22678 126.1411
-## 208      101.48939 85.46965 117.5091 76.98931 125.9895
-## 209      101.33179 85.29364 117.3699 76.80356 125.8600
-## 210      101.20411 85.15389 117.2543 76.65742 125.7508</code></pre>
+## 201       93.36166 79.82678 106.8965 72.66185 114.0615
+## 202      103.73068 89.00746 118.4539 81.21345 126.2479
+## 203       99.41286 84.07615 114.7496 75.95738 122.8683
+## 204       98.64588 83.25765 114.0341 75.11162 122.1801
+## 205      100.85389 85.41728 116.2905 77.24563 124.4621
+## 206      100.01765 84.54719 115.4881 76.35762 123.6777
+## 207       99.67133 84.20037 115.1423 76.01054 123.3321
+## 208      100.16859 84.69438 115.6428 76.50283 123.8343
+## 209      100.03163 84.55597 115.5073 76.36365 123.6996
+## 210       99.92261 84.44695 115.3983 76.25463 123.5906</code></pre>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <p>##ARIMA af højere orden
