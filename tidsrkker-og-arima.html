@@ -307,7 +307,7 @@ Hent ARIMA22.xlsx Excel filen <a href="ARIMA22.xlsx" download>her</a>. Importer 
 </details>
 <br>
 <details>
-<p><summary>Spørgsmål ARIMA(1,0,0)</summary></p>
+<p><summary>Svar ARIMA(1,0,0)</summary></p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">ARIMA22 &lt;-<span class="st"> </span><span class="kw">ts</span>(ARIMA22)</a>
 <a class="sourceLine" id="cb84-2" data-line-number="2">aaa22 &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(ARIMA22)</a>
 <a class="sourceLine" id="cb84-3" data-line-number="3">aaa22</a></code></pre></div>
@@ -410,51 +410,46 @@ Hvis vi forestiller os <span class="math inline">\(\mu=50\)</span> <span class="
 <h2><span class="header-section-number">7.5</span> Plots med forskellige modeller</h2>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 <pre><code>## Series: ap1 
-## ARIMA(0,1,1) 
+## ARIMA(0,1,0) 
 ## 
-## Coefficients:
-##           ma1
-##       -0.5170
-## s.e.   0.1411
-## 
-## sigma^2 estimated as 83.03:  log likelihood=-181.08
-## AIC=366.15   AICc=366.41   BIC=369.98</code></pre>
+## sigma^2 estimated as 98.06:  log likelihood=-185.59
+## AIC=373.17   AICc=373.26   BIC=375.09</code></pre>
 <p>Kursen svinger omkring middelværdien.</p>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <pre><code>## Series: ap2 
-## ARIMA(0,1,1) 
+## ARIMA(1,2,1) 
 ## 
 ## Coefficients:
-##          ma1
-##       0.6021
-## s.e.  0.1205
+##          ar1      ma1
+##       0.5726  -0.9623
+## s.e.  0.1401   0.0749
 ## 
-## sigma^2 estimated as 98.29:  log likelihood=-185.37
-## AIC=374.73   AICc=374.99   BIC=378.56</code></pre>
+## sigma^2 estimated as 98.52:  log likelihood=-181.66
+## AIC=369.32   AICc=369.85   BIC=375</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 <pre><code>## Series: ap3 
-## ARIMA(2,0,1) with non-zero mean 
+## ARIMA(1,0,1) with non-zero mean 
 ## 
 ## Coefficients:
-##           ar1     ar2     ma1      mean
-##       -0.3654  0.1346  0.9006  100.4489
-## s.e.   0.1032  0.0912  0.0700    1.0783
+##           ar1     ma1     mean
+##       -0.1213  0.7297  99.8175
+## s.e.   0.1047  0.0716   1.0247
 ## 
-## sigma^2 estimated as 99.89:  log likelihood=-742.54
-## AIC=1495.09   AICc=1495.39   BIC=1511.58</code></pre>
+## sigma^2 estimated as 89.85:  log likelihood=-732.39
+## AIC=1472.78   AICc=1472.98   BIC=1485.97</code></pre>
 <p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 201       90.16992 77.36177 102.9781 70.58155 109.7583
-## 202      101.38527 86.85774 115.9128 79.16733 123.6032
-## 203       98.72286 84.17438 113.2713 76.47288 120.9728
-## 204      101.20570 86.60714 115.8043 78.87913 123.5323
-## 205       99.94004 85.33125 114.5488 77.59782 122.2823
-## 206      100.73679 86.12350 115.3501 78.38769 123.0859
-## 207      100.27526 85.66052 114.8900 77.92394 122.6266
-## 208      100.55117 85.93590 115.1664 78.19905 122.9033
-## 209      100.38821 85.77277 115.0037 78.03582 122.7406
-## 210      100.48490 85.86939 115.1004 78.13241 122.8374</code></pre>
+## 201       95.35845 83.21057 107.5063 76.77988 113.9370
+## 202      100.35840 86.13865 114.5782 78.61117 122.1056
+## 203       99.75195 85.50396 113.9999 77.96153 121.5424
+## 204       99.82550 85.57710 114.0739 78.03446 121.6166
+## 205       99.81658 85.56818 114.0650 78.02553 121.6076
+## 206       99.81766 85.56926 114.0661 78.02661 121.6087
+## 207       99.81753 85.56913 114.0659 78.02648 121.6086
+## 208       99.81755 85.56914 114.0660 78.02649 121.6086
+## 209       99.81755 85.56914 114.0660 78.02649 121.6086
+## 210       99.81755 85.56914 114.0660 78.02649 121.6086</code></pre>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 <p>##ARIMA af højere orden
