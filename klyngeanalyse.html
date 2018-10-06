@@ -175,13 +175,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima010-eller-i1-random-walk-with-a-drift"><i class="fa fa-check"></i><b>7.3</b> ARIMA(0,1,0) eller I(1) Random Walk with a drift</a></li>
 <li class="chapter" data-level="7.4" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima001-eller-ma1-moving-average"><i class="fa fa-check"></i><b>7.4</b> ARIMA(0,0,1) eller MA(1) Moving average</a></li>
 <li class="chapter" data-level="7.5" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#plots-med-forskellige-modeller"><i class="fa fa-check"></i><b>7.5</b> Plots med forskellige modeller</a></li>
-<li class="chapter" data-level="7.6" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima-og-ssonalitet"><i class="fa fa-check"></i><b>7.6</b> ARIMA og sæsonalitet</a></li>
-<li class="chapter" data-level="7.7" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima-eksempler"><i class="fa fa-check"></i><b>7.7</b> ARIMA eksempler</a><ul>
-<li class="chapter" data-level="7.7.1" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#traktorer"><i class="fa fa-check"></i><b>7.7.1</b> Traktorer</a></li>
-<li class="chapter" data-level="7.7.2" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#detail-debet-card-forbrug-pa-island-millioner-isk."><i class="fa fa-check"></i><b>7.7.2</b> Detail debet card forbrug på Island (millioner ISK).</a></li>
+<li class="chapter" data-level="7.6" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima-af-hjere-orden"><i class="fa fa-check"></i><b>7.6</b> ARIMA af højere orden</a></li>
+<li class="chapter" data-level="7.7" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima-og-ssonalitet"><i class="fa fa-check"></i><b>7.7</b> ARIMA og sæsonalitet</a></li>
+<li class="chapter" data-level="7.8" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima-eksempler"><i class="fa fa-check"></i><b>7.8</b> ARIMA eksempler</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#traktorer"><i class="fa fa-check"></i><b>7.8.1</b> Traktorer</a></li>
+<li class="chapter" data-level="7.8.2" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#detail-debet-card-forbrug-pa-island-millioner-isk."><i class="fa fa-check"></i><b>7.8.2</b> Detail debet card forbrug på Island (millioner ISK).</a></li>
 </ul></li>
-<li class="chapter" data-level="7.8" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#forecast-aktiekurser"><i class="fa fa-check"></i><b>7.8</b> Forecast Aktiekurser</a></li>
-<li class="chapter" data-level="7.9" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#aktieafkast"><i class="fa fa-check"></i><b>7.9</b> Aktieafkast</a></li>
+<li class="chapter" data-level="7.9" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#forecast-aktiekurser"><i class="fa fa-check"></i><b>7.9</b> Forecast Aktiekurser</a></li>
+<li class="chapter" data-level="7.10" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#aktieafkast"><i class="fa fa-check"></i><b>7.10</b> Aktieafkast</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://tepedu.com" target="blank">Thomas Petersen</a></li>
@@ -457,47 +458,47 @@ Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fines
 <p>Vi kunne også have brugt kmeans metoden, her skal vi så angive hvor mange klynger, vi ønsker i analysen. Her benytter vi K-means og får 4 klynger med 7, 6, 9, 10 biler. I output fra R kan vi under Cluster means se gennemsnit, for de 4 klynger for alle 11 variable.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">mtcarsCluster4 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(mtcars, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb62-2" data-line-number="2">mtcarsCluster4</a></code></pre></div>
-<pre><code>## K-means clustering with 4 clusters of sizes 4, 7, 7, 14
+<pre><code>## K-means clustering with 4 clusters of sizes 4, 16, 4, 8
 ## 
 ## Cluster means:
-##        mpg cyl     disp        hp     drat       wt     qsec        vs
-## 1 31.00000   4  76.1250  62.25000 4.327500 1.896250 19.19750 1.0000000
-## 2 24.18571   4 121.7143  94.28571 3.924286 2.508286 19.10286 0.8571429
-## 3 19.74286   6 183.3143 122.28571 3.585714 3.117143 17.97714 0.5714286
-## 4 15.10000   8 353.1000 209.21429 3.229286 3.999214 16.77214 0.0000000
-##          am     gear     carb
-## 1 1.0000000 4.000000 1.250000
-## 2 0.5714286 4.142857 1.714286
-## 3 0.4285714 3.857143 3.428571
-## 4 0.1428571 3.285714 3.500000
+##      mpg   cyl     disp      hp    drat     wt     qsec   vs     am  gear
+## 1 15.975 8.000 282.1000 218.750 3.18750 3.7875 16.90000 0.00 0.2500 3.500
+## 2 24.500 4.625 122.2937  96.875 4.00250 2.5180 18.54312 0.75 0.6875 4.125
+## 3 17.550 7.000 276.2500 128.750 2.93750 3.4075 18.45750 0.50 0.0000 3.000
+## 4 14.600 8.000 399.1250 219.250 3.31875 4.2355 16.63000 0.00 0.1250 3.250
+##     carb
+## 1 4.2500
+## 2 2.4375
+## 3 1.5000
+## 4 3.5000
 ## 
 ## Clustering vector:
 ##           Mazda RX4       Mazda RX4 Wag          Datsun 710 
-##                   3                   3                   2 
+##                   2                   2                   2 
 ##      Hornet 4 Drive   Hornet Sportabout             Valiant 
 ##                   3                   4                   3 
 ##          Duster 360           Merc 240D            Merc 230 
 ##                   4                   2                   2 
 ##            Merc 280           Merc 280C          Merc 450SE 
-##                   3                   3                   4 
+##                   2                   2                   1 
 ##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
-##                   4                   4                   4 
+##                   1                   1                   4 
 ## Lincoln Continental   Chrysler Imperial            Fiat 128 
-##                   4                   4                   1 
+##                   4                   4                   2 
 ##         Honda Civic      Toyota Corolla       Toyota Corona 
-##                   1                   1                   2 
+##                   2                   2                   2 
 ##    Dodge Challenger         AMC Javelin          Camaro Z28 
-##                   4                   4                   4 
+##                   3                   3                   4 
 ##    Pontiac Firebird           Fiat X1-9       Porsche 914-2 
-##                   4                   1                   2 
+##                   4                   2                   2 
 ##        Lotus Europa      Ford Pantera L        Ferrari Dino 
-##                   2                   4                   3 
+##                   2                   4                   2 
 ##       Maserati Bora          Volvo 142E 
-##                   4                   2 
+##                   1                   2 
 ## 
 ## Within cluster sum of squares by cluster:
-## [1]   208.0365  3616.8297 13954.3363 93643.9039
-##  (between_SS / total_SS =  82.1 %)
+## [1] 18528.554 32837.997  7330.463 26165.603
+##  (between_SS / total_SS =  86.4 %)
 ## 
 ## Available components:
 ## 
@@ -508,10 +509,10 @@ Vi kan nu plotte en grafisk oversigt over bilerne. I nederste linje er den fines
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="kw">table</span>(mtcarsCluster4<span class="op">$</span>cluster, mtcars<span class="op">$</span>cyl)</a></code></pre></div>
 <pre><code>##    
 ##      4  6  8
-##   1  4  0  0
-##   2  7  0  0
-##   3  0  7  0
-##   4  0  0 14</code></pre>
+##   1  0  0  4
+##   2 11  5  0
+##   3  0  2  2
+##   4  0  0  8</code></pre>
 <p>Nedenfor ser vi på en tabel inddeling med 3 klynger med de 32 biler, sorteret efter antallet af cylindre. Kører vi kmeans analysen igen, falder bilerne ikke nødvendigvis i samme klynger som tidligere, det skyldes algoritmen kan give forskellig optimale inddelinger.</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">mtcarsCluster3 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(mtcars, <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb66-2" data-line-number="2"><span class="kw">table</span>(mtcarsCluster3<span class="op">$</span>cluster, mtcars<span class="op">$</span>cyl)</a></code></pre></div>
