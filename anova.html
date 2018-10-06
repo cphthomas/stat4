@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-10-05">
+<meta name="date" content="2018-10-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -175,11 +175,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima010-eller-i1-random-walk-with-a-drift"><i class="fa fa-check"></i><b>7.3</b> ARIMA(0,1,0) eller I(1) Random Walk with a drift</a></li>
 <li class="chapter" data-level="7.4" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima001-eller-ma1-moving-average"><i class="fa fa-check"></i><b>7.4</b> ARIMA(0,0,1) eller MA(1) Moving average</a></li>
 <li class="chapter" data-level="7.5" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#plots-med-forskellige-modeller"><i class="fa fa-check"></i><b>7.5</b> Plots med forskellige modeller</a></li>
-<li class="chapter" data-level="7.6" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima-og-ssonalitet"><i class="fa fa-check"></i><b>7.6</b> ARIMA og sæsonalitet</a><ul>
-<li class="chapter" data-level="7.6.1" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#traktorer"><i class="fa fa-check"></i><b>7.6.1</b> Traktorer</a></li>
-<li class="chapter" data-level="7.6.2" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#detail-debet-card-forbrug-pa-island-millioner-isk."><i class="fa fa-check"></i><b>7.6.2</b> Detail debet card forbrug på Island (millioner ISK).</a></li>
+<li class="chapter" data-level="7.6" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima-og-ssonalitet"><i class="fa fa-check"></i><b>7.6</b> ARIMA og sæsonalitet</a></li>
+<li class="chapter" data-level="7.7" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima-eksempler"><i class="fa fa-check"></i><b>7.7</b> ARIMA eksempler</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#traktorer"><i class="fa fa-check"></i><b>7.7.1</b> Traktorer</a></li>
+<li class="chapter" data-level="7.7.2" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#detail-debet-card-forbrug-pa-island-millioner-isk."><i class="fa fa-check"></i><b>7.7.2</b> Detail debet card forbrug på Island (millioner ISK).</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#forecast-aktiekurser"><i class="fa fa-check"></i><b>7.7</b> Forecast Aktiekurser</a></li>
+<li class="chapter" data-level="7.8" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#forecast-aktiekurser"><i class="fa fa-check"></i><b>7.8</b> Forecast Aktiekurser</a></li>
+<li class="chapter" data-level="7.9" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#aktieafkast"><i class="fa fa-check"></i><b>7.9</b> Aktieafkast</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://tepedu.com" target="blank">Thomas Petersen</a></li>
@@ -259,7 +261,7 @@ Hent datasættet <a href="Hjemmesidedesigns besøgstider i millisekunder.xls" do
 <p><summary>Svar 3 banker afkast</summary>
 Vi opstiller hypoteserne for test af om middelværdierne er identiske:
 <span class="math display">\[H_0:\mu_{Danske Bank}=\mu_{Jyske Bank}=\mu_{Sydbank}\]</span><span class="math display">\[H_1:Ikke\ alle\ middelvæ\ rdier\ er\ ens\ for\ de\ 3\ banker\]</span></p>
-<p>Vi får variationen i grupperne SSW til 6581.3505 og variationen mellem grupperne SSA til 3.5175. Dette giver en F-teststørrelse på 0.1988 der resulterer i p-værdi på 0.8197. Vi kan altså ikke forkaste altså nulhypotesen om ens middelværdier.</p>
+<p>Vi får variationen i grupperne SSW til 6667.4974 og variationen mellem grupperne SSA til 3.0646. Dette giver en F-teststørrelse på 0.171 der resulterer i p-værdi på 0.8429. Vi kan altså ikke forkaste altså nulhypotesen om ens middelværdier.</p>
 <p>Vi kan da se at de absolutte forskelle mellem stikprøvegennemsnittene er relativt små:</p>
 <table>
 <thead>
@@ -271,11 +273,11 @@ Vi opstiller hypoteserne for test af om middelværdierne er identiske:
 <tbody>
 <tr class="odd">
 <td align="left">Danske Bank - Jyske Bank</td>
-<td align="left">0.14</td>
+<td align="left">0.12</td>
 </tr>
 <tr class="even">
 <td align="left">Danske Bank - Sydbank</td>
-<td align="left">0</td>
+<td align="left">0.02</td>
 </tr>
 <tr class="odd">
 <td align="left">Jyske Bank - Sydbank</td>
@@ -285,7 +287,7 @@ Vi opstiller hypoteserne for test af om middelværdierne er identiske:
 </table>
 <p>Vi skal tjekke forudsætningen om varianshomogenitet</p>
 <p><span class="math display">\[H_0:\sigma_{Danske Bank}=\sigma_{Jyske Bank}=\sigma_{Sydbank}\]</span><span class="math display">\[H_1:Ikke\ alle\ varianser\ er\ ens\ for\ de\ 3\ banker.\]</span></p>
-<p>Vi får en teststørrelse på 10.8813149. Chi i anden testet giver os en p-værdi på 0.0043366, hvilket er mindre end signifikanssandsynligheden på 0.05, vi afviser nulhypotesen. Varianserne er ikke ens, så forudsætningen er ikke opfyldt. Vi har således problemer med kvaliteten af analysen.</p>
+<p>Vi får en teststørrelse på 9.4273536. Chi i anden testet giver os en p-værdi på 0.0089717, hvilket er mindre end signifikanssandsynligheden på 0.05, vi afviser nulhypotesen. Varianserne er ikke ens, så forudsætningen er ikke opfyldt. Vi har således problemer med kvaliteten af analysen.</p>
 <p>Normalitet</p>
 <p><img src="bookdown-demo_files/figure-html/qqplotbank-1.svg" width="864" /></p>
 <p>Vi kan grafisk sammenligne middelværdierne for ugeafkastet for de 3 banker i boxplots , her ser vi der ikke er stor forskel på middelværdierne. Middelværdierne er markeret med orange prikker.</p>
