@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-10-06">
+<meta name="date" content="2018-10-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -182,7 +182,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.8.2" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#detail-debet-card-forbrug-pa-island-millioner-isk."><i class="fa fa-check"></i><b>7.8.2</b> Detail debet card forbrug på Island (millioner ISK).</a></li>
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#forecast-aktiekurser"><i class="fa fa-check"></i><b>7.9</b> Forecast Aktiekurser</a></li>
-<li class="chapter" data-level="7.10" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#aktieafkast"><i class="fa fa-check"></i><b>7.10</b> Aktieafkast</a></li>
+<li class="chapter" data-level="7.10" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#aktieafkast"><i class="fa fa-check"></i><b>7.10</b> Aktieafkast</a><ul>
+<li class="chapter" data-level="7.10.1" data-path="tidsrkker-og-arima.html"><a href="tidsrkker-og-arima.html#arima-opsamling-video"><i class="fa fa-check"></i><b>7.10.1</b> ARIMA opsamling video</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://tepedu.com" target="blank">Thomas Petersen</a></li>
@@ -206,12 +208,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="tidsrkker-og-arima" class="section level1">
 <h1><span class="header-section-number">Kapitel 7</span> Tidsrækker og ARIMA</h1>
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
-<div class="embed-container">
-<iframe src="https://player.vimeo.com/video/234990675" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
-</iframe>
-</div>
-<p><br></p>
 <p>Gennemgangen af tidsrækkeanalyse bygger meget på praktisk anvendelighed (dvs. vi vil gerne kunne forudsige kursudviklingen), vi vil springe let hen over teorien der kan være tung og er meget omfattende. Nedenstående links giver dog en indføring i den teoretiske del, som vi her ikke berører.</p>
 <p><a href="http://ucanalytics.com/blogs/arima-models-manufacturing-case-study-example-part-3/" class="uri">http://ucanalytics.com/blogs/arima-models-manufacturing-case-study-example-part-3/</a></p>
 <p><a href="http://ucanalytics.com/blogs/step-by-step-graphic-guide-to-forecasting-through-arima-modeling-in-r-manufacturing-case-study-example/" class="uri">http://ucanalytics.com/blogs/step-by-step-graphic-guide-to-forecasting-through-arima-modeling-in-r-manufacturing-case-study-example/</a></p>
@@ -226,6 +222,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Lad i de følgende afsnit se på nogle simple eksempler for trinvis, at kunne beskrive hvorledes modellen fungerer.</p>
 <div id="arima000" class="section level2">
 <h2><span class="header-section-number">7.1</span> ARIMA(0,0,0)</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/293712878" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<p><br></p>
 <p>Nedenfor har vi aktiekurser for 50 dage for en fiktiv aktie, vi vil nu undersøge om disse kan bruges til at forudsige noget om fremtidige aktiekurser. For at gøre dette, skal man enten importere Excelfilen, eller copy paste data fra rammen nedenfor.</p>
 <p>Hent ARIMA1.xlsx Excel filen <a href="ARIMA1.xlsx" download>her</a>. Importer ARIMA1.xlsx til R via menuen File - Import Dataset - Excel. Nu skal datasættet rettes til en tidsserie med ts() kommandoen.</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">ARIMA1 &lt;-<span class="st"> </span><span class="kw">ts</span>(ARIMA1)</a></code></pre></div>
@@ -261,6 +263,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="arima100-eller-ar1-autoregression" class="section level2">
 <h2><span class="header-section-number">7.2</span> ARIMA(1,0,0) eller AR(1) autoregression</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/293712597" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<p><br></p>
 <p>En ARIMA(1,0,0) model kan skrives som:</p>
 <p><span class="math display">\[\hat{Y_t}=c + \phi Y_{t-1}\]</span></p>
 <p>Vi kan forklare <span class="math inline">\(\hat{Y_t}\)</span> er værdien for tidsrækken på tidspunkt <span class="math inline">\(t\)</span>, ud fra en konstant <span class="math inline">\(c\)</span> plus en faktor <span class="math inline">\(\phi\)</span>, der ganges på værdien for tidsrækken på tidspunkt <span class="math inline">\(t-1\)</span>. For at bestemme c skal vi kende tidsrækkens sande middelværdi <span class="math inline">\(\mu\)</span> og <span class="math inline">\(\phi\)</span>, disse værdier kan R beregne for os. Vi kan så beregne konstanten <span class="math inline">\(c=(1-\phi)\cdot \mu\)</span>. Det betyder så at vi kan estimere fremtidige værdier tidsrækken.</p>
@@ -343,6 +351,12 @@ Hent ARIMA23.xlsx Excel filen <a href="ARIMA23.xlsx" download>her</a>. Importer 
 </div>
 <div id="arima010-eller-i1-random-walk-with-a-drift" class="section level2">
 <h2><span class="header-section-number">7.3</span> ARIMA(0,1,0) eller I(1) Random Walk with a drift</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/293713019" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<p><br></p>
 <p>Hvis en serie er ikke-stationær, er den simpleste model en random walk:</p>
 <p><span class="math display">\[\hat{Y_t}-Y_{t-1}=\mu\Leftrightarrow \hat{Y_t}=Y_{t-1}+\mu\]</span>
 Dette betyder at Y stiger konstant med <span class="math inline">\(\mu\)</span> i hver periode. Drift betyder at tidsrækken stiger konstant.</p>
@@ -370,6 +384,12 @@ Vi indsætter drift i stedet for <span class="math inline">\(\mu\)</span>, tolni
 </div>
 <div id="arima001-eller-ma1-moving-average" class="section level2">
 <h2><span class="header-section-number">7.4</span> ARIMA(0,0,1) eller MA(1) Moving average</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/293712987" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<p><br></p>
 <p>Vi kan i stedet for at bruge tidligere aktiekurser til at forudsige aktiekursen i stedet benytte tidligere målefejl residualer til at forudsige kursen.</p>
 <p>Modellen kan skrives som:</p>
 <p><span class="math display">\[\hat{Y_t}=\mu+\theta_1 e_{t-1}\]</span>
@@ -403,51 +423,51 @@ Hvis vi forestiller os <span class="math inline">\(\mu=50\)</span> <span class="
 <h2><span class="header-section-number">7.5</span> Plots med forskellige modeller</h2>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <pre><code>## Series: ap1 
-## ARIMA(0,1,1) 
+## ARIMA(2,1,2) with drift 
 ## 
 ## Coefficients:
-##           ma1
-##       -0.4555
-## s.e.   0.1489
+##           ar1      ar2     ma1     ma2    drift
+##       -1.7356  -0.9756  1.6311  0.8286  -0.6341
+## s.e.   0.0375   0.0342  0.1202  0.1102   1.2276
 ## 
-## sigma^2 estimated as 129.8:  log likelihood=-192.21
-## AIC=388.42   AICc=388.67   BIC=392.24</code></pre>
+## sigma^2 estimated as 96.03:  log likelihood=-183.43
+## AIC=378.86   AICc=380.82   BIC=390.33</code></pre>
 <p>Kursen svinger omkring middelværdien.</p>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 <pre><code>## Series: ap2 
-## ARIMA(2,0,0) with zero mean 
+## ARIMA(1,1,0) 
 ## 
 ## Coefficients:
-##          ar1      ar2
-##       1.7407  -0.7988
-## s.e.  0.0768   0.0781
+##          ar1
+##       0.5438
+## s.e.  0.1169
 ## 
-## sigma^2 estimated as 100.1:  log likelihood=-191.2
-## AIC=388.4   AICc=388.91   BIC=394.19</code></pre>
+## sigma^2 estimated as 71.9:  log likelihood=-177.5
+## AIC=358.99   AICc=359.25   BIC=362.82</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <pre><code>## Series: ap3 
-## ARIMA(1,1,3) 
+## ARIMA(0,1,4) 
 ## 
 ## Coefficients:
-##          ar1      ma1      ma2     ma3
-##       0.0547  -0.6357  -0.6611  0.3255
-## s.e.  0.3115   0.3019   0.1424  0.1761
+##           ma1      ma2     ma3      ma4
+##       -0.5778  -0.5045  0.2078  -0.1025
+## s.e.   0.0711   0.0810  0.0801   0.0698
 ## 
-## sigma^2 estimated as 100.6:  log likelihood=-740.79
-## AIC=1491.59   AICc=1491.9   BIC=1508.06</code></pre>
+## sigma^2 estimated as 112.9:  log likelihood=-752.23
+## AIC=1514.46   AICc=1514.77   BIC=1530.93</code></pre>
 <p>Vi kan også grafisk vise hvordan kursen vil udvikle sig med 80% og 95% konfidensbælter.</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3))</a></code></pre></div>
 <pre><code>##     Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
-## 201       93.48506 80.63248 106.3376 73.82874 113.1414
-## 202      106.10840 92.17320 120.0436 84.79635 127.4205
-## 203      102.19284 87.81997 116.5657 80.21144 124.1742
-## 204      101.97858 87.60464 116.3525 79.99553 123.9616
-## 205      101.96685 87.58793 116.3458 79.97619 123.9575
-## 206      101.96621 87.58202 116.3504 79.96748 123.9649
-## 207      101.96618 87.57669 116.3557 79.95936 123.9730
-## 208      101.96617 87.57141 116.3609 79.95127 123.9811
-## 209      101.96617 87.56612 116.3662 79.94319 123.9892
-## 210      101.96617 87.56084 116.3715 79.93511 123.9972</code></pre>
+## 201        94.3538 80.73397 107.9736 73.52407 115.1835
+## 202       103.4345 88.65015 118.2188 80.82380 126.0452
+## 203       100.1969 85.37023 115.0235 77.52148 122.8723
+## 204       101.8241 86.89918 116.7491 78.99839 124.6498
+## 205       101.8241 86.89588 116.7523 78.99336 124.6549
+## 206       101.8241 86.89259 116.7556 78.98832 124.6599
+## 207       101.8241 86.88930 116.7589 78.98329 124.6649
+## 208       101.8241 86.88601 116.7622 78.97825 124.6700
+## 209       101.8241 86.88272 116.7655 78.97322 124.6750
+## 210       101.8241 86.87943 116.7688 78.96819 124.6800</code></pre>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">forecast</span>(<span class="kw">auto.arima</span>(ap3)))</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 </div>
@@ -460,6 +480,12 @@ Modellen afhænger altså af 2 tidligere perioder (lags) og ikke en. Man betegne
 </div>
 <div id="arima-og-ssonalitet" class="section level2">
 <h2><span class="header-section-number">7.7</span> ARIMA og sæsonalitet</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/293712749" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<p><br></p>
 <p>Hvis fx. en aktie handles lavere om fredagen kan ARIMA modellerne korrigere for dette ved sæsonkorrektion. I sæsonkorrigerede modeller vises dette som en ekstra vektor med 3 tal for hhv. sæsonkorrigeret AR eller SAR, sæsonkorrigeret I eller SI og sæsonkorrigeret MA eller SMA. En model som ARIMA(1,0,0)(1,0,0) har altså udover AR også en sæsonkomponent.</p>
 </div>
 <div id="arima-eksempler" class="section level2">
@@ -558,6 +584,12 @@ Modellen afhænger altså af 2 tidligere perioder (lags) og ikke en. Man betegne
 </div>
 <div id="forecast-aktiekurser" class="section level2">
 <h2><span class="header-section-number">7.9</span> Forecast Aktiekurser</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/293712809" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<p><br></p>
 <p>Man kan hente online aktiekurser med quantmod pakken installer denne med fx. pacman, vi skal også bruge pakken forecast som vi ligeledes henter. Vi henter nedenfor Google justeret lukkekurs til dato det er 6 søjle i GOOG matricen nedenfor. Vi kan se forecaste aktiekursen vha.</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">pacman<span class="op">::</span><span class="kw">p_load</span>(quantmod, forecast)</a>
 <a class="sourceLine" id="cb119-2" data-line-number="2"><span class="kw">getSymbols</span>(<span class="st">&quot;GOOG&quot;</span>,<span class="dt">from =</span> <span class="st">&quot;2017-01-01&quot;</span>, <span class="dt">to =</span> <span class="kw">Sys.Date</span>(),<span class="dt">getSymbols.warning4.0=</span><span class="ot">FALSE</span>)</a></code></pre></div>
@@ -682,6 +714,12 @@ Modellen afhænger altså af 2 tidligere perioder (lags) og ikke en. Man betegne
 </div>
 <div id="aktieafkast" class="section level2">
 <h2><span class="header-section-number">7.10</span> Aktieafkast</h2>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/293712927" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<p><br></p>
 <p>I Quantmod pakken ligger også mulighed for at beregne fx. dagligt, ugentligt afkast, dette gør vi vha. funktionen “periodReturn”.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="kw">getSymbols</span>(<span class="st">&quot;AAPL&quot;</span>,<span class="dt">src=</span><span class="st">&#39;yahoo&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;AAPL&quot;</code></pre>
@@ -715,7 +753,16 @@ Modellen afhænger altså af 2 tidligere perioder (lags) og ikke en. Man betegne
 ## 
 ## sigma^2 estimated as 0.03762:  log likelihood=3.18
 ## AIC=-2.35   AICc=-1.02   BIC=-1.38</code></pre>
+<div id="arima-opsamling-video" class="section level3">
+<h3><span class="header-section-number">7.10.1</span> ARIMA opsamling video</h3>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class="embed-container">
+<iframe src="https://player.vimeo.com/video/234990675" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</div>
+<p><br></p>
 
+</div>
 </div>
 </div>
             </section>
