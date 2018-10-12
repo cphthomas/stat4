@@ -25,7 +25,7 @@
 <meta name="author" content="Thomas Petersen">
 
 
-<meta name="date" content="2018-10-10">
+<meta name="date" content="2018-10-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -511,7 +511,7 @@ Her er venstresiden i ligningen jo den observerede celleværdi. Hvis der er uafh
 </tbody>
 </table>
 <p>Teststørrelsen bliver 15.15, denne bruger vi til at beregne p-værdien for testet af uafhængighed. Antallet af frihedsgrader for chi i anden fordelingen er antallet af rækkeinddelingskriterier Østdanmark og Vestdanmark minus 1, gange antallet af søjleinddelingskriterier 0 skader og flere end 0 skader minus 1, dvs. <span class="math display">\[(r-1)\cdot(s-1)=(2-1)\cdot(2-1)=1\cdot1=1\]</span>
-Vi får p-værdien 9.910^{-5}, hvilket er klart mindre end signifikansniveauet på 5%, arealet er så lille vi ikke kan se det på figuren nedenfor. Vi forkaster altså nulhypotesen og konstaterer der er afhængighed mellem landsdel og anmeldte skader. Landsdelen som kunden stammer fra, påvirker altså antallet af anmeldte skader. Vi kan nu se om der er chi i anden bidrag, der er meget store og dermed bidrager stæ til konklusionen om afhængighed. Der er ikke en voldsom forskel i størrelserne på chi i anden bidragene, men når vi ser på observeret mod forventet, ser vi at 150 anmelder skader, det var forventet at 180 personer fra Vestdanmark anmelder skader. Denne tendens er modsat for Østdanmark. Vestdanmark anmelder altså færre skader end Østdanmark.</p>
+Vi får p-værdien 0.000099, hvilket er klart mindre end signifikansniveauet på 5%, arealet er så lille vi ikke kan se det på figuren nedenfor. Vi forkaster altså nulhypotesen og konstaterer der er afhængighed mellem landsdel og anmeldte skader. Landsdelen som kunden stammer fra, påvirker altså antallet af anmeldte skader. Vi kan nu se om der er chi i anden bidrag, der er meget store og dermed bidrager stæ til konklusionen om afhængighed. Der er ikke en voldsom forskel i størrelserne på chi i anden bidragene, men når vi ser på observeret mod forventet, ser vi at 150 anmelder skader, det var forventet at 180 personer fra Vestdanmark anmelder skader. Denne tendens er modsat for Østdanmark. Vestdanmark anmelder altså færre skader end Østdanmark.</p>
 <p>Ligesom for goodness of fit testet, skal de forventede værdier have en vis størrelse for at vore konklusioner er præcise. Forudsætningen om forventede værdier større end 5 er opfyldt for alle celler.</p>
 <p><img src="bookdown-demo_files/figure-html/chi45-1.svg" width="864" /></p>
 <p>Freestat output bliver
@@ -1089,7 +1089,7 @@ Vi sorterer personalet efter jobfunktion og køn.</p>
 </table>
 <p>Teststørrelsen bliver 26.17, denne bruger vi til at beregne p-værdien for testet af uafhængighed. Antallet af frihedsgrader bliver
 <span class="math display">\[(r-1)\cdot(s-1)=(3-1)\cdot(2-1)=2\cdot 1=2\]</span>
-Vi får en lille p-værdi på 210^{-6}, hvilket er klart mindre end signifikansniveauet på 5%. Vi forkaster nulhypotesen og konstaterer, der er afhængighed mellem jobfunktion og om man tilhører en minoritet.</p>
+Vi får en lille p-værdi på 0.000002, hvilket er klart mindre end signifikansniveauet på 5%. Vi forkaster nulhypotesen og konstaterer, der er afhængighed mellem jobfunktion og om man tilhører en minoritet.</p>
 <p>Forudsætningen om forventede værdier større end 5 er opfyldt for alle celler.</p>
 <p>Udfra tabellerne ses at minoriteter er overrepræsenteret blandt administration og sikkerhedspersonale og underrepræsenteret i ledelsen.</p>
 </details>
